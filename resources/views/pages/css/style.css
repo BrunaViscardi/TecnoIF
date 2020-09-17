@@ -1,0 +1,101 @@
+
+#LogoCabecalho{
+    width:180px;
+    height: 75px;
+    float: left;
+
+}
+
+#cabecalho{
+    margin: 5px; padding: 0; font-size: 100%;  outline: none; font-weight: 300;
+    box-sizing: border-box; font-family: 'Lato', sans-serif;
+    border-bottom: 7px solid #2ca02c;
+
+}
+main{ background-color: #f5f5f5;
+}
+
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+
+.featurette-divider {
+    margin: 1rem 0;
+    color: #2a2a2a;
+}
+
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+}
+
+
+
+
+@media (min-width: 40em) {
+
+
+
+    .featurette-heading {
+        font-size: 50px;
+        text-align: center;
+    }
+}
+
+
+a{
+    color: #343a40;
+}
+li{
+    text-align: justify;
+}
+
+#fotos{
+    margin-top: 20%;
+}
+
+#lista{
+    margin-left: 18%
+}
+#tituloCentro{
+    margin-left: 30%;
+}
+#redeSocial{
+    width: 2rem ;
+
+}
+#cont{
+
+    text-align: center;
+}
+#divCont{
+    margin-left: 15%;
+}
+
+#galeriaInfo{
+    text-align: justify;
+}
+
+#c{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
