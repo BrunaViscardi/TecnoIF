@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    '<link rel="stylesheet" href="{{url(mix('pages/css/login.css'))}}">
+    <link rel="stylesheet" href="{{url(mix('pages/css/login.css'))}}">
     <link rel="stylesheet" href="{{asset ('pages/style.css')}}">
     <title>Login</title>
 </head>

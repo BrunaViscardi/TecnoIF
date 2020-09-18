@@ -3,6 +3,8 @@
     "/pages/jquery.js": "/pages/jquery.js?id=23c7c5d2d1317508e807",
     "/pages/bootstrap.js": "/pages/bootstrap.js?id=f6f318002edd81c17fe0",
     "/pages/css/style.css": "/pages/css/style.css?id=f34cdf8bad6cb5c97028",
-    "/pages/css/login.css": "/pages/css/login.css?id=f68459d6618494a5e064",
-    "/pages/js/script.js": "/pages/js/script.js?id=d41d8cd98f00b204e980"
+    "/pages/js/script.js": "/pages/js/script.js?id=d41d8cd98f00b204e980",
+    "/pages/js/cadastro.js": "/pages/js/cadastro.js?id=8b8408087b7bad8590f8",
+    "/pages/css/login.css": "/pages/css/login.css?id=7d9d07a069e4ecde91d7",
+    "/pages/css/cadastro.css": "/pages/css/cadastro.css?id=b431b38a6bf8f661b342"
 }

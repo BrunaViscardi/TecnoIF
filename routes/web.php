@@ -2,6 +2,14 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/cadastro', function () {
+    return view('cadastro');
+});
+
+Route::get('/master', function () {
+    return view('page');
+});
+
 
 Auth::routes();
 
