@@ -1,8 +1,4 @@
-.container {
-    max-width: 960px;
 
-
-}
 
 .lh-condensed { line-height: 1.25; }
 
@@ -10,11 +6,7 @@
 .col-sm{
     margin-top: 5%;
 }
-#rg{
-    width: 49%;
-    float: right;
 
-}
 #cpf{
     width: 49%;
     float: left;
@@ -52,7 +44,7 @@
 #file{
     width: 100%;
     background-color: white;
-    height: 15.2%;
+
     border: solid 2px lightgray;
     margin-bottom: 9.5%;
 }
@@ -61,15 +53,18 @@
     float: left;
     margin-right: 3.5%;
     margin-bottom: 9.5%;
+    margin-top: 9.5%;
 }
 #periodo{
     width: 32%;
     float: left;
     margin-right: 3.5%;
+    margin-top: 9.5%;
 }
 #turno{
     width: 30%;
     float: left;
+    margin-top: 9.5%;
 }
 #bairro{
     margin-top: 9.3%;
@@ -80,7 +75,37 @@
       margin-top: 9.3%;
       width: 49%;
       float: right;
+    margin-bottom: 9.5%;
 }
+#banco{
+    width: 31%;
+    float: right;
+    margin-left: 3.5%;
+
+
+
+}
+#agencia{
+    width: 32%;
+    float: right;
+
+
+}
+#conta{
+    width: 30%;
+    float: right;
+    margin-right: 3.5%;
+
+}
+#botao{
+    text-align: center;
+    width: 33%;
+    background-color: #2a2a2a;
+    margin-left: 33%;
+    border: solid 3px #2ca02c;
+
+}
+
 
 
 

@@ -6,12 +6,23 @@
     <link rel="stylesheet" href="{{url(mix('pages/css/cadastro.css'))}}">
     <link rel="stylesheet" href="{{url(mix('pages/css/style.css'))}}">
     <link rel="stylesheet" href="{{asset ('pages/style.css')}}">
+
+
     <title>Cadastro de candidatos</title>
+    <script>
+        $(document).ready(function($){
+            $('#cpf').mask('000.000.000-00', {reverse: true});
+        });
+    </script>
+
+
 </head>
 
     <body class="bg-light">
 
     <main role="main">
+        <form action="/submit" method="post">
+            @csrf
         <div class="container-brant"  id="cabecalho">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
                 <a class="navbar-brand " href="#"> <img id="LogoCabecalho" src="{{ asset('img/logott.png') }}" alt="logo TecnoIF"> </a>
@@ -41,59 +52,66 @@
         <div class="container">
             <div class="row">
                 <div  class="col-sm">
-                    <input class="form-control" type="text" placeholder="Nome do Projeto" >
+                    <input name="NomeProjeto" class="form-control" type="text" placeholder="Nome do Projeto" >
                     <br>
-                    <input class="form-control" type="text" placeholder="Nome do Titular do Projeto" >
+                    <input name="Expectativa" class="form-control" type="text" placeholder="Expectativa" >
                     <br>
-                    <input class="form-control" type="email" placeholder="Email" >
-                    <br>
-                    <input id="curso" class="col-12 col-md-8 form-control" type="text" placeholder="Banco">
-                    <input id="periodo" class="col-12 col-md-8 form-control" type="text"  placeholder="Agência">
-                    <input id="turno" class="col-12 col-md-8 form-control" type="text"  placeholder="Conta">
-                </div>
-                <div  class="col-sm">
-                    <input class="form-control" type="text" placeholder="Expectativa">
-
-                        <br>
-
-                        <input id="cpf" class="col-12 col-md-8 form-control" type="text" placeholder="CPF">
-
-                        <input id="rg" class="col-12 col-md-8 form-control" type="text" placeholder="RG">
-                        <input  id="endereco" class="form-control" type="email" placeholder="Endereço" >
-                    <br>
-
-                </div>
-                <div  class="col-sm">
-                    <select class="form-control"  name="Área">
+                    <select name="Area"class="form-control"  name="Área">
                         <option value=" "> Área</option>
                         <option value="Fev">Fevereiro</option>
                         <option value="Mar">Março</option>
-                        <!-- ... -->
                     </select>
                     <br>
-                    <input id="data" class="col-12 col-md-8 form-control" type="date"  placeholder="Data">
-                    <input id="campus" class="col-12 col-md-8 form-control" type="text" placeholder="Campus">
+                    <input name="Email" class="form-control" type="text" placeholder="Email">
+                </div>
 
-                        <input id="bairro" class="col-12 col-md-8 form-control" type="text"  placeholder="Bairro">
-                        <input id="numero" class="col-12 col-md-8 form-control" type="text" placeholder="Número">
+                <div  class="col-sm">
+                    <input name="NomeTitular" class="form-control" type="text" placeholder="Nome do titular do projeto">
+                    <br>
+
+                    <input name="Data" id="data" class="col-12 col-md-8 form-control" type="date"  placeholder="Data">
+                    <input name="Campus" id="campus" class="col-12 col-md-8 form-control" type="text" placeholder="Campus">
+
+                    <input name="Curso" id="curso" class="col-12 col-md-8 form-control" type="text" placeholder="Curso">
+                    <input name="Periodo" id="periodo" class="col-12 col-md-8 form-control" type="text"  placeholder="Período">
+                    <input name="Turno" id="turno" class="col-12 col-md-8 form-control" type="text"  placeholder="Turno">
+                    <input name="Telefone" class="form-control" type="text" placeholder="Telefone">
+
+
 
 
                 </div>
                 <div  class="col-sm">
-                   <input id="file"  type="file">
 
-                    <input id="curso" class="col-12 col-md-8 form-control" type="text" placeholder="Curso">
-                    <input id="periodo" class="col-12 col-md-8 form-control" type="text"  placeholder="Período">
-                    <input id="turno" class="col-12 col-md-8 form-control" type="text"  placeholder="Turno">
-                    <input id="complemento" class="form-control" type="text" placeholder="Complemento">
+                    <input name="CPF" id="cpf" class="col-12 col-md-8 form-control" type="text" placeholder="CPF">
+                    <input name="RG" id="rg" class="col-12 col-md-8 form-control" type="text" placeholder="RG">
+                    <input name="file" id="file"  type="file">
+
+                    <input name="Banco" id="banco" class="col-12 col-md-8 form-control" type="text"  placeholder="Banco">
+                    <input name="Agencia" id="agencia" class="col-12 col-md-8 form-control" type="text"  placeholder="Agência">
+                    <input name="Conta" id="conta" class="col-12 col-md-8 form-control" type="text" placeholder="Conta">
+
                 </div>
 
 
+                <div  class="col-sm">
+                    <input name="Endereço" id="endereco" class="form-control" type="text" placeholder="Endereço" >
+                    <input name="Bairro" id="bairro" class="col-12 col-md-8 form-control" type="text"  placeholder="Bairro">
+                    <input name="Número" id="numero" class="col-12 col-md-8 form-control" type="text" placeholder="Número">
+
+                    <input name="Complemento" id="complemento" class="form-control" type="text" placeholder="Complemento">
+
+
+                </div>
             </div>
-        </div>
+        </div><br>
+        <button id="botao"  class="form-control"type="submit"><span style="color: #2ca02c; ">Cadastrar</span></button>
+        </form>
     </main>
 
 
+
+    <script src="js/jquery.maskedinput-1.1.4.pack.js"></script>
     <script src="{{ asset ('pages/jquery.js') }}"></script>
     <script src="{{ url(mix('pages/js/cadastro.js')) }}"></script>
     <script src="{{asset('pages/bootstrap.js')}}"></script>
