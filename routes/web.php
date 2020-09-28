@@ -3,7 +3,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/cadastro','cadastroController@formCadastro')->name('cadastro');
-Route::get('/submit','cadastroController@submeter')->name('submit');
+Route::post('/debug','cadastroController@debug')->name('debug');
 
 Auth::routes();
 

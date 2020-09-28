@@ -21,7 +21,7 @@
     <body class="bg-light">
 
     <main role="main">
-        <form action="/submit" method="post">
+        <form action="{{route('debug')}}" method="post">
             @csrf
         <div class="container-brant"  id="cabecalho">
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
@@ -57,9 +57,9 @@
                     <input name="Expectativa" class="form-control" type="text" placeholder="Expectativa" >
                     <br>
                     <select name="Area"class="form-control"  name="Área">
-                        <option value=" "> Área</option>
-                        <option value="Fev">Fevereiro</option>
-                        <option value="Mar">Março</option>
+                        <option value="0"> Área</option>
+                        <option value="1">Fevereiro</option>
+                        <option value="3">Março</option>
                     </select>
                     <br>
                     <input name="Email" class="form-control" type="text" placeholder="Email">
@@ -85,7 +85,7 @@
 
                     <input name="CPF" id="cpf" class="col-12 col-md-8 form-control" type="text" placeholder="CPF">
                     <input name="RG" id="rg" class="col-12 col-md-8 form-control" type="text" placeholder="RG">
-                    <input name="file" id="file"  type="file">
+                    <input name="File" id="file"  type="file">
 
                     <input name="Banco" id="banco" class="col-12 col-md-8 form-control" type="text"  placeholder="Banco">
                     <input name="Agencia" id="agencia" class="col-12 col-md-8 form-control" type="text"  placeholder="Agência">
@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div><br>
-        <button id="botao"  class="form-control"type="submit"><span style="color: #2ca02c; ">Cadastrar</span></button>
+        <input id="botao"  class="form-control"type="submit"><span style="color: #2ca02c; ">Cadastrar</span>
         </form>
     </main>
 
