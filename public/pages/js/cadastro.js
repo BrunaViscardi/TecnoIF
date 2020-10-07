@@ -1,4 +1,4 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+
 (function () {
     'use strict'
 
@@ -18,3 +18,7 @@
         })
     }, false)
 }())
+$(document).ready(function($){
+
+    $('#telefone').mask('(99) 9999-9999');
+});

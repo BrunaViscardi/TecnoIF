@@ -9,7 +9,7 @@
 </head>
 <body id="t">
 
-<form class="form-signin" method="post" action="{{ route('admin.login.do')}}">
+<form class="form-signin" method="post" action="{{ route('Painel.login.do')}}">
     @csrf
     <img src="{{ asset('img/TecnoIF.png') }}" width="100%" alt="TecnoIF" >
     @if($errors->all())

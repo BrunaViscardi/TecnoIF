@@ -2,14 +2,15 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/cadastro','cadastroController@formCadastro')->name('cadastro');
-Route::post('/debug','cadastroController@debug')->name('debug');
 
 Auth::routes();
+Route::get('/auth/cadastro','candidatoController@formCadastro')->name('auth.cadastro');
+Route::post('/auth/debug','candidatoController@debug')->name('auth.debug');
+Route::post('/auth/valida','candidatoController@valida')->name('auth.valida');
 
-Route::get('/admin','AuthController@dashboard')->name('admin');
-Route::get('/admin/login','AuthController@showLoginform')->name('admin.login');
-Route::get('/admin/logout','AuthController@logout')->name('admin.logout');
-Route::post('/admin/login/do', 'AuthController@login')->name('admin.login.do');
+Route::get('/Painel','AuthController@dashboard')->name('Painel');
+Route::get('/Painel/login','AuthController@showLoginform')->name('Painel.login');
+Route::get('/Painel/logout','AuthController@logout')->name('Painel.logout');
+Route::post('/Painel/login/do', 'AuthController@login')->name('Painel.login.do');
 
-Route::get('/home', 'HomeController@index')->name('home');
+

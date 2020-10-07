@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "bootstrap": "^4.5.2",
-        "jquery": "^3.5.1"
+        "inputmask": "^5.0.5",
+        "jquery": "^3.5.1",
+        "jquery-mask-plugin": "^1.14.16"
     }
 }

@@ -10,10 +10,10 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
-        "jeroennoten/laravel-adminlte": "^3.4",
+        "geekcom/validator-docs": "^3.4",
+        "jeroennoten/laravel-adminlte": "^3.5",
         "laravel/framework": "^6.18.35",
-        "laravel/tinker": "^2.0",
-        "reliese/laravel": "^0.0.16"
+        "laravel/tinker": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

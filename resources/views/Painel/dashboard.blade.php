@@ -1,5 +1,3 @@
 @extends('adminlte::page')
-    @section('content')
+@section('content')
 @endsection
-
-

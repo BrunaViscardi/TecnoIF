@@ -20,15 +20,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/Painel/dashboard.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/cadastro.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Tcc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tcc.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/cadastroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/cadastroController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/String('slug')" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/String('título')" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/cadastroController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CandidatoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/candidatos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Candidato.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/projetos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Projeto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bigIncrements('id')" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/cadastro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/cadastro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/adminlte.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/adminlte.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_28_071304_create_projetos_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_28_072235_create_candidatos_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/date('ano')" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/integer('idArea')" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/on('area')" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/css/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/js/cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/js/cadastro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/formLogin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Painel/formLogin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/cadastro.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/js/cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/js/cadastro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/auth/auth-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/auth-page.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/auth/login.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/auth/passwords/confirm.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/auth/passwords/email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/auth/passwords/reset.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/auth/register.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/auth/verify.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/common/brand-logo-xl.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/common/brand-logo-xl.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/common/brand-logo-xs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/common/brand-logo-xs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/footer/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/footer/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/dropdown-item-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/dropdown-item-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/dropdown-item-submenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/dropdown-item-submenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/dropdown-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/dropdown-item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item-dropdown-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item-dropdown-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item-dropdown-user-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item-dropdown-user-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item-left-sidebar-toggler.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item-left-sidebar-toggler.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item-logout-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item-logout-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item-right-sidebar-toggler.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item-right-sidebar-toggler.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item-search-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item-search-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/menu-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/menu-item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/navbar-layout-topnav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/navbar-layout-topnav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/navbar/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/sidebar/left-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/left-sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/sidebar/menu-item-link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/menu-item-link.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/sidebar/menu-item-search-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/menu-item-search-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/sidebar/menu-item-treeview-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/menu-item-treeview-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/sidebar/menu-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/menu-item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/vendor/adminlte/partials/sidebar/right-sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar/right-sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/string('email')" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/text('expectativa')" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +211,8 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/migrations-generator" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/laravel-4-generators" />
+      <path value="$PROJECT_DIR$/vendor/laravellegends/pt-br-validator" />
+      <path value="$PROJECT_DIR$/vendor/geekcom/validator-docs" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hZYHwpLIuVF2Eoqr9pD5GfCGWw" />
@@ -154,7 +224,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/pages/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Painel" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -165,14 +235,16 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Código\Tcc\public\pages\admin" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Código\Tcc\resources\views\Painel" />
+      <recent name="C:\Código\Tcc\app\Http\Controllers\Auth" />
+      <recent name="C:\Código\Tcc\resources\views\Home" />
+      <recent name="C:\Código\Tcc\app\Http\Controllers\Home" />
       <recent name="C:\Código\Tcc\resources\views" />
-      <recent name="C:\Código\Tcc\resources\views\admin" />
-      <recent name="C:\Código\Tcc\resources\views\admin\css" />
-      <recent name="C:\Código\Tcc\resources\views\pages\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Código\Tcc\app\Http\Controllers\Painel" />
+      <recent name="C:\Código\Tcc\public\pages\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -198,6 +270,14 @@
       <workItem from="1600496678730" duration="4025000" />
       <workItem from="1601245777014" duration="7243000" />
       <workItem from="1601258019930" duration="18866000" />
+      <workItem from="1601324233383" duration="12069000" />
+      <workItem from="1601422869306" duration="18731000" />
+      <workItem from="1601446003297" duration="3985000" />
+      <workItem from="1601548512433" duration="6558000" />
+      <workItem from="1601598895188" duration="17910000" />
+      <workItem from="1601627693454" duration="5457000" />
+      <workItem from="1601943895113" duration="1801000" />
+      <workItem from="1602055627836" duration="436000" />
     </task>
     <servers />
   </component>
@@ -214,8 +294,21 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="431" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601447401948">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="431" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1601447401948" />
+    <state x="488" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601628287279">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1601628287279" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1601437374714">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1601437374714" />
     <state x="511" y="87" key="NewPhpClassDialog" timestamp="1600309349069">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

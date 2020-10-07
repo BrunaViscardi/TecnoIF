@@ -11,14 +11,14 @@ class AuthController extends Controller
     {
         if(Auth::check() === true)
         {
-            return view( 'admin.dashboard');
+            return view( 'Painel.dashboard');
         }
-        return redirect()->route('admin.login');
+        return redirect()->route('Painel.login');
 
     }
     public function showLoginform()
     {
-          return view('admin.formLogin');
+          return view('Painel.formLogin');
     }
     public function login(Request $request )
     {
@@ -32,14 +32,14 @@ class AuthController extends Controller
             'password'=> $request->password
         ];
         if(Auth::attempt($credentials)){
-            return redirect()->route('admin');
+            return redirect()->route('Painel');
         }
         return redirect()->back()->withInput()->withErrors(['Os dados informados não conferem!']);
     }
     public function logout()
     {
         Auth::logout();
-        return redirect()-> route("admin");
+        return redirect()-> route("Painel");
 
     }
 }

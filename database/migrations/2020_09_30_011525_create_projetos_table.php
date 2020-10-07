@@ -14,11 +14,10 @@ class CreateProjetosTable extends Migration
     public function up()
     {
         Schema::create('projetos', function (Blueprint $table) {
-            $table->bigIncrements('id')->unique();
-            $table->String('NomeProjeto')->unique();
-            $table->string('Email')->unique();
-            $table->text('Expectativa');
-            $table->String('Area');
+            $table->bigIncrements('id');
+            $table->String('nome_projeto')->unique();
+            $table->text('expectativa');
+            $table->String('area');
             $table->timestamps();
         });
     }

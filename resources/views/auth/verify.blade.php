@@ -1,28 +1,23 @@
-@extends('layouts.app')
+@extends('adminlte::auth.auth-page', ['auth_type' => 'login'])
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+@section('auth_header', __('adminlte::adminlte.verify_message'))
 
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
+@section('auth_body')
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
-                </div>
-            </div>
+    @if(session('resent'))
+        <div class="alert alert-success" role="alert">
+            {{ __('adminlte::adminlte.verify_email_sent') }}
         </div>
-    </div>
-</div>
-@endsection
+    @endif
+
+    {{ __('adminlte::adminlte.verify_check_your_email') }}
+    {{ __('adminlte::adminlte.verify_if_not_recieved') }},
+
+    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+        @csrf
+        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+            {{ __('adminlte::adminlte.verify_request_another') }}
+        </button>.
+    </form>
+
+@stop
