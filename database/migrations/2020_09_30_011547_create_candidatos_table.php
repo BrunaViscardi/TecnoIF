@@ -15,6 +15,8 @@ class CreateCandidatosTable extends Migration
     {
         Schema::create('candidatos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('projeto_id');
             $table->string('nome');
             $table->date('data_nascimento');
             $table->String('curso')->nullable();
@@ -32,6 +34,9 @@ class CreateCandidatosTable extends Migration
             $table->string('bairro');
             $table->integer('numero');
             $table->string('complemento');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('projeto_id')->references('id')->on('projetos');
+
             $table->timestamps();
         });
     }

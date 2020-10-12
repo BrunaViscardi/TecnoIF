@@ -10,4 +10,9 @@ class projeto extends Model
     protected $fillable = [
         'nome_projeto','expectativa','area'
     ];
+     public function candidatos(){
+
+         $this->hasMany(Candidato::class);// 1 projeto pode ter vários candidatos
+     }
+
 }

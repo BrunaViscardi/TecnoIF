@@ -14,9 +14,6 @@ class CandidatoController extends Controller
     {
         return view( 'auth.cadastro');
     }
-
-
-
     public function debug(Request $request)
     {
         var_dump($request->except('_token'));
@@ -24,9 +21,6 @@ class CandidatoController extends Controller
         $this->validate($request, [
             'cpf' => 'required|cpf',
         ]);
-
-
-
         $candidatos = new candidato();
         $candidatos->nome = $request-> nome;
         $candidatos->data_nascimento=$request->data_nascimento;
@@ -59,6 +53,9 @@ class CandidatoController extends Controller
             'password' => Hash::make($users['password']),
         ]);
 
+    }
+    public function users(){
+        return $this->hasOne(User::class);
     }
 
 

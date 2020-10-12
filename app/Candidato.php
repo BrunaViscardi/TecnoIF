@@ -17,5 +17,8 @@ class candidato extends Model
         'cpf','rg','file','banco','agencia','conta','endereco',
          'email','bairro','numero',	'complemento'
     ];
-
+    public function projetos()
+    {
+        $this->belongsTo(Projeto::class);//projeto pertence a candidato
+    }
 }
