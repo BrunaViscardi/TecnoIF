@@ -14,6 +14,19 @@ class User extends Authenticatable
     protected $fillable = [
         'name','role', 'email', 'password',
     ];
+    public function isAdministrador(){
+        if ($this->role == null){
+            return true;
+        }
+        return false;
+
+    }
+    public function isCandidato(){
+        if ($this->role == 1){
+            return true;
+        }
+        return false;
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -30,7 +43,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function candidatos(){
+        return $this->hasOne(Candidato::class); //1 usuário pode ter um candidato
+    }
 
 
 }

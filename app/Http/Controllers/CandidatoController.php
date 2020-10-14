@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\candidato;
+use App\Candidato;
 use App\user;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class CandidatoController extends Controller
@@ -21,7 +19,7 @@ class CandidatoController extends Controller
         $this->validate($request, [
             'cpf' => 'required|cpf',
         ]);
-        $candidatos = new candidato();
+        $candidatos = new Candidato();
         $candidatos->nome = $request-> nome;
         $candidatos->data_nascimento=$request->data_nascimento;
         $candidatos->curso = $request-> curso;
@@ -52,11 +50,8 @@ class CandidatoController extends Controller
             'email' => $users['email'],
             'password' => Hash::make($users['password']),
         ]);
+    }
 
-    }
-    public function users(){
-        return $this->hasOne(User::class);
-    }
 
 
 }

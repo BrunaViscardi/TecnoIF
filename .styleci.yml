@@ -4,7 +4,7 @@ php:
     - unused_use
   finder:
     not-name:
-      - index.php
+      - dashboard.blade.php
       - server.php
 js:
   finder:
