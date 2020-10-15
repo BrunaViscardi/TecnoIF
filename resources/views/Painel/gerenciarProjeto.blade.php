@@ -5,141 +5,163 @@
             <div class="container-fluid">
                 <div class="row">
                     <!-- left column -->
-                    <div class="col-md-6">
-                        <!-- general form elements -->
-                        <div class="card card-primary">
+
+
+                        @if($projetos->count() > 0)
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Projeto</h3>
+                                        <div class="card-tools">
+                                            <div class="input-group input-group-sm" style="width: 150px;">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                                        <table class="table table-head-fixed text-nowrap">
+                                            <thead>
+                                            <tr>
+                                                <th>Edital</th>
+                                                <th>Nome</th>
+                                                <th>Expectativa</th>
+                                                <th>Área</th>
+                                                <th>Situação</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach ($projetos as $projeto)
+                                                <tr>
+                                                    <td>Pré-incubação</td>
+                                                    <td>{{$projeto->nome_projeto}}</td>
+                                                    <td>{{$projeto->expectativa}}</td>
+                                                    <td>{{$projeto->area}}</td>
+                                                    <td>Inscrito</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary btn-sm">Editar
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            @endforeach
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class=" card-body p-0">
+                                <div class="card">
+                                    <div class="card-header">
+                                        @foreach ($projetos as $projeto)
+                                        <h3 class="card-title">Equipe do projeto-> {{$projeto->nome_projeto}}</h3>
+                                        @endforeach
+                                        <div class="card-tools">
+                                            <div class="input-group input-group-sm" style="width: 150px;">
+                                                <a href="{{route('Painel.PainelCandidato.editar')}}">
+                                                    <button  type="button" class="btn btn-success">Cadastrar</button>
+                                                    </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body table-responsive p-0" style="height: 300px;">
+                                        <table class="table table-head-fixed text-nowrap">
+                                            <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Nascimento</th>
+                                                <th>Email</th>
+                                                <th>Telefone</th>
+                                                <th>Curso</th>
+                                                <th>Turno</th>
+                                                <th>Período</th>
+                                                <th>Cpf</th>
+                                                <th>Rg</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>João Silva</td>
+                                                <td>02-03-2003</td>
+                                                <td>joao@gmail.com</td>
+                                                <td><span class="tag tag-success">(67)9 9999-9999</span></td>
+                                                <td>Informática</td>
+                                                <td>Integral</td>
+                                                <td>6°</td>
+                                                <td>1234567891011</td>
+                                                <td>4684654</td>
+                                                <td><button type="button" class="btn btn-primary btn-sm">Editar</button></td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- /.card -->
+                            </div>
+                    </div>
+
+                    @else
+                        <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Cadastro de Projetos</h3>
+                                <h3 class="card-title">Editais TecnoIF</h3>
                             </div>
-                            <form role="form">
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label>Nome do Projeto</label>
-                                        <input name="nome_projeto" class="form-control" placeholder="Nome do Projeto">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Expectativa</label>
-                                        <textarea name="expectativa" class="form-control" rows="3" placeholder="..." ></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Área</label>
-                                        <select multiple class="form-control" name="area">
-                                            <option value="Meio Ambiente"> Meio Ambiente</option>
-                                            <option value="Saúde">  Saúde</option>
-                                            <option value="Exatas"> Exatas</option>
-                                            <option value="Tecnologia"> Tecnologia</option>
-                                            <option value="Ciências Agrárias"> Ciências Agrárias</option>
-                                        </select>
-                                    </div>
+                            <div class="card-body p-0">
+                                <table class="table ">
+                                    <thead>
+                                    <tr>
+                                        <th style="width: 10px">Ano</th>
+                                        <th>Edital</th>
 
-                                </div>
-                                <!-- /.card-body -->
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Fixed Header Table</h3>
+                                        <th style="width: 40px">Situação</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>Pré-Incubação</td>
 
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                        <td><span class="badge bg-danger">Aberto para inscrições</span></td>
+                                        <td>
+                                            <button class="btn btn-primary">Ver</button>
+                                        </td>
+                                        <td><a href="{{route('Painel.PainelCandidato.cadastro')}}">
+                                                <button class="btn btn-success">Inscrição</button>
+                                            </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2020</td>
+                                        <td>Empresa Junior</td>
+                                        <td><span class="badge bg-warning">Edital de abertura</span></td>
+                                        <td>
+                                            <button class="btn btn-primary">Ver</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2019</td>
+                                        <td>Pré-incubação</td>
+                                        <td><span class="badge bg-success">Edital concluído</span></td>
+                                        <td>
+                                            <button class="btn btn-primary">Ver</button>
+                                        </td>
+                                    </tr>
 
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div>
+                                    </tbody>
+                                </table>
                             </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 300px;">
-                            <table class="table table-head-fixed text-nowrap">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>User</th>
-                                    <th>Date</th>
-                                    <th>Status</th>
-                                    <th>Reason</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>183</td>
-                                    <td>John Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>219</td>
-                                    <td>Alexander Pierce</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>657</td>
-                                    <td>Bob Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>175</td>
-                                    <td>Mike Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>134</td>
-                                    <td>Jim Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-success">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>494</td>
-                                    <td>Victoria Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-warning">Pending</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>832</td>
-                                    <td>Michael Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-primary">Approved</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                <tr>
-                                    <td>982</td>
-                                    <td>Rocky Doe</td>
-                                    <td>11-7-2014</td>
-                                    <td><span class="tag tag-danger">Denied</span></td>
-                                    <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
+                        <!-- /.card -->
+
             </div>
-            <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            @endif
         </section>
-        <!-- /.content -->
-        </div>
 
-    </section>
+
 @endsection

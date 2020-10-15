@@ -37,6 +37,7 @@ class CandidatoController extends Controller
         $candidatos->bairro = $request-> bairro;
         $candidatos->numero = $request-> numero;
         $candidatos->complemento =$request->complemento;
+        $candidatos->save();
 
         $users = new user();
         $users->name = $request-> nome;

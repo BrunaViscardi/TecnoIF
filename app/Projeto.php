@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class projeto extends Model
+class Projeto extends Model
 {
-    protected $table = 'projeto';
+    protected $table = 'projetos';
     protected $fillable = [
-        'nome_projeto','expectativa','area'
+        'nome_projeto','expectativa','area', 'id_situacao'
     ];
      public function candidatos(){
 
-         $this->hasMany(Candidato::class);// 1 projeto pode ter vários candidatos
+         $this->hasMany(Candidato::class);
      }
 
 }

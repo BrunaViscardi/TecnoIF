@@ -23,8 +23,6 @@ class PainelController extends Controller
             $exploder= explode('/', $uri);
             $urlAtual =$exploder[1];
 
-
-
             return view( 'Painel.dashboard' , compact('user','urlAtual'));
         }
         return redirect()->route('Painel.login');
@@ -42,19 +40,7 @@ class PainelController extends Controller
         }
         return redirect()->route('Painel.login');
     }
-    public function gerenciarProjeto()
-    {
-        if(Auth::check() === true)
-        {
-            $user = Auth()->User();
-            $uri = $this->request->route() ->uri();
-            $exploder= explode('/', $uri);
-            $urlAtual =$exploder[1];
-            return view( 'Painel.gerenciarProjeto' , compact('user','urlAtual'));
-        }
-        return redirect()->route('Painel.login');
 
-    }
     public function showLoginform()
     {
         return view('Painel.formLogin');

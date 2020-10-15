@@ -14,7 +14,7 @@
                 <img src="{{asset('/AdminLTE-3.0.5/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{$user->name}}</a>
+                <a href="#" class="d-block">{{$user->name }}</a>
             </div>
         </div>
 
@@ -25,17 +25,25 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
                         <ul class="nav nav-treeview">
-                            @if(Auth::user() && Auth::user()->isCandidato())
+
                                 <li class="nav-item">
                                     <a href="{{route('Painel.Home')}}" class="nav-link ">
                                         <i class="fa fa-home nav-icon"></i>
                                         <p>Painel index</p>
                                     </a>
                                 </li>
+                            @if(Auth::user() && Auth::user()->isCandidato())
                                 <li class="nav-item">
                                     <a href="{{route('Painel.PainelCandidato.Candidato')}}" class="nav-link ">
                                         <i class="fa fa-user nav-icon"></i>
                                         <p>Gerenciar projeto</p>
+                                    </a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a href="{{route('Painel.acompanhar')}}" class="nav-link ">
+                                        <i class="fa fa-users nav-icon"></i>
+                                        <p>Projetos</p>
                                     </a>
                                 </li>
                             @endif
