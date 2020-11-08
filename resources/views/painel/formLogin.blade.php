@@ -9,7 +9,7 @@
 </head>
 <body id="t">
 
-<form class="form-signin" method="post" action="{{ route('Painel.login.do')}}">
+<form class="form-signin" method="post" action="{{ route('painel.login.do')}}">
     @csrf
     <img src="{{ asset('img/TecnoIF.png') }}" width="100%" alt="TecnoIF" >
     @if($errors->all())
@@ -26,11 +26,10 @@
     <input type="text" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
     <label for="password" class="sr-only">Senha</label>
     <input name="password" type="password" id="password" class="form-control" placeholder="Senha" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="Lembrar-me"> Lembrar-me
-        </label>
-    </div>
+    <a href="{{route('home.cadastro')}}" >Criar minha conta</a>
+    <br>
+    <br>
+
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
 
 </form>

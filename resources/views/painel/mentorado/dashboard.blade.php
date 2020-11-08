@@ -1,4 +1,4 @@
-@extends('Painel.Layout.index')
+@extends('painel.Layout.index')
 @section('content')
 
 
@@ -14,7 +14,7 @@
                         <div class="icon">
                             <i class="fas fa-archive"></i>
                         </div>
-                        <a href="{{route('Painel.PainelCandidato.editais')}}" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('painel.mentorado.editais')}}" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
 
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div>
-                        <a href="{{route('Painel.gerenciarProjeto')}}" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="{{route('painel.mentorado.gerenciarProjeto')}}" class="small-box-footer"> <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>

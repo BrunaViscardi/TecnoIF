@@ -76,7 +76,7 @@ li{
     text-align: center;
 }
 #divCont{
- margin-right: 33%;
+    float: left;
 }
 
 #galeriaInfo{
@@ -86,6 +86,11 @@ li{
 #c{
     text-align: center;
 }
+#at{
+    margin-right: 10%;
+}
+
+
 
 
 

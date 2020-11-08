@@ -1,4 +1,4 @@
-@extends('Painel.Layout.index')
+@extends('painel.Layout.index')
 @section('content')
     <section class="content">
         <div class="row">

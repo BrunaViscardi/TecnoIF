@@ -1,4 +1,4 @@
-@extends('Painel.Layout.index')
+@extends('painel.Layout.index')
 @section('content')
 <section class="content">
         <div class="card">
@@ -24,7 +24,7 @@
                         <td>
                             <button class="btn btn-primary">Ver</button>
                         </td>
-                        <td><a href="{{route('Painel.PainelCandidato.cadastro')}}">
+                        <td><a href="{{route('painel.mentorado.cadastro')}}">
                                 <button class="btn btn-success">Inscrição</button>
                             </a></td>
                     </tr>

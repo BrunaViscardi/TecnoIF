@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-@includeIf('Painel.Layout.head')
+@includeIf('painel.Layout.head')
 
     <body class="hold-transition sidebar-mini layout-fixed">
 
         <div class="wrapper">
-            @includeIf('Painel.Layout.header')
+            @includeIf('painel.Layout.header')
 
-             @includeIf('Painel.Layout.sidebar_lateral')
+             @includeIf('painel.Layout.sidebar_lateral')
 
 
                 <div class="content-wrapper">
@@ -33,11 +33,11 @@
 
 
     </div>
-    @includeIf('Painel.Layout.footer')
+    @includeIf('painel.Layout.footer')
     </div>
 
 </div>
-@includeIf('Painel.Layout.javascript')
+@includeIf('painel.Layout.javascript')
 
 </body>
 </html>

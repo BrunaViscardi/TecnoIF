@@ -1,24 +1,24 @@
 <?php
 Route::get('/', function () {
-    return view('home');
+    return view('home/home');
 });
 
 Auth::routes();
-Route::get('/auth/cadastro', 'candidatoController@formCadastro')->name('auth.cadastro');
-Route::post('/auth/debug', 'candidatoController@debug')->name('auth.debug');
-Route::post('/auth/valida', 'candidatoController@valida')->name('auth.valida');
-Route::post('/Painel/enviar', 'Painel\ProjetoController@debug')->name('Painel.enviar');
-Route::get('Painel/PainelCandidato/cadastro', 'Painel\ProjetoController@cadastro')->name('Painel.PainelCandidato.cadastro');
+Route::get('/home/cadastro', 'candidatoController@formCadastro')->name('home.cadastro');
+Route::post('/home/debug', 'candidatoController@debug')->name('home.debug');
+Route::post('/home/valida', 'candidatoController@valida')->name('home.valida');
+Route::post('/painel/enviar', 'painel\ProjetoController@debug')->name('painel.enviar');
+Route::get('painel/mentorado/cadastro', 'painel\ProjetoController@cadastro')->name('painel.mentorado.cadastro');
 
 
-Route::get('Painel/acompanhar', 'Painel\ProjetoController@acompanhar')->name('Painel.acompanhar');
-Route::get('Painel/PainelCandidato/editais', 'Painel\ProjetoController@editais')->name('Painel.PainelCandidato.editais');
-Route::get('Painel/PainelCandidato/editar', 'Painel\ProjetoController@editar')->name('Painel.PainelCandidato.editar');
-Route::get('/Painel/Home', 'Painel\PainelController@dashboard')->name('Painel.Home');
-Route::get('/Painel/gerenciarProjeto', 'Painel\ProjetoController@index')->name('Painel.gerenciarProjeto');
-Route::get('/Painel/PainelCandidato/Candidato', 'Painel\PainelController@candidato')->name('Painel.PainelCandidato.Candidato');
-Route::get('/Painel/login', 'Painel\PainelController@showLoginform')->name('Painel.login');
-Route::get('/Painel/logout', 'Painel\PainelController@logout')->name('Painel.logout');
-Route::post('/Painel/login/do', 'Painel\PainelController@login')->name('Painel.login.do');
+Route::get('painel/acompanhar', 'painel\ProjetoController@acompanhar')->name('painel.acompanhar');
+Route::get('painel/mentorado/editais', 'painel\ProjetoController@editais')->name('painel.mentorado.editais');
+Route::get('painel/mentorado/editar', 'painel\ProjetoController@editar')->name('painel.mentorado.editar');
+Route::get('/painel/home', 'painel\PainelController@dashboard')->name('painel.home');
+Route::get('/painel/mentorado/gerenciarProjeto', 'painel\ProjetoController@index')->name('painel.mentorado.gerenciarProjeto');
+Route::get('/painel/mentorado/dashboard', 'painel\PainelController@candidato')->name('painel.mentorado.dashboard');
+Route::get('/painel/login', 'painel\PainelController@showLoginform')->name('painel.login');
+Route::get('/painel/logout', 'painel\PainelController@logout')->name('painel.logout');
+Route::post('/painel/login/do', 'painel\PainelController@login')->name('painel.login.do');
 
 

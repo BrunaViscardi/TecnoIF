@@ -26,5 +26,5 @@
         <!-- Messages Dropdown Menu -->
 
 
-    </ul><a href="{{route('Painel.logout')}}">Sair</a>
+    </ul><a href="{{route('painel.logout')}}">Sair</a>
 </nav>

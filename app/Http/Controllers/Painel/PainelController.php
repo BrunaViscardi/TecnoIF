@@ -23,9 +23,9 @@ class PainelController extends Controller
             $exploder= explode('/', $uri);
             $urlAtual =$exploder[1];
 
-            return view( 'Painel.dashboard' , compact('user','urlAtual'));
+            return view( 'painel.dashboard' , compact('user','urlAtual'));
         }
-        return redirect()->route('Painel.login');
+        return redirect()->route('painel.login');
 
     }
     public function candidato()
@@ -36,14 +36,14 @@ class PainelController extends Controller
             $uri = $this->request->route() ->uri();
             $exploder= explode('/', $uri);
             $urlAtual =$exploder[1];
-            return view( 'Painel.PainelCandidato.Candidato' , compact('user','urlAtual'));
+            return view( 'painel.mentorado.dashboard' , compact('user','urlAtual'));
         }
-        return redirect()->route('Painel.login');
+        return redirect()->route('painel.login');
     }
 
     public function showLoginform()
     {
-        return view('Painel.formLogin');
+        return view('painel.formLogin');
     }
     public function login(Request $request )
     {
@@ -57,14 +57,14 @@ class PainelController extends Controller
             'password'=> $request->password
         ];
         if(Auth::attempt($credentials)){
-            return redirect()->route('Painel.Home');
+            return redirect()->route('painel.home');
         }
         return redirect()->back()->withInput()->withErrors(['Os dados informados não conferem!']);
     }
     public function logout()
     {
         Auth::logout();
-        return redirect()-> route("Painel.Home");
+        return redirect()-> route("painel.home");
 
     }
 

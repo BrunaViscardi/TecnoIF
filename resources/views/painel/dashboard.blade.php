@@ -1,4 +1,4 @@
-@extends('Painel.Layout.index')
+@extends('painel.Layout.index')
 @section('content')
 
     <section class="content">
@@ -26,9 +26,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.card-body -->
+
                         </div>
-                        <!-- /.card -->
+
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Create Event</h3>

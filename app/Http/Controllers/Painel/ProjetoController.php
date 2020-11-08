@@ -19,11 +19,24 @@ class ProjetoController extends Controller
 
     public function debug(Request $request)
     {
-
+        var_dump($request->except('_token'));
         $projetos = new Projeto();
         $projetos->nome_projeto = $request->nome_projeto;
-        $projetos->expectativa = $request->expectativa;
+        $projetos->campus = $request->campus;
         $projetos->area = $request->area;
+        $projetos->situacao_id = 1;
+        $projetos->problemas = $request->problemas;
+        $projetos->caracteristicas = $request->caracteristicas;
+        $projetos->publico_alvo = $request->publico_alvo;
+        $projetos->dificuldades = $request->dificuldades;
+        $projetos->disponibilidade = $request->disponibilidade;
+        $projetos->resultados = $request->resultados;
+        $projetos->nomeMentor = $request->nomeMentor;
+        $projetos->instituicao = $request->instituicao;
+        $projetos->areaMentor = $request->areaMentor;
+        $projetos->email = $request->email;
+        $projetos->telefone= $request->telefone;
+
         $projetos->save();
         if (Auth::check() === true) {
             $user = Auth()->User();
@@ -32,7 +45,7 @@ class ProjetoController extends Controller
             $urlAtual = $exploder[1];
             $projetos = Projeto::all();
         }
-        return redirect()->route('Painel.gerenciarProjeto');
+        return redirect()->route('painel.gerenciarProjeto');
     }
 
 
@@ -44,9 +57,9 @@ class ProjetoController extends Controller
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $projetos = Projeto::all();
-            return view('Painel.gerenciarProjeto', compact('user', 'urlAtual', 'projetos'));
+            return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual', 'projetos'));
         }
-        return redirect()->route('Painel.login');
+        return redirect()->route('painel.login');
 
     }
 
@@ -57,9 +70,9 @@ class ProjetoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('Painel.PainelCandidato.cadastro', compact('user', 'urlAtual'));
+            return view('painel.mentorado.cadastro', compact('user', 'urlAtual'));
         }
-        return redirect()->route('Painel.login');
+        return redirect()->route('painel.login');
 
     }
     public function editais()
@@ -69,9 +82,9 @@ class ProjetoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('Painel.PainelCandidato.editais', compact('user', 'urlAtual'));
+            return view('painel.mentorado.editais', compact('user', 'urlAtual'));
         }
-        return redirect()->route('Painel.login');
+        return redirect()->route('painel.login');
 
     }
     public function editar()
@@ -81,9 +94,9 @@ class ProjetoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('Painel.PainelCandidato.editar', compact('user', 'urlAtual'));
+            return view('painel.mentorado.editar', compact('user', 'urlAtual'));
         }
-        return redirect()->route('Painel.login');
+        return redirect()->route('painel.login');
 
     }
     public function acompanhar()
@@ -93,9 +106,9 @@ class ProjetoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('Painel.acompanhar', compact('user', 'urlAtual'));
+            return view('painel.equipe gestora.acompanhar', compact('user', 'urlAtual'));
         }
-        return redirect()->route('Painel.login');
+        return redirect()->route('painel.login');
 
     }
 

@@ -1,4 +1,4 @@
-@extends('Painel.Layout.index')
+@extends('painel.Layout.index')
 @section('content')
     <section class="content">
         <div class="card card-success">
@@ -6,7 +6,7 @@
 
                 <h3 class="card-title">Cadastro de Projeto</h3>
             </div>
-            <form action="{{route('Painel.enviar')}}" method="post">
+            <form action="{{route('painel.enviar')}}" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">

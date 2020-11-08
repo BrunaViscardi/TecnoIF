@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{url(mix('pages/css/style.css'))}}">
+    <link rel="stylesheet" href="{{url('pages/css/style.css')}}">
     <link rel="stylesheet" href="{{asset ('pages/style.css')}}">
     <title>TecnoIF</title>
 </head>
@@ -29,7 +29,7 @@
                         <a class="nav-link" href="https://www.youtube.com/channel/UC_DLD3-ADKtoa6j-EUTqTvg"> <img id="redeSocial" src="{{ asset('img/y.png') }}" alt="logo Instagram" ></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/Painel/Home" >Fazer login</a>
+                        <a class="nav-link" href="/painel/home" >Fazer login</a>
                     </li>
                 </ul>
             </div>
@@ -152,7 +152,7 @@
 
 
             <div class="row">
-                <div class="col-sm-6 col-md-5 col-lg-6">
+                <div id="at" class="col-sm-6 col-md-5 col-lg-6">
                     <div >
                         <h2 class="featurette-heading">Atividades desenvolvidas</h2>
                         <ul>
@@ -170,7 +170,7 @@
                 </div>
 
                 <div id="divCont" class="col-md-auto">
-                    <h2  id="c" class="featurette-heading">Contatos</h2>
+                    <h2 id="c" class="featurette-heading">Contatos</h2>
                     <h5 id="cont"><b>Coordenação Geral: Lilyan Cristaldo</b></h5>
                     <ul>
                         <li> E-mail: tecnoif@ifms.edu.br</li>
@@ -207,7 +207,7 @@
         </div>
     </main>
     <script src="{{ asset ('pages/jquery.js') }}"></script>
-    <script src="{{ url(mix('pages/js/script.js')) }}"></script>
+    <script src="{{ url('pages/js/script.js')}}"></script>
     <script src="{{asset('pages/bootstrap.js')}}"></script>
 </main>
 </body>
