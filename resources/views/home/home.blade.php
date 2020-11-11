@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{url('pages/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('pages/css/style.css')}}">
     <link rel="stylesheet" href="{{asset ('pages/style.css')}}">
     <title>TecnoIF</title>
 </head>
@@ -207,7 +207,7 @@
         </div>
     </main>
     <script src="{{ asset ('pages/jquery.js') }}"></script>
-    <script src="{{ url('pages/js/script.js')}}"></script>
+    <script src="{{asset('pages/js/script.js')}}"></script>
     <script src="{{asset('pages/bootstrap.js')}}"></script>
 </main>
 </body>
