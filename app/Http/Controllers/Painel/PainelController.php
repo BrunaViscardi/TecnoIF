@@ -26,7 +26,6 @@ class PainelController extends Controller
             return view( 'painel.dashboard' , compact('user','urlAtual'));
         }
         return redirect()->route('painel.login');
-
     }
     public function candidato()
     {
