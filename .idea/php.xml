@@ -36,7 +36,6 @@
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
@@ -93,16 +92,14 @@
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
-      <path value="$PROJECT_DIR$/vendor/jeroennoten/laravel-adminlte" />
-      <path value="$PROJECT_DIR$/vendor/reliese/laravel" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/migrations-generator" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/laravel-4-generators" />
-      <path value="$PROJECT_DIR$/vendor/laravellegends/pt-br-validator" />
       <path value="$PROJECT_DIR$/vendor/geekcom/validator-docs" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/thiagocfn/inscricaoestadual" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

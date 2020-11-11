@@ -20,48 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/SituacaoSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home/cadastro.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastro.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/gerenciarProjeto.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Tcc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tcc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Candidato.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Candidato.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CandidatoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CandidatoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/PainelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/PainelController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/ProjetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/ProjetoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Projeto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Projeto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Situacao.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Situacao.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_14_141119_create_projetos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_14_141119_create_projetos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/AdminLTE-3.0.5/plugins/jquery-validation/jquery.validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/AdminLTE-3.0.5/plugins/jquery-validation/jquery.validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pages/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/Layout/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/Layout/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/Layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/Layout/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/Layout/javascript.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/javascript.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/Layout/sidebar_lateral.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/sidebar_lateral.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/PainelCandidato/Candidato.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/PainelCandidato/cadastro.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/PainelCandidato/editais.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/editais.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/PainelCandidato/editar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/editar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/acompanhar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/equipe gestora/acompanhar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/formLogin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Painel/gerenciarProjeto.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/auth-page.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/cadastro.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +73,6 @@
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/symfony/process" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
@@ -168,16 +129,14 @@
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/almasaeed2010/adminlte" />
-      <path value="$PROJECT_DIR$/vendor/jeroennoten/laravel-adminlte" />
-      <path value="$PROJECT_DIR$/vendor/reliese/laravel" />
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/migrations-generator" />
       <path value="$PROJECT_DIR$/vendor/oscarafdev/laravel-4-generators" />
-      <path value="$PROJECT_DIR$/vendor/laravellegends/pt-br-validator" />
       <path value="$PROJECT_DIR$/vendor/geekcom/validator-docs" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/thiagocfn/inscricaoestadual" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hZYHwpLIuVF2Eoqr9pD5GfCGWw" />
@@ -270,7 +229,9 @@
       <workItem from="1604460122669" duration="7492000" />
       <workItem from="1604520731102" duration="6246000" />
       <workItem from="1604783588018" duration="577000" />
-      <workItem from="1604854857574" duration="2823000" />
+      <workItem from="1604854857574" duration="5306000" />
+      <workItem from="1605125621325" duration="640000" />
+      <workItem from="1605128285379" duration="44000" />
     </task>
     <servers />
   </component>
