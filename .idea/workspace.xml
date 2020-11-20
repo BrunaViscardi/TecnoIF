@@ -21,7 +21,21 @@
   <component name="ChangeListManager">
     <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/PainelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/PainelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Situacao.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Situacao.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/SituacaoSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SituacaoSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/css/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/js/cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/js/cadastro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/cadastro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/cadastro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/js/cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/js/cadastro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/scss/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,6 +49,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MessDetectorBlackList">
+    <option name="filePaths">
+      <option value="$PROJECT_DIR$/database/seeds/UserSeeder.php" />
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -230,7 +249,13 @@
       <workItem from="1604783588018" duration="577000" />
       <workItem from="1604854857574" duration="5306000" />
       <workItem from="1605125621325" duration="640000" />
-      <workItem from="1605128285379" duration="3275000" />
+      <workItem from="1605128285379" duration="7631000" />
+      <workItem from="1605206705274" duration="3284000" />
+      <workItem from="1605323205249" duration="153000" />
+      <workItem from="1605805118649" duration="1034000" />
+      <workItem from="1605873977658" duration="4216000" />
+      <workItem from="1605878414031" duration="3633000" />
+      <workItem from="1605882470978" duration="3974000" />
     </task>
     <servers />
   </component>
@@ -253,6 +278,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="563" y="269" key="#Mess_Detector_Ignored_Files" timestamp="1605879005116">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="563" y="269" key="#Mess_Detector_Ignored_Files/0.0.1366.728@0.0.1366.728" timestamp="1605879005116" />
     <state x="431" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602785786850">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

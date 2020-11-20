@@ -42,93 +42,111 @@
         <div class="container">
             <div class="col-sm">
                 <div class="form-group">
-                    <label>Nome</label>
+                    <label>Nome
                     <input name="nome" class="form-control" placeholder="Nome">
+                    </label>
                 </div>
-                <div class="row">
+                <div class="formR">
                     <div class="form-group col">
-                        <label>Data de nascimento</label>
-                        <input name="data_nascimento" type="date" class="form-control">
+                        <label>Nascimento
+                        <input id="formN" name="data_nascimento" type="date" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>Telefone</label>
+                        <label>Telefone
                         <input name="telefone" type="text" class="form-control" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+                        </label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="formR">
                     <div class="form-group col">
-                        <label>CPF</label>
+                        <label>CPF
                         <input type="text" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>RG</label>
+                        <label>RG
                         <input type="text" class="form-control">
+                        </label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="formR">
                     <div class="form-group col">
-                        <label>Email</label>
+                        <label>Email
                         <input type="text" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>Campus</label>
+                        <label>Campus
                         <input name="campus" type="text" class="form-control">
+                        </label>
                     </div>
                 </div>
-                <div class="row">
+                <div class="formR">
                     <div class="form-group col">
-                        <label>Curso</label>
+                        <label>Curso
                         <input name="curso" type="text" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>Turno</label>
+                        <label>Turno
                         <input name="turno" type="text" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>Período</label>
+                        <label>Período
                         <input name="periodo" type="text" class="form-control">
+                        </label>
                     </div>
                 </div>
                 <div>
-                    <label>Anexe uma cópia do cartão do banco ou documento que comprove o número da conta
-                        bancária.</label>
-                    <input name="file" type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <label id="anexo" class="btn btn-light " for="fupload">Anexe um documento que comprove seus dados bancarios:
+                    <input id ="fupload" name="file" type="file" style="display: none" >
+                    </label>
                 </div>
-                <div class="row">
+                <div class="formR">
                     <div class="form-group col">
-                        <label>Conta</label>
+                        <label>Conta
                         <input name="conta" type="text" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>Agência</label>
+                        <label>Agência
                         <input name="agencia" type="text" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>Banco</label>
+                        <label>Banco
                         <input name="banco" type="text" class="form-control">
+                        </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Endereço</label>
+                    <label>Endereço
                     <input name="endereco" type="text" class="form-control">
+                    </label>
                 </div>
-                <div class="row">
+                <div class="formR">
                     <div class="form-group col">
-                        <label>Bairro</label>
+                        <label>Bairro
                         <input name="bairro" type="text" class="form-control">
+                        </label>
                     </div>
                     <div class="form-group col">
-                        <label>Número</label>
+                        <label>Número
                         <input name="numero" type="text" class="form-control">
+                        </label>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Complemento</label>
-                    <input name="complemento" type="text" class="form-control">
+                    <label>Complemento
+                        <input id="input" name="complemento" type="text" class="form-control">
+                    </label>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-success">Cadastrar</button>
                 </div>
+
             </div>
         </div>
     </form>

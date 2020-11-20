@@ -1,6 +1,6 @@
 <?php
 
-use App\situacao;
+use App\Situacao;
 use Illuminate\Database\Seeder;
 
 class SituacaoSeeder extends Seeder

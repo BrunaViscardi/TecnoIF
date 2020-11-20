@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         User::create(
         [
             'name' => 'João Silva',
-            'email' => 'joao@gmail.com',
+            'email' => 'candidato@gmail.com',
             'password' => Hash::make('senha123'),
             'role'=> 1,
 
@@ -32,12 +32,23 @@ class UserSeeder extends Seeder
         User::create(
             [
                 'name' => 'Gestor',
-                'email' => 'gestor@gmail.com',
+                'email' => 'equipe@gmail.com',
                 'password' => Hash::make('senha123'),
-                'role'=> 0,
+                'role'=> 2,
 
             ]
 
         );
+        User::create(
+            [
+                'name' => 'Coordenador',
+                'email' => 'coordenador@gmail.com',
+                'password' => Hash::make('senha123'),
+                'role'=> 3,
+
+            ]
+
+        );
+
     }
 }

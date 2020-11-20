@@ -7,106 +7,6 @@
     margin-top: 5%;
 }
 
-#cpf{
-    width: 48%;
-    float: left;
-    margin-top: 2.3% ;
-
-
-}
-#rg{
-    width: 48%;
-    float: right;
-    margin-top: 2.3% ;
-
-}
-#data{
-    width: 49%;
-    float: left;
-
-}
-#campus{
-    width: 49%;
-    float: right;
-
-
-}
-#periodo{
-    width: 33%;
-    float: left;
-    margin-right: 4%;
-}
-#turno{
-    width: 28.3%;
-    float: left;
-
-
-}
-
-#file{
-    width: 100%;
-    background-color: white;
-    margin-top: 2.3%;
-    border: solid 2px lightgray;
-
-}
-#curso {
-    width: 31%;
-    float: left;
-    margin-right: 3.5%;
-    margin-top: 2.3%;
-
-
-
-}
-#periodo{
-    width: 31%;
-    float: left;
-    margin-right: 3.5%;
-    margin-top: 2.3%;
-
-}
-#turno{
-    width: 31%;
-    margin-top: 2.3%;
-
-}
-#bairro{
-    margin-top: 2.3%;
-    width: 49%;
-    float: left;
-}
-#numero{
-    margin-top: 2.3%;
-    margin-bottom: 2.3%;
-      width: 49%;
-      float: right;
-
-}
-#banco{
-    width: 31%;
-    float: right;
-    margin-left: 3.5%;
-    margin-top: 2.3%;
-
-
-
-}
-#agencia{
-    width: 32%;
-    float: right;
-    margin-top: 2.3%;
-
-
-}
-#conta{
-    width: 30%;
-    float: right;
-    margin-right: 3.5%;
-    margin-top: 2.3%;
-    margin-bottom: 2.3%;
-
-}
 #botao{
     text-align: center;
     width: 33%;
@@ -114,13 +14,24 @@
     margin-left: 33%;
     border: solid 3px #2ca02c;
 }
-#nomet{
-    margin-bottom: 2.3%;
-
+label{
+    width: 100%;
 }
-#email{
-    margin-bottom: 2.3%;
-    margin-top: 2.3%;
+.formR{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+@media screen and (max-width: 800px){
+.formR{
+    flex-wrap: nowrap;
+    display: block;
+}
+}
+#anexo{
+width: 100%;
+    text-align: left;
 }
 
 
