@@ -11,7 +11,6 @@
     box-sizing: border-box; font-family: 'Lato', sans-serif;
     border-bottom: 7px solid #2ca02c;
 
-
 }
 main{ background-color: #f5f5f5;
 }
@@ -41,9 +40,6 @@ main{ background-color: #f5f5f5;
 
 
 @media (min-width: 40em) {
-
-
-
     .featurette-heading {
         font-size: 50px;
         text-align: center;
@@ -74,6 +70,7 @@ li{
 
 #galeriaInfo{
     text-align: justify;
+    float: left;
 }
 
 
@@ -85,9 +82,9 @@ li{
 }
 
 footer{
+    width: 84%;
     margin-left: 8%;
     margin-right: 8%;
-
     border-bottom: 7px solid #2ca02c;
 }
 

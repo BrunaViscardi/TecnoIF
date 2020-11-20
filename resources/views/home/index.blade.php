@@ -168,7 +168,7 @@
                 </div>
             </div>
 
-            <hr class="featurette-divider">
+
             <div class="row">
                 <div id="at" class="col-sm-6 col-md-5 col-lg-6">
                     <div>
@@ -221,7 +221,6 @@
                     </ul>
                 </div>
             </div>
-            <hr class="featurette-divider">
             <div id="documentos" >
                 <div>
                     <h3 class="featurette-heading">Documentos Relacionados</h3>
@@ -250,15 +249,15 @@
             </div>
         </div>
     </main>
-
-<footer class="main-footer">
+</main>
+<footer>
     <strong>Copyright &copy; {{date('Y')}} <a href="#">Incubadora de Empresas do IFMS</a>.</strong>
     Todos os direitos reservados.
     <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 1.0
     </div>
 </footer>
-</main>
+
     <script src="{{ asset ('pages/jquery.js') }}"></script>
     <script src="{{asset('pages/js/script.js')}}"></script>
     <script src="{{asset('pages/bootstrap.js')}}"></script>
