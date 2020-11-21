@@ -39,12 +39,6 @@ main{ background-color: #f5f5f5;
 
 
 
-@media (min-width: 40em) {
-    .featurette-heading {
-        font-size: 50px;
-        text-align: center;
-    }
-}
 
 
 a{
@@ -82,11 +76,14 @@ li{
 }
 
 footer{
-    width: 84%;
-    margin-left: 8%;
-    margin-right: 8%;
+
     border-bottom: 7px solid #2ca02c;
 }
+
+li{
+    text-align: justify;
+}
+
 
 
 

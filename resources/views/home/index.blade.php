@@ -98,133 +98,79 @@
                     </p>
                 </div>
             </div>
-            <div id="galeriaInfo">
-                <h3 class="featurette-heading">Quem somos nós? </h3>
-                <br>
-                <div class="row featurette">
-                    <div class="col-md-7">
-                        <p >
-                            A TecnoIF - Incubadora Mista e Social de Empresas do IFMS é um agente facilitador do
-                            processo de geração e consolidação de empreendimentos inovadores em Mato Grosso do Sul, por
-                            meio da formação complementar de empreendedores em áreas compatíveis, em seus aspectos
-                            técnicos e gerenciais, com as atividades de ensino, pesquisa e extensão oferecidas pela
-                            instituição.
+            <hr class="featurette-divider">
 
-                            É considerada mista por receber tanto ideias de negócios tecnológicos quanto tradicionais,
-                            desde que contenham características inovadoras; e social por receber ideias de negócios
-                            sociais, empreendimentos que visam não apenas a rentabilidade aos sócios, mas também à
-                            transformação social do local onde o mesmo será instalado.
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading" style="text-align: center">Quem somos nós?</h2>
+                    <p style="text-align: justify">
+                        A TecnoIF - Incubadora Mista e Social de Empresas do IFMS é um agente facilitador do
+                        processo de geração e consolidação de empreendimentos inovadores em Mato Grosso do Sul, por
+                        meio da formação complementar de empreendedores em áreas compatíveis, em seus aspectos
+                        técnicos e gerenciais, com as atividades de ensino, pesquisa e extensão oferecidas pela
+                        instituição.
 
-                            Atualmente, atua com a pré-incubação de ideias de negócios de estudantes do IFMS, por meio
-                            do pagamento de bolsas mensais durante o período de seis meses. A intenção é que,
-                            futuramente, a TecnoIF trabalhe também com incubação de empresas, atendendo inclusive o
-                            público externo
+                        É considerada mista por receber tanto ideias de negócios tecnológicos quanto tradicionais,
+                        desde que contenham características inovadoras; e social por receber ideias de negócios
+                        sociais, empreendimentos que visam não apenas a rentabilidade aos sócios, mas também à
+                        transformação social do local onde o mesmo será instalado.
 
-                        </p>
-                    </div>
-                    <div class="col-md-5">
+                        Atualmente, atua com a pré-incubação de ideias de negócios de estudantes do IFMS, por meio
+                        do pagamento de bolsas mensais durante o período de seis meses. A intenção é que,
+                        futuramente, a TecnoIF trabalhe também com incubação de empresas, atendendo inclusive o
+                        público externo
 
-                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-
-                                    <img class="d-block w-100" src="{{ asset('img/im1.png') }}" alt="slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('img/im2.png') }}" alt="Second slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('img/im3.png') }}" alt="Third slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('img/im4.png') }}" alt="Third slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('img/im5.png') }}" alt="Third slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('img/im6.png') }}" alt="Third slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('img/im7.png') }}" alt="Third slide">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block w-100" src="{{ asset('img/im8.png') }}" alt="Third slide">
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
-                               data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleControls" role="button"
-                               data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
-
-                    </div>
+                    </p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" src="{{ asset('img/im1.png') }}" alt="logo Instagram">
                 </div>
             </div>
 
+            <hr class="featurette-divider">
 
-            <div class="row">
-                <div id="at" class="col-sm-6 col-md-5 col-lg-6">
-                    <div>
-                        <h3 class="featurette-heading">Atividades desenvolvidas</h3>
-                        <br>
-                        <ul>
-                            <li>capacitar os estudantes do IFMS durante a pré-incubação na identificação de
-                                oportunidades de mercado;
-                            </li>
-                            <li>orientar os pré-incubados no planejamento e início de desenvolvimento de seus projetos
-                                inovadores;
-                            </li>
-                            <li>estimular as características e postura empreendedoras, nos pré-incubados da TecnoIF;</li>
-                            <li>fornecer oportunidade de formação empreendedora e empresarial aos pré-incubados por meio
-                                de parceiros;
-                            </li>
-                            <li>incentivar a criação de empresas com produtos, serviços e/osu processos inovadores;</li>
-                            <li>aproximar o meio acadêmico do mercado de trabalho;</li>
-                            <li>promover o desenvolvimento pessoal e profissional dos estudantes do IFMS durante a
-                                pré-incubação;
-                            </li>
-                            <li>organizar e realizar eventos como seminários, palestras, hackathons e minicursos, com o
-                                objetivo de disseminar a cultura do empreendedorismo e inovação.
-                            </li>
-                        </ul>
-                    </div>
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading" style="text-align: center">Atividades desenvolvidas</h2>
+                    <ul>
+                        <li>capacitar os estudantes do IFMS durante a pré-incubação na identificação de
+                            oportunidades de mercado;
+                        </li>
+                        <li>orientar os pré-incubados no planejamento e início de desenvolvimento de seus projetos
+                            inovadores;
+                        </li>
+                        <li>estimular as características e postura empreendedoras, nos pré-incubados da TecnoIF;
+                        </li>
+                        <li>
+                            fornecer oportunidade de formação empreendedora e empresarial aos pré-incubados por meio de parceiros;
+                        </li>
+                        <li>incentivar a criação de empresas com produtos, serviços e/ou processos inovadores;
 
+                        </li>
+                        <li>aproximar o meio acadêmico do mercado de trabalho;
+
+                        </li>
+                        <li>promover o desenvolvimento pessoal e profissional dos estudantes do IFMS durante a pré-incubação.
+
+                        </li>
+                        <li>organizar e realizar eventos como seminários, palestras, hackathons e minicursos, com o objetivo de disseminar a cultura do empreendedorismo e inovação.
+
+                        </li>
+
+
+
+                    </ul>
                 </div>
-
-
-                <div id="divCont" class="col-md-auto">
-                    <h3 id="c" class="featurette-heading">Contatos</h3>
-                    <br>
-
-                    <ul>
-                        <li> E-mail: tecnoif@ifms.edu.br</li>
-                        <li> Telefone: (67) 3378-9605</li>
-                    </ul>
-
-                    <ul>
-                        <li> Aquidauana-tecnoif.aq@ifms.edu.br</li>
-                        <li> Campo Grande-tecnoif.cg@ifms.edu.br</li>
-                        <li> Corumbá-tecnoif.cb@ifms.edu.br</li>
-                        <li> Coxim-tecnoif.cx@ifms.edu.br</li>
-                        <li> Dourados-tecnoif.dr@ifms.edu.br</li>
-                        <li> Jardim-tecnoif.jd@ifms.edu.br</li>
-                        <li> Naviraí-tecnoif.nv@ifms.edu.br</li>
-                        <li> Nova Andradina-tecnoif.na@ifms.edu.br</li>
-                        <li>Três Lagoas-tecnoif.tl@ifms.edu.br</li>
-                    </ul>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image img-fluid mx-auto" src="{{ asset('img/im3.png') }}" alt="logo Instagram">
                 </div>
             </div>
-            <div id="documentos" >
-                <div>
-                    <h3 class="featurette-heading">Documentos Relacionados</h3>
-                    <br>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading" style="text-align: center">Documentos Relacionados </h2>
 
                     <ul>
                         <li>
@@ -243,20 +189,64 @@
                             <a href="https://www.ifms.edu.br/centrais-de-conteudo/documentos-institucionais/regulamentos/regulamento-para-utilizacao-do-cartao-pesquisa-do-ifms.pdf">
                                 Regulamento para Utilização do Cartão Pesquisa;</a></li>
                     </ul>
-                    </div>
-                    <hr>
 
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" src="{{ asset('img/im2.png') }}" alt="logo Instagram">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading" style="text-align: center">Contatos</h2>
+                <div class="row">
+                    <div class="col">
+                <ul>
+                    <p> <b>Campi</b></p>
+                    <li> Aquidauana - tecnoif.aq@ifms.edu.br</li>
+                    <li> Campo Grande - tecnoif.cg@ifms.edu.br</li>
+                    <li> Corumbá - tecnoif.cb@ifms.edu.br</li>
+                    <li> Coxim - tecnoif.cx@ifms.edu.br</li>
+                    <li> Dourados - tecnoif.dr@ifms.edu.br</li>
+                    <li> Jardim - tecnoif.jd@ifms.edu.br</li>
+                    <li> Naviraí - tecnoif.nv@ifms.edu.br</li>
+                    <li> Nova Andradina-tecnoif.na@ifms.edu.br</li>
+                    <li>Três Lagoas - tecnoif.tl@ifms.edu.br</li>
+                </ul>
+                </div>
+                    <div class="col">
+                        <ul>
+                            <p><b>Coordenação Geral da TecnoIF</b></p>
+                            <p>Lilyan Cristaldo</p>
+
+                            <li> E-mail: tecnoif@ifms.edu.br </li>
+                            <li>  Telefone: (67) 3378-9605</li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img class="featurette-image img-fluid mx-auto" src="{{ asset('img/im4.png') }}" alt="logo Instagram">
             </div>
         </div>
+        </div>
+            <hr class="featurette-divider">
+            <br>
+            <br>
+            <footer class="container">
+                <strong>Copyright &copy; {{date('Y')}} <a href="#">Incubadora de Empresas do IFMS</a>.</strong>
+                Todos os direitos reservados.
+                <div class="float-right d-none d-sm-inline-block">
+                    <b>Version</b> 1.0
+                </div>
+            </footer>
+
+
     </main>
-</main>
-<footer>
-    <strong>Copyright &copy; {{date('Y')}} <a href="#">Incubadora de Empresas do IFMS</a>.</strong>
-    Todos os direitos reservados.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 1.0
-    </div>
-</footer>
+    </main>
 
     <script src="{{ asset ('pages/jquery.js') }}"></script>
     <script src="{{asset('pages/js/script.js')}}"></script>
