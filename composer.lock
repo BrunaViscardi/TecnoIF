@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7a6e323fb8c054fdcb89ca0296cceb3",
+    "content-hash": "698dbb7350ead20039acbf3932dce267",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -437,6 +437,49 @@
             "time": "2020-10-27T23:14:38+00:00"
         },
         {
+            "name": "laravel-lang/lang",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Lang/lang.git",
+                "reference": "96d7868069de7823a680710cc09d51fed24a5dbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/96d7868069de7823a680710cc09d51fed24a5dbd",
+                "reference": "96d7868069de7823a680710cc09d51fed24a5dbd",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*"
+            },
+            "suggest": {
+                "ablunier/laravel-lang-installer": "Command for easily add languages to a Laravel project",
+                "andrey-helldar/laravel-lang-publisher": "Easy installation and update of translation files for your project",
+                "arcanedev/laravel-lang": "Translations manager and checker for Laravel 5",
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2020-03-17T15:25:41+00:00"
+        },
+        {
             "name": "laravel/framework",
             "version": "v6.20.3",
             "source": {
@@ -648,6 +691,53 @@
                 "psysh"
             ],
             "time": "2020-10-29T13:07:12+00:00"
+        },
+        {
+            "name": "laravellegends/pt-br-validator",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelLegends/pt-br-validator.git",
+                "reference": "4b5b6adfe7e8206c9d36a365210f023a1cf01167"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelLegends/pt-br-validator/zipball/4b5b6adfe7e8206c9d36a365210f023a1cf01167",
+                "reference": "4b5b6adfe7e8206c9d36a365210f023a1cf01167",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.1.* || 4.0.*",
+                "phpunit/phpunit": "4.8.* || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelLegends\\PtBrValidator\\ValidatorProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wallace de Souza Vizerra",
+                    "email": "wallacemaxters@gmail.com"
+                }
+            ],
+            "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel 5",
+            "time": "2019-10-02T17:07:11+00:00"
         },
         {
             "name": "league/commonmark",
@@ -4362,6 +4452,7 @@
                 "faker",
                 "fixtures"
             ],
+            "abandoned": true,
             "time": "2019-12-12T13:22:17+00:00"
         },
         {

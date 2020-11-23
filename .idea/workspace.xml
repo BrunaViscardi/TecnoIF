@@ -20,11 +20,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Rules/Email.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Rules/FullName.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pt-BR.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pt-BR/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pt-BR/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pt-BR/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/pt-BR/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Tcc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tcc.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CandidatoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pages/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/css/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/cadastro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/cadastro.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +161,8 @@
       <path value="$PROJECT_DIR$/vendor/geekcom/validator-docs" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/thiagocfn/inscricaoestadual" />
+      <path value="$PROJECT_DIR$/vendor/laravellegends/pt-br-validator" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hZYHwpLIuVF2Eoqr9pD5GfCGWw" />
@@ -157,7 +177,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/Painel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -168,19 +188,19 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Código\Tcc\resources\views\Painel" />
-      <recent name="C:\Código\Tcc\app" />
-      <recent name="C:\Código\Tcc\app\Http\Controllers" />
-      <recent name="C:\Código\Tcc\resources\views\Painel\Layout" />
-      <recent name="C:\Código\Tcc\app\Http\Controllers\Painel" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Código\Tcc\app\Http\Controllers\Home" />
       <recent name="C:\Código\Tcc\resources\views\home" />
       <recent name="C:\Código\Tcc\resources\views\Home" />
       <recent name="C:\Código\Tcc\resources\views\Painel\PainelCandidato" />
       <recent name="C:\Código\Tcc\resources\views\Painel\Equipe gestora" />
-      <recent name="C:\Código\Tcc\app\Http\Controllers\Painel" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Código\Tcc\resources\lang" />
+      <recent name="C:\Código\Tcc\resources\views\Painel" />
+      <recent name="C:\Código\Tcc\app" />
+      <recent name="C:\Código\Tcc\app\Http\Controllers" />
+      <recent name="C:\Código\Tcc\resources\views\Painel\Layout" />
     </key>
   </component>
   <component name="RunManager">
@@ -245,7 +265,10 @@
       <workItem from="1605878414031" duration="3633000" />
       <workItem from="1605882470978" duration="7916000" />
       <workItem from="1605909877997" duration="2849000" />
-      <workItem from="1605980806682" duration="11947000" />
+      <workItem from="1605980806682" duration="13902000" />
+      <workItem from="1606088257780" duration="1726000" />
+      <workItem from="1606147329138" duration="18651000" />
+      <workItem from="1606173690565" duration="1995000" />
     </task>
     <servers />
   </component>
@@ -280,10 +303,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1601628287279" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602709158284">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1606162510625">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1602709158284" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1606162510625" />
     <state x="511" y="87" key="NewPhpClassDialog" timestamp="1600309349069">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

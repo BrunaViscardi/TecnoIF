@@ -7,13 +7,7 @@
     margin-top: 5%;
 }
 
-#botao{
-    text-align: center;
-    width: 33%;
-    background-color: #2a2a2a;
-    margin-left: 33%;
-    border: solid 3px #2ca02c;
-}
+
 label{
     width: 100%;
 }
@@ -23,7 +17,7 @@ label{
     margin-right: -15px;
     margin-left: -15px;
 }
-@media screen and (max-width: 800px){
+@media screen and (max-width: 700px){
 .formR{
     flex-wrap: nowrap;
     display: block;
@@ -33,11 +27,4 @@ label{
 width: 100%;
     text-align: left;
 }
-
-
-
-
-
-
-
 

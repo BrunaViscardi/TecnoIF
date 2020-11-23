@@ -76,7 +76,7 @@
                     <p>
                         Regimentos, política, programas e regulamentos.
                     </p>
-                    <p><a href="#documentos">
+                    <p><a href="#doc">
                             <button type="button" class="btn btn-secondary">Abrir</button>
                         </a></p>
                 </div>
@@ -92,7 +92,7 @@
                     <p>Coordenação geral da TecnoIF e campi</p>
                     <br>
                     <p>
-                        <a href="#divCont">
+                        <a href="#contatos">
                             <button type="button" class="btn btn-secondary">Abrir</button>
                         </a>
                     </p>
@@ -169,7 +169,7 @@
             <hr class="featurette-divider">
 
             <div class="row featurette">
-                <div class="col-md-7">
+                <div id="doc" class="col-md-7">
                     <h2 class="featurette-heading" style="text-align: center">Documentos Relacionados </h2>
 
                     <ul>
@@ -198,7 +198,7 @@
 
             <hr class="featurette-divider">
         <div class="row featurette">
-            <div class="col-md-7 order-md-2">
+            <div id="contatos" class="col-md-7 order-md-2">
                 <h2 class="featurette-heading" style="text-align: center">Contatos</h2>
                 <div class="row">
                     <div class="col">

@@ -11,8 +11,10 @@
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "geekcom/validator-docs": "^3.4",
+        "laravel-lang/lang": "~5.0",
         "laravel/framework": "^6.18.35",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "laravellegends/pt-br-validator": "6.*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

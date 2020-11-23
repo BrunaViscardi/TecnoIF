@@ -4,8 +4,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home/cadastro', 'CandidatoController@formCadastro')->name('home.cadastro');
-Route::post('/home/debug', 'CandidatoController@debug')->name('home.debug');
+Route::get('/home/cadastro', 'Home\CandidatoController@create')->name('home.cadastro');
+Route::post('/home/store', 'Home\CandidatoController@store')->name('home.store');
 Route::post('/home/valida', 'CandidatoController@valida')->name('home.valida');
 Route::post('/painel/enviar', 'Painel\ProjetoController@debug')->name('painel.enviar');
 Route::get('painel/mentorado/cadastro', 'Painel\ProjetoController@cadastro')->name('painel.mentorado.cadastro');

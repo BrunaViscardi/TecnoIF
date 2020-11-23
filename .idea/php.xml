@@ -100,6 +100,8 @@
       <path value="$PROJECT_DIR$/vendor/geekcom/validator-docs" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
       <path value="$PROJECT_DIR$/vendor/thiagocfn/inscricaoestadual" />
+      <path value="$PROJECT_DIR$/vendor/laravellegends/pt-br-validator" />
+      <path value="$PROJECT_DIR$/vendor/laravel-lang/lang" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
