@@ -15,10 +15,10 @@ class CandidatoController extends Controller
     }
     public function store(StoreUserRequest $request)
     {
-        dd($request->all());
-        $candidatos = new candidato();
+        dd($request->all()); //Descobrir pq isso não deixa cadastrar
+        $candidatos = new Candidato();// descobrir como traduzir as mensagens de erro
         $candidatos->nome = $request-> nome;
-        $candidatos-> data_nascimento = nascimento;
+        $candidatos-> data_nascimento =  $request-> nascimento;
         $candidatos->curso = $request-> curso;
         $candidatos->periodo = $request-> periodo;
         $candidatos->turno = $request-> turno;
@@ -33,7 +33,7 @@ class CandidatoController extends Controller
         $candidatos->bairro = $request-> bairro;
         $candidatos->numero = $request-> numero;
         $candidatos->complemento = $request-> complemento;
-        $candidatos->save();
+
         $users = new User();
         $users->name = $request-> nome;
         $users->role = 1;
@@ -46,6 +46,8 @@ class CandidatoController extends Controller
             'email' => $users['email'],
             'password' => Hash::make($users['password']),
         ]);
+        $candidatos->save();
+       header('Location: Painel/formLogin');
 
     }
 

@@ -19,7 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="" />
+    <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/ProjetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/ProjetoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Projeto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Projeto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_14_141119_create_projetos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_14_141119_create_projetos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/Layout/sidebar_lateral.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/sidebar_lateral.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastro.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/editais.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/editais.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/gerenciarProjeto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/gerenciarProjeto.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,7 +260,8 @@
       <workItem from="1606088257780" duration="1726000" />
       <workItem from="1606147329138" duration="18651000" />
       <workItem from="1606173690565" duration="1995000" />
-      <workItem from="1606237702917" duration="2801000" />
+      <workItem from="1606237702917" duration="9577000" />
+      <workItem from="1606323940071" duration="10030000" />
     </task>
     <servers />
   </component>

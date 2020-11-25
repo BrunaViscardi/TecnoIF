@@ -89,6 +89,7 @@
                         <small class="form-text text-muted">Insira o telefone do seu mentor</small>
                     </div>
                 </div>
+
                 <div class="card-footer">
                     <button type="submit" class="btn btn-success">Terminar cadastro</button>
                 </div>

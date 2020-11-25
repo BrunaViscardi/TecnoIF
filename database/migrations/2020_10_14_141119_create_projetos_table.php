@@ -16,6 +16,7 @@ class CreateProjetosTable extends Migration
         Schema::create('projetos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('situacao_id')->nullable();
+            $table->integer('edital');
             $table->String('nome_projeto');
             $table->String('campus');
             $table->String('area');

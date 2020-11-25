@@ -31,7 +31,6 @@ class StoreUserRequest extends FormRequest
             'rg'=> 'required',
             'email'=> 'required|email:rfc,dns',
             'campus'=> 'required',
-
             'conta'=> 'required',
             'agencia'=> 'required',
             'banco'=> 'required',

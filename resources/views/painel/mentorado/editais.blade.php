@@ -21,12 +21,16 @@
                         <td>Pré-Incubação</td>
 
                         <td><span class="badge bg-danger">Aberto para inscrições</span></td>
-                        <td>
+                        @if($projetos->count() > 0)
+                            <td>
                             <button class="btn btn-primary">Ver</button>
                         </td>
                         <td><a href="{{route('painel.mentorado.cadastro')}}">
+
                                 <button class="btn btn-success">Inscrição</button>
+
                             </a></td>
+                        @endif
                     </tr>
                     <tr>
                         <td>2020</td>

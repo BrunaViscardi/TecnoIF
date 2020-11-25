@@ -17,7 +17,7 @@ class ProjetoController extends Controller
         $this->request = $request;
     }
 
-    public function debug(Request $request)
+    public function create(Request $request)
     {
         var_dump($request->except('_token'));
         $projetos = new Projeto();
@@ -45,7 +45,7 @@ class ProjetoController extends Controller
             $urlAtual = $exploder[1];
             $projetos = Projeto::all();
         }
-        return redirect()->route('painel.gerenciarProjeto');
+        return redirect()->route('painel.mentorado.gerenciarProjeto');
     }
 
 

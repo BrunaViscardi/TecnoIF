@@ -7,9 +7,8 @@ Auth::routes();
 Route::get('/home/cadastro', 'Home\CandidatoController@create')->name('home.cadastro');
 Route::post('/home/store', 'Home\CandidatoController@store')->name('home.store');
 Route::post('/home/valida', 'CandidatoController@valida')->name('home.valida');
-Route::post('/painel/enviar', 'Painel\ProjetoController@debug')->name('painel.enviar');
+Route::post('/painel/enviar', 'Painel\ProjetoController@create')->name('painel.enviar');
 Route::get('painel/mentorado/cadastro', 'Painel\ProjetoController@cadastro')->name('painel.mentorado.cadastro');
-
 
 Route::get('painel/acompanhar', 'Painel\ProjetoController@acompanhar')->name('painel.acompanhar');
 Route::get('painel/mentorado/editais', 'Painel\ProjetoController@editais')->name('painel.mentorado.editais');

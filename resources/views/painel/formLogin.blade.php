@@ -26,7 +26,6 @@
     <input type="text" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
     <label for="password" class="sr-only">Senha</label>
     <input name="password" type="password" id="password" class="form-control" placeholder="Senha" required>
-    <small> Caso seja seu primeiro primeiro acesso a senha será seu cpf. </small>
     <br>
     <a href="{{route('home.cadastro')}}" >Criar minha conta</a>
     <br>

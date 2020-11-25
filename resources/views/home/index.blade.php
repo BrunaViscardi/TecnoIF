@@ -103,6 +103,7 @@
             <div class="row featurette">
                 <div class="col-md-7">
                     <h2 class="featurette-heading" style="text-align: center">Quem somos nós?</h2>
+                    <br>
                     <p style="text-align: justify">
                         A TecnoIF - Incubadora Mista e Social de Empresas do IFMS é um agente facilitador do
                         processo de geração e consolidação de empreendimentos inovadores em Mato Grosso do Sul, por
@@ -132,6 +133,7 @@
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
                     <h2 class="featurette-heading" style="text-align: center">Atividades desenvolvidas</h2>
+                    <br>
                     <ul>
                         <li>capacitar os estudantes do IFMS durante a pré-incubação na identificação de
                             oportunidades de mercado;
