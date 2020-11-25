@@ -29,7 +29,7 @@ class StoreUserRequest extends FormRequest
             'cpf'=> 'required|formato_cpf',
             'telefone'=> 'required|celular_com_ddd',
             'rg'=> 'required',
-            'email'=> 'required|email:rfc,dns',
+            'email'=> 'required|email:rfc,dns|unique:users',
             'campus'=> 'required',
             'conta'=> 'required',
             'agencia'=> 'required',
@@ -42,11 +42,12 @@ class StoreUserRequest extends FormRequest
     public function messages()
     {
         return[
+
             'nome.required' => 'O campo Nome é obrigatório.',
             'cpf.required' => 'O campo CPF é obrigatório.',
             'telefone.required' => 'O campo Telefone é obrigatório.',
             'rg.required' => 'O campo RG é obrigatório.',
-            'email.required' => 'O campo Email é obrigatório.',
+              'email.required' => 'O campo Email é obrigatório.',
             'campus.required' => 'O campo Campus é obrigatório.',
 
             'conta.required' => 'O campo Conta  é obrigatório.',

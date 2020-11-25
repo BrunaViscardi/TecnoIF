@@ -5,6 +5,7 @@ use App\Candidato;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 
 class CandidatoController extends Controller
@@ -15,10 +16,10 @@ class CandidatoController extends Controller
     }
     public function store(StoreUserRequest $request)
     {
-        dd($request->all()); //Descobrir pq isso não deixa cadastrar
-        $candidatos = new Candidato();// descobrir como traduzir as mensagens de erro
+        $candidatos = new Candidato();
         $candidatos->nome = $request-> nome;
         $candidatos-> data_nascimento =  $request-> nascimento;
+        $candidatos-> email =  $request-> email;
         $candidatos->curso = $request-> curso;
         $candidatos->periodo = $request-> periodo;
         $candidatos->turno = $request-> turno;

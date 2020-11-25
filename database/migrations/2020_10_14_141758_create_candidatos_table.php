@@ -30,9 +30,9 @@ class CreateCandidatosTable extends Migration
             $table->string('conta')->nullable();
             $table->string('endereco');
             $table->string('email');
-            $table->string('bairro');
-            $table->integer('numero');
-            $table->string('complemento');
+            $table->string('bairro')->nullable();
+            $table->integer('numero')->nullable();
+            $table->string('complemento')->nullable();
             $table->foreign('projeto_id')->references('id')->on('projetos');
 
             $table->timestamps();
