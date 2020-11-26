@@ -7,8 +7,7 @@ use App\projeto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
-class ProjetoController extends Controller
+class MentoradoController extends Controller
 {
     public $request = null;
 
@@ -44,7 +43,7 @@ class ProjetoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $projetos = Projeto::all();
+
         }
         return redirect()->route('painel.mentorado.gerenciarProjeto');
     }
@@ -100,14 +99,16 @@ class ProjetoController extends Controller
         return redirect()->route('painel.login');
 
     }
-    public function acompanhar()
+
+    public function gerenciarProjeto()
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('painel.equipe.acompanhar', compact('user', 'urlAtual'));
+            $projetos = Projeto::all();
+            return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual','projetos'));
         }
         return redirect()->route('painel.login');
 
@@ -119,7 +120,7 @@ class ProjetoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('painel.equipe.configuracoes', compact('user', 'urlAtual'));
+            return view('painel.mentorado.configuracoes', compact('user', 'urlAtual'));
         }
         return redirect()->route('painel.login');
 

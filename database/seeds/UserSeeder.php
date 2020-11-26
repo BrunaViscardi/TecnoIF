@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
             'name' => 'João Silva',
             'email' => 'candidato@gmail.com',
             'password' => Hash::make('senha123'),
-            'role'=> 1,
+            'role'=> 0,
 
         ]
 
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
                 'name' => 'Gestor',
                 'email' => 'equipe@gmail.com',
                 'password' => Hash::make('senha123'),
-                'role'=> 2,
+                'role'=> 1,
 
             ]
 
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
                 'name' => 'Coordenador',
                 'email' => 'coordenador@gmail.com',
                 'password' => Hash::make('senha123'),
-                'role'=> 3,
+                'role'=> 2,
 
             ]
 

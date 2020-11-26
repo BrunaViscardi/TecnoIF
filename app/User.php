@@ -17,14 +17,20 @@ class User extends Authenticatable
 
 
     public function isAdministrador(){
-        if ($this->role == null){
+        if ($this->role == 1){
             return true;
         }
         return false;
 
     }
     public function isCandidato(){
-        if ($this->role == 1){
+        if ($this->role == 0){
+            return true;
+        }
+        return false;
+    }
+    public function isCoordenador(){
+        if ($this->role == 2 ){
             return true;
         }
         return false;

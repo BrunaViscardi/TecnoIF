@@ -35,28 +35,48 @@
                                 </li>
                             @if(Auth::user() && Auth::user()->isCandidato())
                                 <li class="nav-item">
-                                    <a href="{{route('painel.mentorado.dashboard')}}" class="nav-link ">
+                                    <a href="{{route('painel.mentorado.gerenciarProjeto')}}" class="nav-link ">
                                         <i class="fas fa-archive nav-icon"></i>
                                         <p>Gerenciar projeto</p>
                                     </a> </li>
                                 <li class="nav-item">
-                                    <a href="{{route('painel.mentorado.dashboard')}}" class="nav-link ">
+                                    <a href="{{route('painel.mentorado.configuracoes')}}" class="nav-link ">
                                         <i class="fas fa-user-cog nav-icon"></i>
-
                                         <p>Configurações</p>
                                     </a>
                                 </li>
-
-
-
-                            @else
+                            @endif
+                            @if(Auth::user() && Auth::user()->isAdministrador())
                                 <li class="nav-item">
-                                    <a href="{{route('painel.equipe gestora.acompanhar')}}" class="nav-link ">
+                                    <a href="" class="nav-link ">
                                         <i class="fa fa-users nav-icon"></i>
-                                        <p>Projetos</p>
+                                        <p>Acompanhar Projetos</p>
+                                    </a>
+                                    <a href="" class="nav-link ">
+                                        <i class="fa fa-users nav-icon"></i>
+                                        <p>Configurações</p>
                                     </a>
                                 </li>
-
+                            @endif
+                            @if(Auth::user() && Auth::user()->isCoordenador())
+                                <li class="nav-item">
+                                    <a href="{{route('painel.coordenador.listaGestores')}}" class="nav-link ">
+                                        <i class="fa fa-users nav-icon"></i>
+                                        <p>Cadastro de gestores</p>
+                                    </a>
+                                    <a href="{{route('painel.coordenador.editais')}}" class="nav-link ">
+                                        <i class="fas fa-file-signature nav-icon"></i>
+                                        <p>Cadastro de editais</p>
+                                    </a>
+                                    <a href="{{route('painel.coordenador.acompanharProjetos')}}" class="nav-link ">
+                                        <i class="fas fa-archive nav-icon"></i>
+                                        <p>Acompanhar Projetos</p>
+                                    </a>
+                                    <a href="{{route('painel.coordenador.configuracoes')}}" class="nav-link ">
+                                        <i class="fas fa-user-cog nav-icon"></i>
+                                        <p>Configurações</p>
+                                    </a>
+                                </li>
                             @endif
                         </ul>
                 </li>

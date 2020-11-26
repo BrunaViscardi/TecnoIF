@@ -20,11 +20,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Edital.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Gestor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/CoordenadorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/GestorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/MentoradoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_26_171635_create_editais_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_11_26_193424_create_gestores_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/acompanharProjetos.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/cadastroGestores.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/configuracoes.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/editais.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/listaGestores.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/configuracoes.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_14_141758_create_candidatos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_14_141758_create_candidatos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/PainelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/PainelController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/ProjetoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/ProjetoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/Layout/sidebar_lateral.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/sidebar_lateral.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/equipe gestora/acompanhar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/equipe/acompanhar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +268,11 @@
       <workItem from="1606147329138" duration="18651000" />
       <workItem from="1606173690565" duration="1995000" />
       <workItem from="1606237702917" duration="9577000" />
-      <workItem from="1606323940071" duration="15354000" />
+      <workItem from="1606323940071" duration="15963000" />
+      <workItem from="1606408011482" duration="1283000" />
+      <workItem from="1606410395699" duration="1694000" />
+      <workItem from="1606412482595" duration="4293000" />
+      <workItem from="1606416967061" duration="7212000" />
     </task>
     <servers />
   </component>
@@ -279,10 +299,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="563" y="269" key="#Mess_Detector_Ignored_Files/0.0.1366.728@0.0.1366.728" timestamp="1605879005116" />
-    <state x="431" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602785786850">
+    <state x="431" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606425693242">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="431" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1602785786850" />
+    <state x="431" y="166" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1606425693242" />
     <state x="488" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601628287279">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

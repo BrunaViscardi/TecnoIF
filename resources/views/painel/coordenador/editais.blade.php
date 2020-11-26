@@ -1,11 +1,12 @@
 @extends('painel.Layout.index')
 @section('content')
+
     <section class="content">
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Projetos</h3>
+                        <h3 class="card-title">Editais</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="form-control float-right"
@@ -25,43 +26,37 @@
                         <table class="table table-head-fixed text-nowrap">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Projeto</th>
-                                <th>Expectativa</th>
-                                <th>Área</th>
+
+                                <th>Nome</th>
+                                <th>Data</th>
                                 <th>Situação</th>
-                                <th>File</th>
-                                <th><button class="btn btn-success float-right">Exportar</button></th>
+                                <th>Link</th>
+                                <th>
+                                    <button class="btn btn-success float-right">Exportar</button>
+                                    <a href="{{route('painel.coordenador.cadastroGestores')}}"><button class="btn btn-primary float-right" style="margin-right:2%">Cadastrar</button></a>
+                                </th>
 
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>TecnoIF</td>
-                                <td>passar</td>
-                                <td>Tecnologia</td>
-                                <td>Inscrito</td>
-                                <td>File.pdf</td>
-                                <td><button class="btn btn-primary btn-sm">Mudar situação</button></td>
-                                <td><button class="btn btn-primary btn-sm">Excluir</button></td>
-                                <td><button class="btn btn-primary btn-sm">visualizar</button></td>
+                            @foreach ($editais as $edital)
 
-
-
-                            </tr>
-
+                                <tr>
+                                    <td>{{$edital->nome}}</td>
+                                    <td>{{$edital->data}}</td>
+                                    <td>{{$edital->situacao}}</td>
+                                    <td>{{$edital->link}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Editar</button>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
         </div>
-        <!-- /.row -->
-
     </section>
-
-
 @endsection
