@@ -35,7 +35,7 @@
                                 </li>
                             @if(Auth::user() && Auth::user()->isCandidato())
                                 <li class="nav-item">
-                                    <a href="{{route('painel.mentorado.gerenciarProjeto')}}" class="nav-link ">
+                                    <a href="{{route('painel.mentorado.dashboard')}}" class="nav-link ">
                                         <i class="fas fa-archive nav-icon"></i>
                                         <p>Gerenciar projeto</p>
                                     </a> </li>

@@ -22,6 +22,8 @@ Route::get('/painel/coordenador/configuracoes', 'Painel\CoordenadorController@co
 Route::get('/painel/coordenador/listaGestores', 'Painel\CoordenadorController@lista')->name('painel.coordenador.listaGestores');
 Route::get('/painel/coordenador/cadastroGestores', 'Painel\CoordenadorController@cadastroGestores')->name('painel.coordenador.cadastroGestores');
 Route::get('/painel/coordenador/enviar', 'Painel\CoordenadorController@create')->name('painel.coordenador.enviar');
+Route::get('/painel/coordenador/cadastroEditais', 'Painel\CoordenadorController@cadastroEditais')->name('painel.coordenador.cadastroEditais');
+Route::post('/painel/coordenador/createEditais', 'Painel\CoordenadorController@createEditais')->name('painel.coordenador.createEditais');
 
 
 
@@ -29,4 +31,5 @@ Route::get('painel/mentorado/editar', 'Painel\MentoradoController@editar')->name
 Route::get('painel/mentorado/editais', 'Painel\MentoradoController@editais')->name('painel.mentorado.editais');
 Route::get('/painel/mentorado/configuracoes', 'Painel\MentoradoController@configuracoes')->name('painel.mentorado.configuracoes');
 Route::get('/painel/mentorado/gerenciarProjeto', 'Painel\MentoradoController@gerenciarProjeto')->name('painel.mentorado.gerenciarProjeto');
+Route::get('/painel/mentorado/dashboard', 'Painel\MentoradoController@dashboard')->name('painel.mentorado.dashboard');
 

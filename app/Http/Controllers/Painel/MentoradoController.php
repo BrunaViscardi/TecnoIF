@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Painel;
 
+use App\Edital;
 use App\Http\Controllers\Controller;
 use App\projeto;
 use Illuminate\Http\Request;
@@ -45,6 +46,7 @@ class MentoradoController extends Controller
             $urlAtual = $exploder[1];
 
         }
+        Auth::logout();
         return redirect()->route('painel.mentorado.gerenciarProjeto');
     }
 
@@ -59,6 +61,7 @@ class MentoradoController extends Controller
             $projetos = Projeto::all();
             return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual', 'projetos'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -72,6 +75,7 @@ class MentoradoController extends Controller
             $urlAtual = $exploder[1];
             return view('painel.mentorado.cadastro', compact('user', 'urlAtual'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -82,8 +86,10 @@ class MentoradoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('painel.mentorado.editais', compact('user', 'urlAtual'));
+            $editais = Edital::all();
+            return view('painel.mentorado.editais', compact('user', 'urlAtual','editais'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -96,6 +102,7 @@ class MentoradoController extends Controller
             $urlAtual = $exploder[1];
             return view('painel.mentorado.editar', compact('user', 'urlAtual'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -110,6 +117,7 @@ class MentoradoController extends Controller
             $projetos = Projeto::all();
             return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual','projetos'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -122,6 +130,20 @@ class MentoradoController extends Controller
             $urlAtual = $exploder[1];
             return view('painel.mentorado.configuracoes', compact('user', 'urlAtual'));
         }
+        Auth::logout();
+        return redirect()->route('painel.login');
+
+    }
+    public function dashboard()
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            return view('painel.mentorado.dashboard', compact('user', 'urlAtual'));
+        }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }

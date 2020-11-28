@@ -28,6 +28,7 @@ class GestorController extends Controller
             $projetos = Projeto::all();
             return view('painel.coordenador.acompanharProjetos', compact('user', 'urlAtual', 'projetos'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -41,6 +42,7 @@ class GestorController extends Controller
             $urlAtual = $exploder[1];
             return view('painel.coordenador.cadastroGestores', compact('user', 'urlAtual'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -55,6 +57,7 @@ class GestorController extends Controller
             $editais = Edital::all();
             return view('painel.coordenador.editais', compact('user', 'urlAtual', 'editais'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -68,6 +71,7 @@ class GestorController extends Controller
             $urlAtual = $exploder[1];
             return view('painel.coordenador.configuracoes', compact('user', 'urlAtual'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
 
     }
@@ -81,6 +85,7 @@ class GestorController extends Controller
             $urlAtual = $exploder[1];
             return view('painel.coordenador.cadastroGestores', compact('user', 'urlAtual'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
     }
     public function lista()
@@ -93,6 +98,7 @@ class GestorController extends Controller
             $gestores = Gestor::all();
             return view('painel.coordenador.listaGestores', compact('user', 'urlAtual','gestores'));
         }
+        Auth::logout();
         return redirect()->route('painel.login');
     }
 }
