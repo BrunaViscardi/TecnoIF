@@ -34,8 +34,9 @@
                                 <a href="{{$edital->link}}">
                                     <button type="button" class="btn btn-danger btn-sm">ver</button>
                                 </a>
-                                <button type="button" class="btn btn-danger btn-sm">Editar</button>
-                                <button type="button" class="btn btn-danger btn-sm">Apagar</button>
+                                <a href={{route('painel.mentorado.cadastro',['id'=>$edital->id])}}>
+                                    <button type="button" class="btn btn-danger btn-sm">Inscrição</button>
+                                </a>
                             </td>
                         </tr>
                         @endforeach
@@ -46,8 +47,3 @@
         </div>
     </section>
 @endsection
-
-<td><span class="badge bg-warning">Edital de abertura</span></td>
-
-                        <td><span class="badge bg-success">Edital concluído</span></td>
-

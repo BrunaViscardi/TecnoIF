@@ -16,7 +16,7 @@ class CreateProjetosTable extends Migration
         Schema::create('projetos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('situacao_id')->nullable();
-            $table->integer('edital');
+            $table->unsignedBigInteger('edital_id');
             $table->String('nome_projeto');
             $table->String('campus');
             $table->String('area');
@@ -32,6 +32,7 @@ class CreateProjetosTable extends Migration
             $table->string('email');
             $table->string('telefone');
             $table->foreign('situacao_id')->references('id')->on('situacoes');
+            $table->foreign('edital_id')->references('id')->on('editais');
             $table->timestamps();
         });
     }

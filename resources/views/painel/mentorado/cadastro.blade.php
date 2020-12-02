@@ -89,6 +89,7 @@
                         <small class="form-text text-muted">Insira o telefone do seu mentor</small>
                     </div>
                 </div>
+                <input name="editalId" value="{{$editalId}}" type="hidden">
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-success">Terminar cadastro</button>

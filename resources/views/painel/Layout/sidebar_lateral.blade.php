@@ -48,7 +48,7 @@
                             @endif
                             @if(Auth::user() && Auth::user()->isAdministrador())
                                 <li class="nav-item">
-                                    <a href="" class="nav-link ">
+                                    <a href="{{route('painel.equipe.acompanhar')}}" class="nav-link ">
                                         <i class="fa fa-users nav-icon"></i>
                                         <p>Acompanhar Projetos</p>
                                     </a>

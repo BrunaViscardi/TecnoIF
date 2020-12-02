@@ -27,11 +27,12 @@
                             <thead>
                             <tr>
 
-                                <th>Projeto</th>
+                                <th>Edital</th>
+                                <th>Nome</th>
+                                <th>Campus</th>
                                 <th>Área</th>
                                 <th>Situação</th>
-                                <th>campus</th>
-                                <th>email</th>
+                                <th>Email</th>
                                 <th>
                                     <button class="btn btn-success float-right">Exportar</button>
                                 </th>
@@ -50,6 +51,8 @@
                                     <td>{{$projeto->email}}</td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-sm">Ver</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Editar</button>
                                     </td>
                                 </tr>
                               @endforeach

@@ -19,35 +19,36 @@ class MentoradoController extends Controller
 
     public function create(Request $request)
     {
-        var_dump($request->except('_token'));
-        $projetos = new Projeto();
-        $projetos->nome_projeto = $request->nome_projeto;
-        $projetos->situacao_id = $_GET['id'];
-        $projetos->campus = $request->campus;
-        $projetos->area = $request->area;
-        $projetos->situacao_id = 1;
-        $projetos->problemas = $request->problemas;
-        $projetos->caracteristicas = $request->caracteristicas;
-        $projetos->publico_alvo = $request->publico_alvo;
-        $projetos->dificuldades = $request->dificuldades;
-        $projetos->disponibilidade = $request->disponibilidade;
-        $projetos->resultados = $request->resultados;
-        $projetos->nomeMentor = $request->nomeMentor;
-        $projetos->instituicao = $request->instituicao;
-        $projetos->areaMentor = $request->areaMentor;
-        $projetos->email = $request->email;
-        $projetos->telefone= $request->telefone;
 
-        $projetos->save();
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
+            var_dump($request->except('_token'));
+            $projetos = new Projeto();
+            $projetos->nome_projeto = $request->nome_projeto;
+            $projetos->campus = $request->campus;
+            $projetos->area = $request->area;
+            $projetos->situacao_id = 1;
+            $projetos->edital_id = $request->editalId;
+            $projetos->problemas = $request->problemas;
+            $projetos->caracteristicas = $request->caracteristicas;
+            $projetos->publico_alvo = $request->publico_alvo;
+            $projetos->dificuldades = $request->dificuldades;
+            $projetos->disponibilidade = $request->disponibilidade;
+            $projetos->resultados = $request->resultados;
+            $projetos->nomeMentor = $request->nomeMentor;
+            $projetos->instituicao = $request->instituicao;
+            $projetos->areaMentor = $request->areaMentor;
+            $projetos->email = $request->email;
+            $projetos->telefone= $request->telefone;
+            $projetos->save();
+            return redirect()->route('painel.mentorado.gerenciarProjeto');
 
         }
         Auth::logout();
-        return redirect()->route('painel.mentorado.gerenciarProjeto');
+        return redirect()->route('painel.login');
     }
 
 
@@ -66,15 +67,18 @@ class MentoradoController extends Controller
 
     }
 
-    public function cadastro()
+    public function cadastro( $editalId)
     {
+       //dd($editalId);
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('painel.mentorado.cadastro', compact('user', 'urlAtual'));
+            return view('painel.mentorado.cadastro', compact('user', 'urlAtual', 'editalId' ));
         }
+
+
         Auth::logout();
         return redirect()->route('painel.login');
 
@@ -115,7 +119,8 @@ class MentoradoController extends Controller
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $projetos = Projeto::all();
-            return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual','projetos'));
+            $editais = Edital::all();
+            return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual','projetos','editais'));
         }
         Auth::logout();
         return redirect()->route('painel.login');

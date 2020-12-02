@@ -49,3 +49,4 @@ class CreateCandidatosTable extends Migration
         Schema::dropIfExists('candidatos');
     }
 }
+

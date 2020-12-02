@@ -33,35 +33,6 @@ class GestorController extends Controller
 
     }
 
-    public function cadastroGestores()
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            return view('painel.coordenador.cadastroGestores', compact('user', 'urlAtual'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-
-    }
-
-    public function editais()
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $editais = Edital::all();
-            return view('painel.coordenador.editais', compact('user', 'urlAtual', 'editais'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-
-    }
-
     public function configuracoes()
     {
         if (Auth::check() === true) {
@@ -76,29 +47,4 @@ class GestorController extends Controller
 
     }
 
-    public function create()
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            return view('painel.coordenador.cadastroGestores', compact('user', 'urlAtual'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
-    public function lista()
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $gestores = Gestor::all();
-            return view('painel.coordenador.listaGestores', compact('user', 'urlAtual','gestores'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
 }

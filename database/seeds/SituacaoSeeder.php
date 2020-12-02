@@ -20,5 +20,21 @@ class SituacaoSeeder extends Seeder
             ]
 
         );
+        Situacao::create(
+            [
+                'situacao' => 'Em andamento',
+
+
+            ]
+
+        );
+        Situacao::create(
+            [
+                'situacao' => 'Finalizado',
+
+
+            ]
+
+        );
     }
 }

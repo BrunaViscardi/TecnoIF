@@ -17,8 +17,8 @@
                     <label>Situação </label>
                     <select class="form-control" name="situacao" required  >
                         <option value="">Situação</option>
-                        <option value="Edital abertura">Edital abertura</option>
-                        <option value="Inscrições Abertas">Inscrições Abertas</option>
+                        <option value="Edital abertura">Edital de abertura</option>
+                        <option value="Inscrições Abertas">Inscrições abertas</option>
                         <option value="Edital concluído">Edital concluído</option>
                     </select>
                     </div>

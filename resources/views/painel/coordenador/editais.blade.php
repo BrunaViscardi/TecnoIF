@@ -14,6 +14,10 @@
                         <th>Data</th>
                         <th>situação</th>
                         <th>Ações</th>
+                        <th>
+                            <button class="btn btn-success float-right">Exportar</button>
+                            <a href="{{route('painel.coordenador.cadastroEditais')}}"><button class="btn btn-primary float-right" style="margin-right:2%">Cadastrar</button></a>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -47,8 +51,3 @@
         </div>
     </section>
 @endsection
-
-<td><span class="badge bg-warning">Edital de abertura</span></td>
-
-<td><span class="badge bg-success">Edital concluído</span></td>
-
