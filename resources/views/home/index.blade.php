@@ -11,7 +11,7 @@
 <main role="main">
     <div class="container-brant" id="cabecalho">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand " href="#"> <img id="LogoCabecalho" src="{{ asset('img/tecnoIF.png') }}"
+            <a class="navbar-brand " href="#"> <img id="LogoCabecalho" src="{{ asset('img/TecnoIF.png') }}"
                                                     alt="logo TecnoIF"> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
                 <span class="navbar-toggler-icon"></span>
