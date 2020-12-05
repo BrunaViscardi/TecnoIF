@@ -16,4 +16,5 @@ class Edital extends Model
        'nome','link','data','situacao'
 
     ];
+
 }

@@ -26,13 +26,12 @@
     <input type="text" name="email" id="email" class="form-control" placeholder="Email" required autofocus>
     <label for="password" class="sr-only">Senha</label>
     <input name="password" type="password" id="password" class="form-control" placeholder="Senha" required>
-    <br>
     <a href="{{route('home.cadastro')}}" >Criar minha conta</a>
+    <a style="float: right">Recuperar senha</a>
     <br>
     <br>
-
     <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-
+    <br>
 </form>
 
 

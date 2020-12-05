@@ -61,7 +61,7 @@
                     <p>Seleção de projetos de negócios para integrar a TecnoIF.</p>
                     <p>
                         <a href="http://selecao.ifms.edu.br/busca?termo=TecnoIf">
-                        <button type="button" class="btn btn-secondary">Abrir</button>
+                        <button type="button" class="btn btn-secondary">Visualizar</button>
                         </a>
                     </p>
                 </div>
@@ -77,7 +77,7 @@
                         Regimentos, política, programas e regulamentos.
                     </p>
                     <p><a href="#doc">
-                            <button type="button" class="btn btn-secondary">Abrir</button>
+                            <button type="button" class="btn btn-secondary">Visualizar</button>
                         </a></p>
                 </div>
                 <div class="col-lg-4">
@@ -93,7 +93,7 @@
                     <br>
                     <p>
                         <a href="#contatos">
-                            <button type="button" class="btn btn-secondary">Abrir</button>
+                            <button type="button" class="btn btn-secondary">Visualizar</button>
                         </a>
                     </p>
                 </div>
@@ -172,7 +172,7 @@
 
             <div class="row featurette">
                 <div id="doc" class="col-md-7">
-                    <h2 class="featurette-heading" style="text-align: center">Documentos Relacionados </h2>
+                    <h2 class="featurette-heading" style="text-align: center">Documentos</h2>
 
                     <ul>
                         <li>
@@ -239,7 +239,7 @@
             <br>
             <br>
             <footer class="container">
-                <strong>Copyright &copy; {{date('Y')}} <a href="#">Incubadora de Empresas do IFMS</a>.</strong>
+                <strong>Copyright &copy; {{date('Y')}} Incubadora de Empresas do IFMS.</strong>
                 Todos os direitos reservados.
                 <div class="float-right d-none d-sm-inline-block">
                     <b>Version</b> 1.0

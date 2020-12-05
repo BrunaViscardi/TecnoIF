@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Painel;
 
 use App\Edital;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjetoRequest;
 use App\projeto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,13 +12,15 @@ use Illuminate\Support\Facades\Auth;
 class MentoradoController extends Controller
 {
     public $request = null;
+    private $repositoryProjeto;
 
-    public function __construct(Request $request)
+    public function __construct(Request $request, Projeto $projeto)
     {
         $this->request = $request;
+        $this->repositoryProjeto = $projeto;
     }
 
-    public function create(Request $request)
+    public function create(ProjetoRequest $request)
     {
 
         if (Auth::check() === true) {
@@ -42,7 +45,7 @@ class MentoradoController extends Controller
             $projetos->instituicao = $request->instituicao;
             $projetos->areaMentor = $request->areaMentor;
             $projetos->email = $request->email;
-            $projetos->telefone= $request->telefone;
+            $projetos->telefone = $request->telefone;
             $projetos->save();
             return redirect()->route('painel.mentorado.gerenciarProjeto');
 
@@ -67,15 +70,15 @@ class MentoradoController extends Controller
 
     }
 
-    public function cadastro( $editalId)
+    public function cadastro($editalId)
     {
-       //dd($editalId);
+
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('painel.mentorado.cadastro', compact('user', 'urlAtual', 'editalId' ));
+            return view('painel.mentorado.cadastro', compact('user', 'urlAtual', 'editalId'));
         }
 
 
@@ -83,6 +86,7 @@ class MentoradoController extends Controller
         return redirect()->route('painel.login');
 
     }
+
     public function editais()
     {
         if (Auth::check() === true) {
@@ -91,20 +95,21 @@ class MentoradoController extends Controller
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $editais = Edital::all();
-            return view('painel.mentorado.editais', compact('user', 'urlAtual','editais'));
+            return view('painel.mentorado.editais', compact('user', 'urlAtual', 'editais'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
 
     }
-    public function editar()
+
+    public function cadastroEquipe()
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('painel.mentorado.editar', compact('user', 'urlAtual'));
+            return view('painel.mentorado.cadastroEquipe', compact('user', 'urlAtual'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -120,12 +125,13 @@ class MentoradoController extends Controller
             $urlAtual = $exploder[1];
             $projetos = Projeto::all();
             $editais = Edital::all();
-            return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual','projetos','editais'));
+            return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual', 'projetos', 'editais'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
 
     }
+
     public function configuracoes()
     {
         if (Auth::check() === true) {
@@ -139,6 +145,7 @@ class MentoradoController extends Controller
         return redirect()->route('painel.login');
 
     }
+
     public function dashboard()
     {
         if (Auth::check() === true) {
@@ -151,6 +158,36 @@ class MentoradoController extends Controller
         Auth::logout();
         return redirect()->route('painel.login');
 
+    }
+
+    public function editar($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projetos = $this->repositoryProjeto->find($id);
+            if (!$projetos)
+                return redirect()->back();
+            return view('painel.mentorado.cadastroEdit', compact('user', 'urlAtual', 'projetos'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+
+    }
+    public function cadastroEdit(Request $request, $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $projetos = $this->repositoryProjeto->find($id);
+            if (!$projetos)
+                return redirect()->back();
+            $projetos->update($request->all());
+            return redirect()->route('painel.mentorado.gerenciarProjeto');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
     }
 
 

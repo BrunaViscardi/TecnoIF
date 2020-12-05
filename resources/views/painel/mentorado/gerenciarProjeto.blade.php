@@ -22,14 +22,14 @@
                                         <tr>
                                             <td>{{$edital->nome}}</td>
                                             <td>{{$edital->data}}</td>
-                                            @if($edital->situacao == 'Inscrições abertas')
-                                                <td><span class="badge bg-danger">inscrições abertas</span></td>
+                                            @if($edital->situacao == 'Inscrições Abertas')
+                                                <td><span class="badge bg-danger">inscrições Abertas</span></td>
                                             @endif
-                                            @if($edital->situacao == 'Edital concluído')
-                                                <td><span class="badge bg-success">Edital concluído</span></td>
+                                            @if($edital->situacao == 'Edital Concluído')
+                                                <td><span class="badge bg-success">Edital Concluído</span></td>
                                             @endif
-                                            @if($edital->situacao == 'Edital de abertura')
-                                                <td><span class="badge bg-warning">Edital de abertura</span></td>
+                                            @if($edital->situacao == 'Edital de Abertura')
+                                                <td><span class="badge bg-warning">Edital de Abertura</span></td>
                                             @endif
                                             <td>
                                                 <a href="{{$edital->link}}">
@@ -76,6 +76,11 @@
                                                 <td>Inscrito</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary btn-sm">Ver</button>
+                                                    <form method="post" action="{{route('painel.mentorado.editar',$projeto->id )}}">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         </tbody>

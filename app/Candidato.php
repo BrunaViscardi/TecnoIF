@@ -13,10 +13,19 @@ class Candidato extends Model
      * @var array
      */
     protected $fillable = [
-        'nome','data_nascimento','curso','periodo','turno','telefone',
-        'cpf','rg','file','banco','agencia','conta','endereco',
-         'email','bairro','numero',	'complemento'
+        'nome', 'data_nascimento', 'curso', 'periodo', 'turno', 'telefone',
+        'cpf', 'rg', 'file', 'banco', 'agencia', 'conta', 'endereco',
+        'email', 'bairro', 'numero', 'complemento'
     ];
+
+    public function user()
+    {
+        $this->belongsTo(User::class);
+    }
+    public function projetos(){
+        $this->hasMany(Edital::class);
+    }
+
 
 
 

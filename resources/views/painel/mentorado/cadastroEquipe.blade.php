@@ -4,7 +4,7 @@
         <div class="card card-success">
             <div class="card-header">
 
-                <h3 class="card-title">Cadastro de Projeto</h3>
+                <h3 class="card-title">Cadastro de Equipe</h3>
             </div>
             <form action="{{route('painel.enviar')}}" method="post">
                 @csrf
@@ -54,7 +54,6 @@
                     </div>
 
                 </div>
-
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-success">Cadastrar</button>

@@ -37,7 +37,7 @@ class CandidatoController extends Controller
 
         $users = new User();
         $users->name = $request-> nome;
-        $users->role = 1;
+        $users->role = 0;
         $users->email =  $request-> email;
         $users-> password = $request-> cpf;
         $users->name = $request-> nome;

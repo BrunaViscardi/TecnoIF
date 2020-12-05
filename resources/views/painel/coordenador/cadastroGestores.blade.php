@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label>senha</label>
-                        <input name="senha" class="form-control  @error('senha') is-invalid @enderror" placeholder="senha" >
+                        <input name="senha" type="password" class="form-control  @error('senha') is-invalid @enderror" placeholder="senha" >
                         @error('senha')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -39,8 +39,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Terminar cadastro</button>
-                </div>
+                    <button type="submit" class="btn btn-success">Finalizar cadastro</button></div>
             </form>
         </div>
     </section>

@@ -14,7 +14,9 @@ class Gestor extends Model
      * @var array
      */
     protected $fillable = [
-        'nome','email','senha'
+        'id','nome','email','senha'
 
     ];
+
+
 }

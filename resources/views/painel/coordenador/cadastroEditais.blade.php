@@ -14,15 +14,6 @@
                         <input name="nome" class="form-control" placeholder="Categoria edital">
                     </div>
                     <div class="form-group">
-                    <label>Situação </label>
-                    <select class="form-control" name="situacao" required  >
-                        <option value="">Situação</option>
-                        <option value="Edital abertura">Edital de abertura</option>
-                        <option value="Inscrições Abertas">Inscrições abertas</option>
-                        <option value="Edital concluído">Edital concluído</option>
-                    </select>
-                    </div>
-                    <div class="form-group">
                         <label>Link </label>
                         <input name="link" class="form-control" placeholder="Link" required>
                     </div>
@@ -34,7 +25,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Terminar cadastro</button>
+                    <button type="submit" class="btn btn-success">Finalizar cadastro</button>
                 </div>
             </form>
         </div>

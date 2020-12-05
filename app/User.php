@@ -51,6 +51,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function Candidato()
+    {
+        return $this->hasOne(Candidato::class);
+    }
+    public function Gestor()
+    {
+        return $this->hasOne(Gestor::class);
+    }
+
 
 
 

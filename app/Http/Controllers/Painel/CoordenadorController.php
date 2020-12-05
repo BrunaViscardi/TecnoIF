@@ -15,10 +15,16 @@ use Illuminate\Support\Facades\Hash;
 class CoordenadorController extends Controller
 {
     public $request = null;
+    private $repositoryGestores;
+    private $repositoryUsers;
+    private $repositoryEditais;
 
-    public function __construct(Request $request)
+    public function __construct(Request $request, Gestor $gestor, User $user, Edital $edital)
     {
         $this->request = $request;
+        $this->repositoryGestores = $gestor;
+        $this->repositoryUsers = $user;
+        $this->repositoryEditais = $edital;
     }
 
     public function acompanharProjetos()
@@ -43,12 +49,14 @@ class CoordenadorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('painel.coordenador.cadastroGestores', compact('user', 'urlAtual'));
+            $gestor = Gestor::all();
+            return view('painel.coordenador.cadastroGestores', compact('user', 'urlAtual', 'gestor'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
 
     }
+
     public function cadastroEditais()
     {
         if (Auth::check() === true) {
@@ -103,30 +111,31 @@ class CoordenadorController extends Controller
             $gestores = Gestor::all();
 
             $g = new Gestor();
-            $g->nome = $request-> nome;
-            $g-> senha =  $request-> senha;
-            $g-> email =  $request-> email;
+            $g->nome = $request->nome;
+            $g->senha = $request->senha;
+            $g->email = $request->email;
             $g->save();
 
 
             $users = new User();
-            $users->name = $request-> nome;
+            $users->name = $request->nome;
             $users->role = 2;
-            $users->email =  $request-> email;
-            $users-> password = $request-> senha;
-            $users->name = $request-> nome;
+            $users->email = $request->email;
+            $users->password = $request->senha;
+            $users->name = $request->nome;
             User::create([
                 'role' => $users['role'],
                 'name' => $users['name'],
                 'email' => $users['email'],
                 'password' => Hash::make($users['password']),
             ]);
-            return redirect()->route(   'painel.coordenador.listaGestores', compact('user', 'urlAtual', 'gestores'));
+            return redirect()->route('painel.coordenador.listaGestores', compact('user', 'urlAtual', 'gestores'));
 
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
+
     public function lista()
     {
         if (Auth::check() === true) {
@@ -135,12 +144,13 @@ class CoordenadorController extends Controller
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $gestores = Gestor::all();
-            return view('painel.coordenador.listaGestores', compact('user', 'urlAtual','gestores'));
+            return view('painel.coordenador.listaGestores', compact('user', 'urlAtual', 'gestores'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
-    public function createEditais( Request $request)
+
+    public function createEditais(Request $request)
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
@@ -150,9 +160,9 @@ class CoordenadorController extends Controller
             $editais = Edital::all();
             $e = new Edital();
             $e->nome = $request->nome;
-            $e->data =$request->data;
-            $e-> situacao =  $request-> situacao;
-            $e-> link =  $request-> link;
+            $e->data = $request->data;
+            $e->situacao ="Edital de Abertura";
+            $e->link = $request->link;
             $e->save();
             return redirect()->route('painel.coordenador.editais', compact('user', 'urlAtual', 'editais'));
 
@@ -160,5 +170,47 @@ class CoordenadorController extends Controller
         Auth::logout();
 
         return redirect()->route('painel.login');
+    }
+
+    public function deleteGestor( $email)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $gestor = $this->repositoryGestores->where('email', $email);
+            $user = $this->repositoryUsers->where('email', $email);
+            if (!$gestor and !$user)
+                return redirect()->back();
+            $gestor->delete();
+            $user->delete();
+
+            return redirect()->route('painel.coordenador.listaGestores', compact('user', 'urlAtual'));
+
+        }
+        Auth::logout();
+
+        return redirect()->route('painel.login');
+
+    }
+    public function deleteEdital( $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $edital = $this->repositoryEditais->where('id', $id);
+            if (!$edital)
+                return redirect()->back();
+            $edital->delete();
+            return redirect()->route('painel.coordenador.editais', compact('user', 'urlAtual'));
+
+        }
+        Auth::logout();
+
+        return redirect()->route('painel.login');
+
     }
 }
