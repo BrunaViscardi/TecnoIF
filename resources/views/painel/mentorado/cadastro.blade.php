@@ -6,7 +6,7 @@
 
                 <h3 class="card-title">Cadastro de Projeto</h3>
             </div>
-            <form action="{{route('painel.enviar')}}" method="post">
+            <form action="{{route('painel/mentorado/enviar')}}" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">

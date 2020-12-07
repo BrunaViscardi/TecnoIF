@@ -35,7 +35,8 @@ class StoreUserRequest extends FormRequest
             'agencia'=> 'required',
             'banco'=> 'required',
             'endereco'=> 'required',
-            'nascimento'=> 'required'
+            'nascimento'=> 'required',
+            'anexo'=>'required'
 
         ];
     }
@@ -49,7 +50,7 @@ class StoreUserRequest extends FormRequest
             'rg.required' => 'O campo RG é obrigatório.',
               'email.required' => 'O campo Email é obrigatório.',
             'campus.required' => 'O campo Campus é obrigatório.',
-
+            'anexo.required'=> 'O campo anexo é obrigatório.',
             'conta.required' => 'O campo Conta  é obrigatório.',
             'agencia.required' => 'O campo Agência é obrigatório.',
             'banco.required' => 'O campo Banco é obrigatório.',

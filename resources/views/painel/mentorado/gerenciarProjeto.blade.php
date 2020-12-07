@@ -35,7 +35,7 @@
                                                 <a href="{{$edital->link}}">
                                                     <button type="button" class="btn btn-danger btn-sm">ver</button>
                                                 </a>
-                                                <a href={{route('painel.mentorado.cadastro')}}>
+                                                <a href={{route('painel.mentorado.cadastro',['id'=>$edital->id])}}>
                                                     <button type="button" class="btn btn-danger btn-sm">Inscrição</button>
                                                 </a>
                                             </td>

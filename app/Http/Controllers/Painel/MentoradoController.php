@@ -47,7 +47,7 @@ class MentoradoController extends Controller
             $projetos->email = $request->email;
             $projetos->telefone = $request->telefone;
             $projetos->save();
-            return redirect()->route('painel.mentorado.gerenciarProjeto');
+            return "oiii";
 
         }
         Auth::logout();

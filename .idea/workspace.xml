@@ -20,29 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/ProjetoRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastroEdit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Candidato.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Candidato.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Edital.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Edital.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Gestor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Gestor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/CoordenadorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/CoordenadorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/MentoradoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/MentoradoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Projeto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Projeto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_02_170812_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_02_170812_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/UserSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/Layout/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/coordenador/cadastroEditais.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/cadastroEditais.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/coordenador/cadastroGestores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/cadastroGestores.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUserRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/painel/coordenador/editais.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/editais.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/coordenador/listaGestores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/listaGestores.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastro.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/editais.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/editais.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/editar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastroEquipe.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/gerenciarProjeto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/gerenciarProjeto.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -287,6 +270,7 @@
       <workItem from="1607137623853" duration="15701000" />
       <workItem from="1607187191066" duration="519000" />
       <workItem from="1607188341877" duration="11235000" />
+      <workItem from="1607360176078" duration="4679000" />
     </task>
     <servers />
   </component>

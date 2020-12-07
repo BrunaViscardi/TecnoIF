@@ -36,5 +36,5 @@ Route::get('painel/mentorado/editais', 'Painel\MentoradoController@editais')->na
 Route::get('/painel/mentorado/configuracoes', 'Painel\MentoradoController@configuracoes')->name('painel.mentorado.configuracoes');
 Route::get('/painel/mentorado/gerenciarProjeto', 'Painel\MentoradoController@gerenciarProjeto')->name('painel.mentorado.gerenciarProjeto');
 Route::get('/painel/mentorado/dashboard', 'Painel\MentoradoController@dashboard')->name('painel.mentorado.dashboard');
-Route::post('/painel/enviar', 'Painel\MentoradoController@create')->name('painel.enviar');
+Route::post('/painel/mentorado/enviar', 'Painel\MentoradoController@create')->name('painel/mentorado/enviar');
 Route::put('/painel/mentorado/editar/{id}', 'Painel\MentoradoController@editar')->name('painel.mentorado.editar');
