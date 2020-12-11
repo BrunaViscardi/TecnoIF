@@ -50,7 +50,7 @@
                                     <td>{{$projeto->situacao}}</td>
                                     <td>{{$projeto->email}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-sm">Ver</button>
+                                        <a href="{{route('painel.equipe.visualizarProjeto', $projeto->id)}}"><button type="button" class="btn btn-primary btn-sm">Ver</button></a>
                                         <button type="button" class="btn btn-danger btn-sm">Excluir</button>
                                         <button type="button" class="btn btn-danger btn-sm">Editar</button>
                                     </td>

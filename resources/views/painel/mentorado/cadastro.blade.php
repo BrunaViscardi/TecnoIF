@@ -6,12 +6,12 @@
 
                 <h3 class="card-title">Cadastro de Projeto</h3>
             </div>
-            <form action="{{route('painel/mentorado/enviar')}}" method="post">
+            <form action="{{route('painel.mentorado.enviar')}}" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
                         <label>Nome do Projeto</label>
-                        <input name="nome_projeto" class="form-control @error('nome_projeto') is-invalid @enderror" placeholder="Nome do Projeto">
+                        <input name="nome_projeto" class="form-control @error('nome_projeto') is-invalid @enderror" placeholder="Nome do Projeto" >
                         @error('nome_projeto')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -161,7 +161,7 @@
                 </div>
                 <input name="editalId" value="{{$editalId}}" type="hidden">
 
-                <div class="card-footer">
+                <div class="card-footer" style=" text-align: center">
                     <button type="submit" class="btn btn-success">Finalizar cadastro</button>
                 </div>
             </form>

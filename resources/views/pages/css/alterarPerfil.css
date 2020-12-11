@@ -1,12 +1,20 @@
 
+
+.lh-condensed { line-height: 1.25; }
+
+
+.col-sm{
+    margin-top: 5%;
+}
+
+
 label{
     width: 100%;
 }
 .formR{
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
+
 }
 @media screen and (max-width: 700px){
     .formR{
@@ -18,8 +26,4 @@ label{
     width: 100%;
     text-align: left;
 }
-#input{
-    width: 100%;
-}
-
 

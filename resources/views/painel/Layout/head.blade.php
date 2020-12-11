@@ -7,10 +7,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('/AdminLTE-3.0.5/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
+
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="{{asset('/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
+    <link rel="stylesheet" href="{{asset('pages/css/alterarPerfil.css')}}">
+
     <link rel="stylesheet" href="{{asset('/AdminLTE-3.0.5/plugins/icheck-bootstrap/icheck-bootstrap.css')}}">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{asset('/AdminLTE-3.0.5/plugins/jqvmap/jqvmap.min.css')}}">

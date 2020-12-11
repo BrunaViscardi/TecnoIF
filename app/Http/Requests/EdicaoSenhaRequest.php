@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 use App\Rules\FullName;
 use Illuminate\Foundation\Http\FormRequest;
 
-class GestorRequest extends FormRequest
+class EdicaoSenhaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class GestorRequest extends FormRequest
     public function rules()
     {
         return [
-            'senhaAntiga'=> 'password:api|required  ',
-
+            //'senhaAtual'=> 'password:api',
+            //'senha'=> 'confirmed|required|min:8',
         ];
     }
     public function messages()
     {
         return[
-            'senhaAntiga.required' =>'O campo senha é obrigatório.'
+
 
         ];
     }

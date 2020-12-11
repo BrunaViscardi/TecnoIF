@@ -39,12 +39,32 @@
                                         <i class="fas fa-archive nav-icon"></i>
                                         <p>Gerenciar projeto</p>
                                     </a> </li>
-                                <li class="nav-item">
-                                    <a href="{{route('painel.mentorado.configuracoes')}}" class="nav-link ">
+
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
                                         <i class="fas fa-user-cog nav-icon"></i>
-                                        <p>Configurações</p>
+                                        <p>
+                                            Configurações
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="{{route('painel.mentorado.alterarPerfil')}}" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Alterar dados do Perfil</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('painel.mentorado.alterarSenha')}}" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Alterar senha</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
+
                             @endif
                             @if(Auth::user() && Auth::user()->isAdministrador())
                                 <li class="nav-item">
@@ -52,10 +72,30 @@
                                         <i class="fa fa-users nav-icon"></i>
                                         <p>Acompanhar Projetos</p>
                                     </a>
-                                    <a href="" class="nav-link ">
-                                        <i class="fa fa-users nav-icon"></i>
-                                        <p>Configurações</p>
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
+                                        <i class="fas fa-user-cog nav-icon"></i>
+                                        <p>
+                                            Configurações
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Alterar dados do Perfil</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{route('painel.equipe.alterarSenha')}}" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Alterar senha</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
                             @endif
                             @if(Auth::user() && Auth::user()->isCoordenador())
@@ -72,10 +112,24 @@
                                         <i class="fas fa-archive nav-icon"></i>
                                         <p>Acompanhar Projetos</p>
                                     </a>
-                                    <a href="{{route('painel.coordenador.configuracoes')}}" class="nav-link ">
+                                </li>
+                                <li class="nav-item has-treeview">
+                                    <a href="#" class="nav-link">
                                         <i class="fas fa-user-cog nav-icon"></i>
-                                        <p>Configurações</p>
+                                        <p>
+                                            Configurações
+                                            <i class="right fas fa-angle-left"></i>
+                                        </p>
                                     </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="{{route('painel.coordenador.alterarSenha')}}" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Alterar senha</p>
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
                             @endif
                         </ul>

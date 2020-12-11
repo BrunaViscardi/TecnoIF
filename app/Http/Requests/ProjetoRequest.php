@@ -26,11 +26,10 @@ class ProjetoRequest extends FormRequest
     {
         return [
             'telefone'=> 'required|celular_com_ddd',
-            'email'=> 'required|email:rfc,dns|unique:users',
+            'email'=> 'required|email:rfc,dns',
             'nome_projeto' =>'required',
             'campus' => 'required',
             'area' => 'required',
-            'projetos'=> 'required',
             'problemas'=> 'required',
             'caracteristicas' => 'required',
             'publico_alvo'=>'required',

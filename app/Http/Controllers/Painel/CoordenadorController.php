@@ -7,6 +7,7 @@ use App\Gestor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GestorRequest;
 use App\projeto;
+use App\Situacao;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,13 +19,17 @@ class CoordenadorController extends Controller
     private $repositoryGestores;
     private $repositoryUsers;
     private $repositoryEditais;
+    private $repositoryProjetos;
+    private $repositorySituacao;
 
-    public function __construct(Request $request, Gestor $gestor, User $user, Edital $edital)
+    public function __construct(Request $request, Gestor $gestor, User $user, Edital $edital, Projeto  $projeto, Situacao $situacao)
     {
         $this->request = $request;
         $this->repositoryGestores = $gestor;
         $this->repositoryUsers = $user;
         $this->repositoryEditais = $edital;
+        $this->repositoryProjetos = $projeto;
+        $this->repositorySituacao = $situacao;
     }
 
     public function acompanharProjetos()
@@ -213,4 +218,66 @@ class CoordenadorController extends Controller
         return redirect()->route('painel.login');
 
     }
+    public function alterarSenha()
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            return view('painel.coordenador.alterarSenha', compact('user', 'urlAtual'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+
+    }
+    public function editarEdital($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $edital = $this->repositoryEditais->where('id', $id)->first();
+
+            return view('painel.coordenador.editarEdital', compact('user', 'urlAtual', 'edital'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+
+    }
+    public function edicaoEdital(Request $request, $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $edital = $this->repositoryEditais->find($request->id);
+            if (!$edital)
+                return redirect()->back();
+            $edital->update($request->all());
+            return redirect()->route('painel.coordenador.editais');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+
+    public function visualizarProjeto($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projeto =  $this->repositoryProjetos->find($id);
+            $edital = $this->repositoryEditais->where('id', $projeto->edital_id)->first();;
+            $situacao = $this->repositorySituacao->where('id', $projeto->situacao_id)->first();
+            return view('painel.coordenador.visualizarProjeto', compact('user', 'urlAtual', 'projeto','edital', 'situacao'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+
+    }
+
 }

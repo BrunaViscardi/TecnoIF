@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Candidato extends Model
+class  Mentorado extends Model
 {
-    protected $table = 'candidatos';
+    protected $table = 'mentorados';
     /**
      * The attributes that are mass assignable.
      *
@@ -14,7 +14,7 @@ class Candidato extends Model
      */
     protected $fillable = [
         'nome', 'data_nascimento', 'curso', 'periodo', 'turno', 'telefone',
-        'cpf', 'rg', 'file', 'banco', 'agencia', 'conta', 'endereco',
+        'cpf', 'rg', 'anexo', 'banco', 'agencia', 'conta', 'endereco',
         'email', 'bairro', 'numero', 'complemento'
     ];
 

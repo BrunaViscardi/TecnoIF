@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{url(mix('pages/css/cadastro.css'))}}">
-    <link rel="stylesheet" href="{{url(mix('pages/css/style.css'))}}">
+    <link rel="stylesheet" href="{{asset('pages/css/cadastro.css')}}">
+    <link rel="stylesheet" href="{{asset('pages/css/style.css')}}">
     <link rel="stylesheet" href="{{asset ('pages/style.css')}}">
     <title>Cadastro de candidatos</title>
 </head>
@@ -36,7 +36,6 @@
                     </li>
                 </ul>
             </div>
-
         </nav>
     </div>
 
@@ -46,19 +45,21 @@
             <div class="col-sm">
                 <div class="form-group">
                     <label>Nome
-                    <input  type="text" class="form-control @error('nome') is-invalid @enderror" id="nome"  placeholder="Nome" name="nome">
+                        <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome"
+                               placeholder="Nome" name="nome">
 
-                    @error('nome')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror
+                        @error('nome')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </label>
                 </div>
                 <div class="formR">
                     <div class="form-group col">
                         <label> Data de Nascimento
-                        <input  name="nascimento" type="date" class="form-control @error('nascimento') is-invalid @enderror" >
+                            <input name="nascimento" type="date"
+                                   class="form-control @error('nascimento') is-invalid @enderror">
                             @error('nascimento')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -68,7 +69,8 @@
                     </div>
                     <div class="form-group col">
                         <label>Celular
-                        <input name="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror" >
+                            <input name="telefone" type="text"
+                                   class="form-control @error('telefone') is-invalid @enderror">
                             @error('telefone')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -80,7 +82,7 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>CPF
-                        <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror"  >
+                            <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror">
                             @error('cpf')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -90,7 +92,7 @@
                     </div>
                     <div class="form-group col">
                         <label>RG
-                        <input name="rg" type="text" class="form-control @error('rg') is-invalid @enderror" >
+                            <input name="rg" type="text" class="form-control @error('rg') is-invalid @enderror">
                             @error('rg')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -102,7 +104,7 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>Email
-                        <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" >
+                            <input name="email" type="text" class="form-control @error('email') is-invalid @enderror">
                             @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -113,7 +115,7 @@
                     <div class="form-group col">
                         <label>Campus
                             <select name="campus" class="form-control @error('campus') is-invalid @enderror">
-                                <option value="">Campus </option>
+                                <option value="">Campus</option>
                                 <option value="Aquidauana">Aquidauana</option>
                                 <option value="Campo Grande">Campo Grande</option>
                                 <option value="Corumbá">Corumbá</option>
@@ -136,39 +138,41 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>Curso
-                           <input name="curso" type="text" class="form-control">
+                            <input name="curso" type="text" class="form-control">
                         </label>
                     </div>
                     <div class="form-group col">
                         <label>Turno
                             <select name="turno" class="form-control">
                                 <option value="">Turno</option>
-                                <option value="Integral">Integral </option>
-                                <option value="Matutino">Matutino </option>
-                                <option value="Vespertino">Vespertino </option>
+                                <option value="Integral">Integral</option>
+                                <option value="Matutino">Matutino</option>
+                                <option value="Vespertino">Vespertino</option>
                                 <option value="Noturno">Noturno</option>
                             </select>
                         </label>
                     </div>
                     <div class="form-group col">
                         <label>Período
-                        <input name="periodo" type="number" class="form-control" min="1" max="10">
+                            <input name="periodo" type="number" class="form-control" min="1" max="10">
                         </label>
                     </div>
                 </div>
                 <div>
-                    <label id="anexo" class="btn btn-light " for="fupload" style="text-align: center">Anexe um documento que comprove seus dados bancarios:
-                        <input id ="fupload" name="file" type="file" style="display: none" class="@error('anexo') is-invalid @enderror"  accept=".png, .jpg, .jpeg, .pdf">
-                    @error('anexo')
-                    <div class="invalid-feedback">
-                        {{ $message }}
-                    </div>
-                    @enderror</label>
+                    <label id="anexo" class="btn btn-light " for="fupload" style="text-align: center">Anexe um documento
+                        que comprove seus dados bancarios:
+                        <input id="fupload" name="anexo" type="file" style="display: none"
+                               class="@error('anexo') is-invalid @enderror" accept=".png, .jpg, .jpeg, .pdf">
+                        @error('anexo')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror</label>
                 </div>
                 <div class="formR">
                     <div class="form-group col">
                         <label>Conta
-                        <input name="conta" type="text" class="form-control @error('conta') is-invalid @enderror" >
+                            <input name="conta" type="text" class="form-control @error('conta') is-invalid @enderror">
                             @error('conta')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -178,7 +182,8 @@
                     </div>
                     <div class="form-group col">
                         <label>Agência
-                        <input name="agencia" type="text" class="form-control @error('agencia') is-invalid @enderror" >
+                            <input name="agencia" type="text"
+                                   class="form-control @error('agencia') is-invalid @enderror">
                             @error('agencia')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -188,7 +193,7 @@
                     </div>
                     <div class="form-group col">
                         <label>Banco
-                        <input name="banco" type="text" class="form-control @error('banco') is-invalid @enderror" >
+                            <input name="banco" type="text" class="form-control @error('banco') is-invalid @enderror">
                             @error('banco')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -199,7 +204,7 @@
                 </div>
                 <div class="form-group">
                     <label>Endereço
-                    <input name="endereco" type="text" class="form-control @error('endereco') is-invalid @enderror" >
+                        <input name="endereco" type="text" class="form-control @error('endereco') is-invalid @enderror">
                         @error('endereco')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -210,19 +215,19 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>Bairro
-                        <input name="bairro" type="text" class="form-control" >
+                            <input name="bairro" type="text" class="form-control">
 
                         </label>
                     </div>
                     <div class="form-group col">
                         <label>Número
-                        <input name="numero" type="number" class="form-control" >
+                            <input name="numero" type="number" class="form-control">
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Complemento
-                        <input id="input" name="complemento" type="text" class="form-control" >
+                        <input id="input" name="complemento" type="text" class="form-control">
 
                     </label>
                 </div>

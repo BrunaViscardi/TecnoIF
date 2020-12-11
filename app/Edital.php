@@ -16,5 +16,18 @@ class Edital extends Model
        'nome','link','data','situacao'
 
     ];
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'data' => 'datetime',
+    ];
+   /* public  function getDataFormatada()
+    {
+        $this->data->format('d/m/Y');
+    }*/
+
 
 }

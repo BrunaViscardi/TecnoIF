@@ -28,6 +28,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label>Campus </label>
+                        <input name="campus" class="form-control  @error('campus') is-invalid @enderror" placeholder="Email" >
+                        @error('campus')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label>senha</label>
                         <input name="senha" type="password" class="form-control  @error('senha') is-invalid @enderror" placeholder="senha" >
                         @error('senha')

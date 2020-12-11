@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCandidatosTable extends Migration
+class CreateMentoradosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateCandidatosTable extends Migration
      */
     public function up()
     {
-        Schema::create('candidatos', function (Blueprint $table) {
+        Schema::create('mentorados', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('projeto_id')->nullable();;
             $table->string('nome');
             $table->date('data_nascimento');
             $table->String('curso')->nullable();
@@ -24,7 +23,7 @@ class CreateCandidatosTable extends Migration
             $table->string('telefone');
             $table->string('cpf');
             $table->string('rg');
-            $table->binary('file')->nullable();
+            $table->binary('anexo')->nullable();
             $table->string('banco')->nullable();
             $table->string('agencia')->nullable();
             $table->string('conta')->nullable();
@@ -33,8 +32,6 @@ class CreateCandidatosTable extends Migration
             $table->string('bairro')->nullable();
             $table->integer('numero')->nullable();
             $table->string('complemento')->nullable();
-            $table->foreign('projeto_id')->references('id')->on('projetos');
-
             $table->timestamps();
         });
     }
@@ -46,7 +43,7 @@ class CreateCandidatosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('candidatos');
+        Schema::dropIfExists('mentorados');
     }
 }
 

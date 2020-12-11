@@ -11,7 +11,7 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'name','role', 'email', 'password',
+        'name','role', 'idMentorado', 'email', 'password',
     ];
 
 
@@ -53,7 +53,7 @@ class User extends Authenticatable
     ];
     public function Candidato()
     {
-        return $this->hasOne(Candidato::class);
+        return $this->hasOne(Mentorado::class);
     }
     public function Gestor()
     {

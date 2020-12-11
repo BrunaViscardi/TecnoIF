@@ -25,8 +25,17 @@ Route::post('/painel/coordenador/create', 'Painel\CoordenadorController@create')
 Route::get('/painel/coordenador/cadastroEditais', 'Painel\CoordenadorController@cadastroEditais')->name('painel.coordenador.cadastroEditais');
 Route::post('/painel/coordenador/createEditais', 'Painel\CoordenadorController@createEditais')->name('painel.coordenador.createEditais');
 Route::delete('/painel/coordenador/deleteGestor/{email}', 'Painel\CoordenadorController@deleteGestor')->name('painel.coordenador.deleteGestor');
-Route::delete('/painel/coordenador/deleteEdital/{id}', 'Painel\CoordenadorController@deleteEdital')->name('painel.coordenador.deleteEdital');
+Route::get('/painel/coordenador/deleteEdital/{id}', 'Painel\CoordenadorController@deleteEdital')->name('painel.coordenador.deleteEdital');
+Route::get('/painel/coordenador/alterarSenha', 'Painel\CoordenadorController@alterarSenha')->name('painel.coordenador.alterarSenha');
+Route::put('/painel/coordenador/editarEdital/{id}', 'Painel\CoordenadorController@editarEdital')->name('painel.coordenador.editarEdital');
+Route::put('/painel/coordenador/edicaoEdital/{id}', 'Painel\CoordenadorController@edicaoEdital')->name('painel.coordenador.edicaoEdital');
+Route::get('/painel/coordenador/visualizarProjeto/{id}', 'Painel\CoordenadorController@visualizarProjeto')->name('painel.coordenador.visualizarProjeto');
+
+
+
 Route::get('/painel/equipe/acompanhar', 'Painel\GestorController@AcompanharProjetos')->name('painel.equipe.acompanhar');
+Route::get('/painel/equipe/alterarSenha', 'Painel\GestorController@alterarSenha')->name('painel.equipe.alterarSenha');
+Route::put('/painel/equipe/visualizarProjeto/{id}', 'Painel\GestorController@visualizarProjeto')->name('painel.equipe.visualizarProjeto');
 
 
 Route::get('painel/mentorado/cadastro/{id}', 'Painel\MentoradoController@cadastro')->name('painel.mentorado.cadastro');
@@ -36,5 +45,13 @@ Route::get('painel/mentorado/editais', 'Painel\MentoradoController@editais')->na
 Route::get('/painel/mentorado/configuracoes', 'Painel\MentoradoController@configuracoes')->name('painel.mentorado.configuracoes');
 Route::get('/painel/mentorado/gerenciarProjeto', 'Painel\MentoradoController@gerenciarProjeto')->name('painel.mentorado.gerenciarProjeto');
 Route::get('/painel/mentorado/dashboard', 'Painel\MentoradoController@dashboard')->name('painel.mentorado.dashboard');
-Route::post('/painel/mentorado/enviar', 'Painel\MentoradoController@create')->name('painel/mentorado/enviar');
+Route::post('/painel/mentorado/enviar', 'Painel\MentoradoController@create')->name('painel.mentorado.enviar');
 Route::put('/painel/mentorado/editar/{id}', 'Painel\MentoradoController@editar')->name('painel.mentorado.editar');
+Route::get('/painel/mentorado/alterarSenha', 'Painel\MentoradoController@alterarSenha')->name('painel.mentorado.alterarSenha');
+Route::put('/painel/mentorado/alteracao', 'Painel\MentoradoController@alteracao')->name('painel.mentorado.alteracao');
+Route::get('/painel/mentorado/alterarPerfil', 'Painel\MentoradoController@alterarPerfil')->name('painel.mentorado.alterarPerfil');
+Route::put('/painel/mentorado/alteracaoPerfil', 'Painel\MentoradoController@alteracaoPerfil')->name('painel.mentorado.alteracaoPerfil');
+
+Route::get('/painel/mentorado/visualizarProjeto/{id}', 'Painel\MentoradoController@visualizarProjeto')->name('painel.mentorado.visualizarProjeto');
+
+

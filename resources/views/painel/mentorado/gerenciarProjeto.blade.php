@@ -75,9 +75,11 @@
                                                 <td>{{$projeto->area}}</td>
                                                 <td>Inscrito</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-sm">Ver</button>
+
                                                     <form method="post" action="{{route('painel.mentorado.editar',$projeto->id )}}">
-                                                    @csrf
+                                                        <a href="{{route('painel.mentorado.visualizarProjeto',$projeto->id)}}"><button type="button" class="btn btn-primary btn-sm">Ver</button></a>
+                                                        <button type="submit" class="btn btn-warning btn-sm">Montar equipe</button>
+                                                        @csrf
                                                     @method('PUT')
                                                     <button type="submit" class="btn btn-warning btn-sm">Editar</button>
                                                     </form>

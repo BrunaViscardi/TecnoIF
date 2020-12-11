@@ -23,9 +23,12 @@
                     @foreach ($editais as $edital)
                         <tr>
                             <td>{{$edital->nome}}</td>
-                            <td>{{$edital->data}}</td>
+                            <td>{{$edital->data->format('d/m/Y')}}</td>
                             @if($edital->situacao == 'Inscrições Abertas')
                                 <td><span class="badge bg-danger">inscrições Abertas</span></td>
+                            @endif
+                            @if($edital->situacao == 'Edital em Período de Avalição')
+                                <td><span class="badge bg-success">Edital Concluído</span></td>
                             @endif
                             @if($edital->situacao == 'Edital Concluído')
                                 <td><span class="badge bg-success">Edital Concluído</span></td>
@@ -34,12 +37,15 @@
                                 <td><span class="badge bg-warning">Edital de Abertura</span></td>
                             @endif
                             <td>
-                                <a href="{{$edital->link}}">
-                                    <button type="button" class="btn btn-danger btn-sm">ver</button>
-                                </a>
-                                <a>
-                                    <button type="button" class="btn btn-danger btn-sm">Editar</button>
-                                </a>
+                                <form method="post" action="{{route('painel.coordenador.editarEdital',$edital->id )}}">
+                                    <a href="{{$edital->link}}" target="_blank">
+                                        <button type="button" class="btn btn-danger btn-sm">Ver</button>
+                                    </a>
+                                    <a href="{{route('painel.coordenador.deleteEdital',$edital->id)}}"><button type="button" class="btn btn-danger btn-sm">Excluir</button></a>
+                                    @csrf
+                                    @method('PUT')
+                                    <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
