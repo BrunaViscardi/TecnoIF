@@ -119,6 +119,7 @@ class CoordenadorController extends Controller
             $g->nome = $request->nome;
             $g->senha = $request->senha;
             $g->email = $request->email;
+            $g->campus = $request->campus;
             $g->save();
 
 
@@ -279,5 +280,25 @@ class CoordenadorController extends Controller
         return redirect()->route('painel.login');
 
     }
+    public function deletarProjeto( $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projeto = $this->repositoryProjetos->where('id', $id);
+            if (!$projeto)
+                return redirect()->back();
+            $projeto->delete();
+            return redirect()->route('painel.coordenador.acompanharProjetos');
+
+        }
+        Auth::logout();
+
+        return redirect()->route('painel.login');
+
+    }
+
 
 }

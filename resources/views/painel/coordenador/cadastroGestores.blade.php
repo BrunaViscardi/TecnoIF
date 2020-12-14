@@ -29,8 +29,20 @@
                     </div>
                     <div class="form-group">
                         <label>Campus </label>
-                        <input name="campus" class="form-control  @error('campus') is-invalid @enderror" placeholder="Email" >
-                        @error('campus')
+                        <select name="campus" class="form-control  @error('campus') is-invalid @enderror"  >
+                            <option value="">Campus</option>
+                            <option value="Aquidauana">Aquidauana</option>
+                            <option value="Campo Grande">Campo Grande</option>
+                            <option value="Corumbá">Corumbá</option>
+                            <option value="Coxim">Coxim</option>
+                            <option value="Dourados">Dourados</option>
+                            <option value="Jardim">Jardim</option>
+                            <option value="Naviraí">Naviraí</option>
+                            <option value="Nova Andradina">Nova Andradina</option>
+                            <option value="Ponta Porã">Ponta Porã</option>
+                            <option value="Três Lagoas">Três Lagoas</option>
+                        </select>
+                            @error('campus')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>

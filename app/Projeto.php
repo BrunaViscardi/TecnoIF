@@ -13,7 +13,7 @@ class Projeto extends Model
         'areaMentor', 'email', 'telefone', 'campus', 'edital_id', 'id'
     ];
      public function candidatos(){
-         $this->hasMany(Candidato::class);
+         $this->hasMany(Mentorado::class);
      }
     public function edital(){
         $this->hasOne(Edital::class);

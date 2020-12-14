@@ -17,6 +17,7 @@ class CreateMentoradosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome');
             $table->date('data_nascimento');
+            $table->string('campus');
             $table->String('curso')->nullable();
             $table->String('periodo')->nullable();
             $table->String('turno')->nullable();

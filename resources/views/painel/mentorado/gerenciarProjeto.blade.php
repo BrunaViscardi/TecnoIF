@@ -78,7 +78,7 @@
 
                                                     <form method="post" action="{{route('painel.mentorado.editar',$projeto->id )}}">
                                                         <a href="{{route('painel.mentorado.visualizarProjeto',$projeto->id)}}"><button type="button" class="btn btn-primary btn-sm">Ver</button></a>
-                                                        <button type="submit" class="btn btn-warning btn-sm">Montar equipe</button>
+                                                        <a href="{{route('painel.mentorado.equipe',$projeto->id)}}"><button type="button" class="btn btn-warning btn-sm">Montar equipe</button></a>
                                                         @csrf
                                                     @method('PUT')
                                                     <button type="submit" class="btn btn-warning btn-sm">Editar</button>

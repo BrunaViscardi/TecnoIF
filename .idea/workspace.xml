@@ -20,44 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7477932-8ae8-4f9b-b863-5802baedc761" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/pages/css/alterarPerfil.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/css/alterarPerfil.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/Layout/alterarSenha.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/alterarSenha.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/editarEdital.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/visualizarProjeto.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/equipe/alterarSenha.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/equipe/visualizarProjeto.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/visualizarProjeto.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/equipeRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Mentorado_projeto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_12_185105_create_mentorados_projeto_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/tecnoIFTelaEscura.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/equipe.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Candidato.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mentorado.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Edital.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Edital.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Home/CandidatoController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/CoordenadorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/CoordenadorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/GestorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/GestorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Painel/MentoradoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Painel/MentoradoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/EdicaoSenhaRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/EdicaoSenhaRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProjetoRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProjetoRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Rules/Email.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_02_170702_create_candidatos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_02_170702_create_mentorados_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_02_170812_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_02_170812_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/AdminLTE-3.0.5/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/pages/css/cadastro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/GestorRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/GestorRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Projeto.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Projeto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_26_193424_create_gestores_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_26_193424_create_gestores_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_02_170702_create_mentorados_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_12_02_170702_create_mentorados_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/home/cadastro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home/cadastro.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/css/cadastro.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/Layout/head.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/head.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/Layout/sidebar_lateral.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/Layout/sidebar_lateral.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/painel/coordenador/acompanharProjetos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/acompanharProjetos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/painel/coordenador/cadastroGestores.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/cadastroGestores.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/coordenador/editais.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/coordenador/editais.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/equipe/acompanhar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/equipe/acompanharProjetos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/alterarPerfil.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/alterarPerfil.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/alterarSenha.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/alterarSenha.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastro.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastro.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/configuracoes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/configuracoes.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/formLogin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastroEquipe.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/cadastroEquipe.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/painel/mentorado/gerenciarProjeto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/painel/mentorado/gerenciarProjeto.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -309,6 +289,11 @@
       <workItem from="1607550358310" duration="298000" />
       <workItem from="1607550843290" duration="4377000" />
       <workItem from="1607621068222" duration="19222000" />
+      <workItem from="1607792689766" duration="9011000" />
+      <workItem from="1607808753737" duration="2770000" />
+      <workItem from="1607882158395" duration="7477000" />
+      <workItem from="1607891498734" duration="513000" />
+      <workItem from="1607907959424" duration="596000" />
     </task>
     <servers />
   </component>
@@ -343,22 +328,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728@0.0.1366.728" timestamp="1601628287279" />
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607631424422">
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607883087197">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607631424422" />
+    <state x="413" y="119" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1607883087197" />
     <state x="511" y="87" key="NewPhpClassDialog" timestamp="1600309349069">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="511" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1600309349069" />
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602681599627">
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607802543682">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1602681599627" />
-    <state x="339" y="162" key="run.anything.popup" timestamp="1607371245940">
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1607802543682" />
+    <state x="339" y="162" key="run.anything.popup" timestamp="1607801445991">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607371245940" />
+    <state x="339" y="162" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1607801445991" />
     <state x="475" y="223" key="scopes" timestamp="1602786433171">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -11,7 +11,7 @@
 
 <form class="form-signin" method="post" action="{{ route('painel.login.do')}}">
     @csrf
-    <img src="{{ asset('img/TecnoIF.png') }}" width="100%" alt="TecnoIF" >
+    <img src="{{ asset('img/tecnoIFTelaEscura.png') }}" width="100%" alt="TecnoIF" >
     @if($errors->all())
         @foreach($errors->all() as $error)
 

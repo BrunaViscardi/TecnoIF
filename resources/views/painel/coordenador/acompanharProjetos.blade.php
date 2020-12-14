@@ -50,9 +50,13 @@
                                     <td>{{$projeto->situacao}}</td>
                                     <td>{{$projeto->email}}</td>
                                     <td>
+                                        <form method="post" action="{{route('painel.coordenador.deletarProjeto', $projeto->id)}}">
+                                            @csrf
+                                            @method('DELETE')
                                         <a href="{{route('painel.coordenador.visualizarProjeto', $projeto->id)}}"><button type="button" class="btn btn-primary btn-sm">Ver</button></a>
-                                        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
-                                        <button type="button" class="btn btn-danger btn-sm">Editar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                        <button type="button" class="btn btn-danger btn-sm">Avaliar</button>
+                                        </form>
                                     </td>
                                 </tr>
                               @endforeach

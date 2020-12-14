@@ -28,6 +28,7 @@ class CandidatoController extends Controller
         $candidatos->nome = $request-> nome;
         $candidatos-> data_nascimento =  $request-> nascimento;
         $candidatos-> email =  $request-> email;
+        $candidatos->campus = $request-> campus;
         $candidatos->curso = $request-> curso;
         $candidatos->periodo = $request-> periodo;
         $candidatos->turno = $request-> turno;

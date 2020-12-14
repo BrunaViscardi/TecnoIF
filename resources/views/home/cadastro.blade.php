@@ -13,7 +13,7 @@
     <div class="container-brant" id="cabecalho">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand " href="#">
-                <img id="LogoCabecalho" src="{{ asset('img/logott.png') }}" alt="logo TecnoIF"> </a>
+                <img id="LogoCabecalho" src="{{ asset('img/TecnoIF.png') }}" alt="logo TecnoIF"> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,6 +43,7 @@
         @csrf
         <div class="container">
             <div class="col-sm">
+                <br>
                 <div class="form-group">
                     <label>Nome
                         <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome"

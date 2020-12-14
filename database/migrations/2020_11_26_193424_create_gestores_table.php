@@ -18,6 +18,7 @@ class CreateGestoresTable extends Migration
             $table->string('nome');
             $table->string('email');
             $table->string('senha');
+            $table->string('campus');
             $table->timestamps();
         });
     }

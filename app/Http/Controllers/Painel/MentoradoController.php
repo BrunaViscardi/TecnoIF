@@ -3,16 +3,20 @@
 namespace App\Http\Controllers\Painel;
 
 use App\Gestor;
+use App\Http\Requests\equipeRequest;
+use App\Http\Requests\StoreUserRequest;
 use App\Mentorado;
 use App\Edital;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EdicaoSenhaRequest;
 use App\Http\Requests\ProjetoRequest;
+use App\Mentorado_projeto;
 use App\projeto;
 use App\Situacao;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class MentoradoController extends Controller
 {
@@ -23,8 +27,9 @@ class MentoradoController extends Controller
     private $repositoryMentorado;
     private $repositorySituacao;
     private $repositoryProjeto;
+    private $repositoryRelacionamento;
 
-    public function __construct(Request $request, Gestor $gestor, User $user, Edital $edital, Projeto  $projeto, Situacao $situacao, Mentorado $mentorado)
+    public function __construct(Request $request, Gestor $gestor, User $user, Edital $edital, Projeto  $projeto, Situacao $situacao, Mentorado $mentorado, Mentorado_projeto $relacionamento)
     {
         $this->request = $request;
         $this->repositoryGestores = $gestor;
@@ -33,6 +38,7 @@ class MentoradoController extends Controller
         $this->repositoryProjeto = $projeto;
         $this->repositorySituacao = $situacao;
         $this->repositoryMentorado = $mentorado;
+        $this->repositoryRelacionamento = $relacionamento;
     }
 
     public function create(ProjetoRequest $request)
@@ -43,7 +49,6 @@ class MentoradoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            var_dump($request->except('_token'));
             $projetos = new Projeto();
             $projetos->nome_projeto = $request->nome_projeto;
             $projetos->campus = $request->campus;
@@ -62,6 +67,11 @@ class MentoradoController extends Controller
             $projetos->email = $request->email;
             $projetos->telefone = $request->telefone;
             $projetos->save();
+            $mp = new Mentorado_projeto();
+            $mp->id_projeto = $projetos->id;
+            $i = $this->repositoryMentorado->where('email', $user->email)->first();
+            $mp->id_mentorado = $i->id;
+            $mp->save();
             return redirect()->route('painel.mentorado.gerenciarProjeto');
 
         }
@@ -117,19 +127,7 @@ class MentoradoController extends Controller
 
     }
 
-    public function cadastroEquipe()
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            return view('painel.mentorado.cadastroEquipe', compact('user', 'urlAtual'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
 
-    }
 
     public function gerenciarProjeto()
     {
@@ -271,6 +269,72 @@ class MentoradoController extends Controller
         }
         Auth::logout();
         return redirect()->route('painel.login');
+    }
+    public function equipe($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projeto = $this->repositoryProjeto->where('id', $id)->first();
+            $aux = $this->repositoryRelacionamento->where('id_projeto', $id);
+
+            $equipe = $this->repositoryMentorado;
+            dd($aux);
+            return view('painel.mentorado.equipe', compact('user', 'urlAtual', 'equipe','projeto'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+
+    public function createEquipe(equipeRequest $request, $id)
+    {
+
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $mentorado = new  Mentorado();
+            $mentorado->nome = $request-> nome;
+            $mentorado-> data_nascimento =  $request-> nascimento;
+            $mentorado-> email =  $request-> email;
+            $mentorado->curso = $request-> curso;
+            $mentorado->periodo = $request-> periodo;
+            $mentorado->turno = $request-> turno;
+            $mentorado->telefone = $request-> telefone;
+            $mentorado->cpf = $request-> cpf;
+            $mentorado->rg = $request-> rg;
+            $mentorado->campus = $request-> campus;
+            $mentorado->endereco = $request-> endereco;
+            $mentorado->save();
+            $mp = new Mentorado_projeto();
+            $mp-> id_projeto = $id;
+            $mp-> id_mentorado = $mentorado->id;
+            $mp->save();
+
+
+            return redirect()->route('painel.mentorado.equipe', compact('id'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+
+    }
+    public function cadastroEquipe($id)
+    {
+
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projeto = $this->repositoryProjeto->where('id', $id)->first();
+            return view('painel.mentorado.cadastroEquipe', compact('user', 'urlAtual', 'id','projeto'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+
     }
 
 }
