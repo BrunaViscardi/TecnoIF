@@ -10,9 +10,6 @@ class Situacao extends Model
     protected $fillable = [
         'situacao'
     ];
-     public function Projeto(){
 
-         $this->hasMany(Candidato::class);// 1 projeto pode ter vários candidatos
-     }
 
 }

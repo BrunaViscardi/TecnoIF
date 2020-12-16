@@ -204,10 +204,10 @@
                 <h2 class="featurette-heading" style="text-align: center">Contatos</h2>
                 <div class="row">
                     <div class="col">
-                <ul>
+                <ul class="text-start">
                     <p> <b>Campi</b></p>
                     <li> Aquidauana - tecnoif.aq@ifms.edu.br</li>
-                    <li> Campo Grande - tecnoif.cg@ifms.edu.br</li>
+                    <li  > Campo Grande - tecnoif.cg@ifms.edu.br</li>
                     <li> Corumbá - tecnoif.cb@ifms.edu.br</li>
                     <li> Coxim - tecnoif.cx@ifms.edu.br</li>
                     <li> Dourados - tecnoif.dr@ifms.edu.br</li>

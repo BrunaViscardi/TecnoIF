@@ -16,7 +16,9 @@
                         <th>
                             <a href="{{route('painel.mentorado.cadastroEquipe',$projeto->id)}}"><button class="btn btn-primary float-right" style="margin-right:2%">Cadastrar</button></a>
                         </th>
-                    </tr> @foreach ($equipe as $e)
+                    </tr>
+
+                    @foreach ($equipe as $e)
 
                     <td>{{$e->nome}}</td>
                     <td>{{$e->email}}</td>

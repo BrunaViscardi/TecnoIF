@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label>Nome
                         <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome"
-                               placeholder="Nome" name="nome">
+                               placeholder="Nome" name="nome"  value="{{ old('nome') }}">
 
                         @error('nome')
                         <div class="invalid-feedback">
@@ -60,7 +60,7 @@
                     <div class="form-group col">
                         <label> Data de Nascimento
                             <input name="nascimento" type="date"
-                                   class="form-control @error('nascimento') is-invalid @enderror">
+                                   class="form-control @error('nascimento') is-invalid @enderror" value="{{ old('nascimento') }}">
                             @error('nascimento')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -71,7 +71,7 @@
                     <div class="form-group col">
                         <label>Celular
                             <input name="telefone" type="text"
-                                   class="form-control @error('telefone') is-invalid @enderror">
+                                   class="form-control @error('telefone') is-invalid @enderror" placeholder="(xx)xxxxx-xxxx" value="{{ old('telefone') }}">
                             @error('telefone')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -83,17 +83,18 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>CPF
-                            <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror">
+                            <input type="text" name="cpf" placeholder="xxx.xxx.xxx-xx" class="form-control @error('cpf') is-invalid @enderror" value="{{ old('cpf') }}">
                             @error('cpf')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
                             @enderror
+                            <small>Seu CPF será sua senha</small>
                         </label>
                     </div>
                     <div class="form-group col">
                         <label>RG
-                            <input name="rg" type="text" class="form-control @error('rg') is-invalid @enderror">
+                            <input name="rg" type="text" class="form-control @error('rg') is-invalid @enderror" value="{{ old('rg') }}">
                             @error('rg')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -105,7 +106,7 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>Email
-                            <input name="email" type="text" class="form-control @error('email') is-invalid @enderror">
+                            <input name="email" type="text" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
                             @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -115,7 +116,7 @@
                     </div>
                     <div class="form-group col">
                         <label>Campus
-                            <select name="campus" class="form-control @error('campus') is-invalid @enderror">
+                            <select name="campus" class="form-control @error('campus') is-invalid @enderror" >
                                 <option value="">Campus</option>
                                 <option value="Aquidauana">Aquidauana</option>
                                 <option value="Campo Grande">Campo Grande</option>
@@ -139,7 +140,7 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>Curso
-                            <input name="curso" type="text" class="form-control">
+                            <input name="curso" type="text" class="form-control" value="{{ old('curso') }}">
                         </label>
                     </div>
                     <div class="form-group col">
@@ -155,14 +156,14 @@
                     </div>
                     <div class="form-group col">
                         <label>Período
-                            <input name="periodo" type="number" class="form-control" min="1" max="10">
+                            <input name="periodo" type="number" class="form-control" min="1" max="10"  value="{{ old('periodo') }}">
                         </label>
                     </div>
                 </div>
                 <div>
                     <label id="anexo" class="btn btn-light " for="fupload" style="text-align: center">Anexe um documento
                         que comprove seus dados bancarios:
-                        <input id="fupload" name="anexo" type="file" style="display: none"
+                        <input id="fupload" name="anexo" type="file" style="display: none"  value="{{ old('anexo') }}"
                                class="@error('anexo') is-invalid @enderror" accept=".png, .jpg, .jpeg, .pdf">
                         @error('anexo')
                         <div class="invalid-feedback">
@@ -173,7 +174,7 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>Conta
-                            <input name="conta" type="text" class="form-control @error('conta') is-invalid @enderror">
+                            <input name="conta" type="text" value="{{ old('conta') }}" class="form-control @error('conta') is-invalid @enderror">
                             @error('conta')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -183,7 +184,7 @@
                     </div>
                     <div class="form-group col">
                         <label>Agência
-                            <input name="agencia" type="text"
+                            <input name="agencia" type="text" value="{{ old('agencia') }}"
                                    class="form-control @error('agencia') is-invalid @enderror">
                             @error('agencia')
                             <div class="invalid-feedback">
@@ -194,7 +195,7 @@
                     </div>
                     <div class="form-group col">
                         <label>Banco
-                            <input name="banco" type="text" class="form-control @error('banco') is-invalid @enderror">
+                            <input name="banco"  value="{{ old('banco') }}" type="text" class="form-control @error('banco') is-invalid @enderror">
                             @error('banco')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -205,7 +206,7 @@
                 </div>
                 <div class="form-group">
                     <label>Endereço
-                        <input name="endereco" type="text" class="form-control @error('endereco') is-invalid @enderror">
+                        <input name="endereco"  value="{{ old('endereco') }}" type="text" class="form-control @error('endereco') is-invalid @enderror">
                         @error('endereco')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -216,19 +217,19 @@
                 <div class="formR">
                     <div class="form-group col">
                         <label>Bairro
-                            <input name="bairro" type="text" class="form-control">
+                            <input value="{{ old('bairro') }}" name="bairro" type="text" class="form-control">
 
                         </label>
                     </div>
                     <div class="form-group col">
                         <label>Número
-                            <input name="numero" type="number" class="form-control">
+                            <input name="numero" value="{{ old('numero') }}" type="number" class="form-control">
                         </label>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Complemento
-                        <input id="input" name="complemento" type="text" class="form-control">
+                        <input id="input" name="complemento" value="{{ old('complemento') }}" type="text" class="form-control">
 
                     </label>
                 </div>

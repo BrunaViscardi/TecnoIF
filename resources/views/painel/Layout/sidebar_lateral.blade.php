@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{route('painel.home')}}" class="brand-link">
-        <span class="font-weight-light" style="text-align: center"> TecnoIF </span>
+        <span class="font-weight-light" style="text-align: center"> <img width=100% src="{{asset('img/TecnoIF.png')}}"></span>
     </a>
 
     <!-- Sidebar -->

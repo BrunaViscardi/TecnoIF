@@ -12,10 +12,20 @@ class Projeto extends Model
         'publico_alvo', 'dificuldades', 'disponibilidade', 'resultados', 'nomeMentor', 'instituicao',
         'areaMentor', 'email', 'telefone', 'campus', 'edital_id', 'id'
     ];
-     public function candidatos(){
-         $this->hasMany(Mentorado::class);
+     public function equipe(){
+         return $this->belongsToMany(
+             Mentorado::class
+            // 'mentorados_projetos',
+             //'mentorado_id',
+     //        'projeto_id'
+         );
+
+
      }
     public function edital(){
-        $this->hasOne(Edital::class);
+        return $this->hasOne(Edital::class);
+    }
+    public function bolsista(){
+       return $this->hasOne(Mentorado::class, 'bolsista_id');
     }
 }

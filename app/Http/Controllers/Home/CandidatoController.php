@@ -52,12 +52,12 @@ class CandidatoController extends Controller
         $users->email =  $request-> email;
         $users-> password = $request-> cpf;
         $users->name = $request-> nome;
-        $users->idMentorado= $candidatos->id;
+        $users->mentorado_id= $candidatos->id;
         User::create([
             'role' => $users['role'],
             'name' => $users['name'],
             'email' => $users['email'],
-            'idMentorado' => $users['idMentorado'],
+            'mentorado_id' => $users['mentorado_id'],
             'password' => Hash::make($users['password']),
         ]);
 

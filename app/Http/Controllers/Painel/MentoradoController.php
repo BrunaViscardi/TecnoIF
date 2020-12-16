@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Painel;
 
 use App\Gestor;
+use App\Http\Requests\AlterarPerfilRequest;
 use App\Http\Requests\equipeRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Mentorado;
@@ -66,11 +67,11 @@ class MentoradoController extends Controller
             $projetos->areaMentor = $request->areaMentor;
             $projetos->email = $request->email;
             $projetos->telefone = $request->telefone;
+            $projetos->bolsista_id = $user->mentorado_id;
             $projetos->save();
             $mp = new Mentorado_projeto();
-            $mp->id_projeto = $projetos->id;
-            $i = $this->repositoryMentorado->where('email', $user->email)->first();
-            $mp->id_mentorado = $i->id;
+            $mp->projeto_id = $projetos->id;
+            $mp->mentorado_id = $user->mentorado_id;
             $mp->save();
             return redirect()->route('painel.mentorado.gerenciarProjeto');
 
@@ -119,7 +120,7 @@ class MentoradoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $editais = Edital::all();
+            $editais = Edital::where('situacao', 'Inscrições Abertas')->get();
             return view('painel.mentorado.editais', compact('user', 'urlAtual', 'editais'));
         }
         Auth::logout();
@@ -136,7 +137,11 @@ class MentoradoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $projetos = Projeto::all();
+            //dd($user->mentorado());
+            //$projetos = $user->mentorado()->projetos()->get();
+            $projetos = Projeto::where('bolsista_id', $user->mentorado_id)->get();
+
+
             $editais = Edital::all();
             return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual', 'projetos', 'editais'));
         }
@@ -239,7 +244,7 @@ class MentoradoController extends Controller
         Auth::logout();
         return redirect()->route('painel.login');
     }
-    public function alteracaoPerfil(Request $request)
+    public function alteracaoPerfil(AlterarPerfilRequest $request)
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
@@ -249,7 +254,6 @@ class MentoradoController extends Controller
             if (!$candidatos)
                 return redirect()->back();
             $candidatos->update($request->all());
-            $user->update($request->all());
             return redirect()->route('painel.mentorado.gerenciarProjeto');
         }
         Auth::logout();
@@ -278,10 +282,7 @@ class MentoradoController extends Controller
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $projeto = $this->repositoryProjeto->where('id', $id)->first();
-            $aux = $this->repositoryRelacionamento->where('id_projeto', $id);
-
-            $equipe = $this->repositoryMentorado;
-            dd($aux);
+            $equipe = $projeto->equipe();
             return view('painel.mentorado.equipe', compact('user', 'urlAtual', 'equipe','projeto'));
         }
         Auth::logout();
@@ -310,8 +311,8 @@ class MentoradoController extends Controller
             $mentorado->endereco = $request-> endereco;
             $mentorado->save();
             $mp = new Mentorado_projeto();
-            $mp-> id_projeto = $id;
-            $mp-> id_mentorado = $mentorado->id;
+            $mp-> projeto_id = $id;
+            $mp-> mentorado_id = $mentorado->id;
             $mp->save();
 
 

@@ -28,7 +28,7 @@
                                 <td><span class="badge bg-danger">inscrições Abertas</span></td>
                             @endif
                             @if($edital->situacao == 'Edital em Período de Avalição')
-                                <td><span class="badge bg-success">Edital Concluído</span></td>
+                                <td><span class="badge bg-success">Edital em Período de Avalição</span></td>
                             @endif
                             @if($edital->situacao == 'Edital Concluído')
                                 <td><span class="badge bg-success">Edital Concluído</span></td>
@@ -41,7 +41,9 @@
                                     <a href="{{$edital->link}}" target="_blank">
                                         <button type="button" class="btn btn-danger btn-sm">Ver</button>
                                     </a>
+                                    @if($edital->situacao == 'Edital de Abertura')
                                     <a href="{{route('painel.coordenador.deleteEdital',$edital->id)}}"><button type="button" class="btn btn-danger btn-sm">Excluir</button></a>
+                                   @endif
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-warning btn-sm">Editar</button>

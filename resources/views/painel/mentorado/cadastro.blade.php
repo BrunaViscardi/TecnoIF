@@ -150,7 +150,7 @@
                     </div>
                     <div class="form-group">
                         <label>Telefone </label>
-                        <input name="telefone" class="form-control @error('telefone') is-invalid @enderror" placeholder="Telefone" >
+                        <input name="telefone" class="form-control @error('telefone') is-invalid @enderror" placeholder="(xx)xxxxx-xxxx" >
                         <small class="form-text text-muted">Insira o telefone do seu mentor</small>
                         @error('telefone')
                         <div class="invalid-feedback">

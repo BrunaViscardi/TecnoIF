@@ -17,7 +17,6 @@
                     <div class="formR">
                     <div class="form-group col">
                         <label>Nome
-
                             <input value="{{$candidatos->nome}}" type="text" class="form-control @error('nome') is-invalid @enderror" id="nome"
                                    placeholder="Nome" name="nome" >
 
@@ -33,7 +32,7 @@
                     <div class="formR">
                         <div class="form-group col">
                             <label> Data de Nascimento
-                                <input name="nascimento" type="date" value="{{$candidatos->data_nascimento}}" class="form-control @error('nascimento') is-invalid @enderror">
+                                <input   name="nascimento" type="date" value="{{$candidatos->data_nascimento}}" class="form-control @error('nascimento') is-invalid @enderror">
                                 @error('nascimento')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -43,7 +42,7 @@
                         </div>
                         <div class="form-group col">
                             <label>Celular
-                                <input name="telefone" type="text" value="{{$candidatos->telefone}}" class="form-control @error('telefone') is-invalid @enderror">
+                                <input placeholder="(xx)xxxxx-xxxx" name="telefone" type="text" value="{{$candidatos->telefone}}" class="form-control @error('telefone') is-invalid @enderror">
                                 @error('telefone')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -55,12 +54,14 @@
                     <div class="formR">
                         <div class="form-group col">
                             <label>CPF
-                                <input type="text" value="{{$candidatos->cpf}}" name="cpf" class="form-control @error('cpf') is-invalid @enderror">
+                                <input placeholder="xxx.xxx.xxx-xx" type="text" value="{{$candidatos->cpf}}" name="cpf" class="form-control @error('cpf') is-invalid @enderror">
+
                                 @error('cpf')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                                 @enderror
+
                             </label>
                         </div>
                         <div class="form-group col">
@@ -77,7 +78,7 @@
                     <div class="formR">
                         <div class="form-group col">
                             <label>Email
-                                <input name="email"  value="{{$candidatos->email}}" type="text" class="form-control @error('email') is-invalid @enderror">
+                                <input name="email"  value="{{$candidatos->email}}" type="text" class="form-control @error('email') is-invalid @enderror" disabled>
                                 @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -87,8 +88,8 @@
                         </div>
                         <div class="form-group col">
                             <label>Campus
-                                <select name="campus"  value="{{$candidatos->campus}}" class="form-control @error('campus') is-invalid @enderror">
-                                    <option value="">Campus</option>
+                                <select name="campus"   class="form-control @error('campus') is-invalid @enderror">
+                                    <option value="{{$candidatos->campus}}">{{$candidatos->campus}}</option>
                                     <option value="Aquidauana">Aquidauana</option>
                                     <option value="Campo Grande">Campo Grande</option>
                                     <option value="Corumbá">Corumbá</option>

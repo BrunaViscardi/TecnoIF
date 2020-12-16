@@ -23,8 +23,11 @@ class  Mentorado extends Model
         $this->belongsTo(User::class);
     }
     public function projetos(){
-        $this->hasMany(Edital::class);
+        return $this->belongsToMany(
+            Projeto::class);
     }
+
+
 
 
 
