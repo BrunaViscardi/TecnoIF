@@ -4,14 +4,14 @@
         <div class="card card-success">
             <div class="card-header">
 
-                <h3 class="card-title">Cadastro de Equipe</h3>
+                <h3 class="card-title">{{$participante->nome}}</h3>
             </div>
-            <form action="{{route('painel.mentorado.createEquipe', $projeto->id)}}" method="post">
-                @csrf
+
+
                 <div class="card-body">
                     <div class="form-group">
                         <label>Nome</label>
-                        <input value="{{ old('nome') }}" name="nome" class="form-control @error('nome') is-invalid @enderror"  placeholder="Nome do Projeto">
+                        <input name="nome" disabled class="form-control @error('nome') is-invalid @enderror" value="{{$participante->nome}}"  placeholder="Nome">
                         @error('nome')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="form-group col">
                             <label>Data de nascimento</label>
-                            <input value="{{ old('nascimento') }}" name="nascimento" type="date" class="form-control @error('nascimento') is-invalid @enderror">
+                            <input disabled name="nascimento" value="{{$participante->nascimento}}" type="date" class="form-control @error('nascimento') is-invalid @enderror">
                             @error('nascimento')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group col">
                             <label>Telefone</label>
-                            <input value="{{ old('telefone') }}" name="telefone" type="text" class="form-control @error('telefone') is-invalid @enderror">
+                            <input disabled name="telefone" value="{{$participante->telefone}}" type="text" class="form-control @error('telefone') is-invalid @enderror">
                             @error('telefone')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -41,7 +41,7 @@
                     <div class="row">
                         <div class="form-group col">
                             <label>CPF</label>
-                            <input value="{{ old('cpf') }}" name="cpf" type="text" class="form-control @error('cpf') is-invalid @enderror">
+                            <input disabled name="cpf" value="{{$participante->cpf}}" type="text" placeholder="xxx.xxx.xxx-xx" class="form-control @error('cpf') is-invalid @enderror">
                             @error('cpf')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group col">
                             <label>RG</label>
-                            <input   value="{{ old('rg') }}" name="rg" type="text" class="form-control @error('rg') is-invalid @enderror">
+                            <input disabled name="rg" type="text" value="{{$participante->rg}}" class="form-control @error('rg') is-invalid @enderror">
                             @error('rg')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -60,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input value="{{ old('email') }}" name="email" type="text" class="form-control @error('email') is-invalid @enderror">
+                        <input disabled name="email" value="{{$participante->email}}" type="text" class="form-control @error('email') is-invalid @enderror">
                         @error('email')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -69,30 +69,30 @@
                     </div>
                     <div class="form-group">
                         <label>Campus</label>
-                            <select name="campus" class="form-control @error('campus') is-invalid @enderror">
-                                <option value="">Campus</option>
-                                <option value="Aquidauana" {{ old('campus') == "Aquidauana" ? 'selected' : '' }}>Aquidauana</option>
-                                <option value="Campo Grande"  {{ old('campus') == "Campo Grande" ? 'selected' : '' }}>Campo Grande</option>
-                                <option value="Corumbá"  {{ old('campus') == "Corumbá" ? 'selected' : '' }}>Corumbá</option>
-                                <option value="Coxim"  {{ old('campus') == "Coxim" ? 'selected' : '' }}>Coxim</option>
-                                <option value="Dourados" {{ old('campus') == "Dourados" ? 'selected' : '' }}>Dourados</option>
-                                <option value="Jardim" {{ old('campus') == "Jardim" ? 'selected' : '' }}>Jardim</option>
-                                <option value="Naviraí" {{ old('campus') == "Naviraí" ? 'selected' : '' }}>Naviraí</option>
-                                <option value="Nova Andradina" {{ old('campus') == "Nova Andradina" ? 'selected' : '' }}>Nova Andradina</option>
-                                <option value="Ponta Porã" {{ old('campus') == "Ponta Porã" ? 'selected' : '' }}>Ponta Porã</option>
-                                <option value="Três Lagoas" {{ old('campus') == "Três Lagoas" ? 'selected' : '' }}>Três Lagoas</option>
-                            </select>
-                            @error('campus')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                        <select disabled name="campus" class="form-control @error('campus') is-invalid @enderror">
+                            <option value="">Campus</option>
+                            <option value="Aquidauana">Aquidauana</option>
+                            <option value="Campo Grande">Campo Grande</option>
+                            <option value="Corumbá">Corumbá</option>
+                            <option value="Coxim">Coxim</option>
+                            <option value="Dourados">Dourados</option>
+                            <option value="Jardim">Jardim</option>
+                            <option value="Naviraí">Naviraí</option>
+                            <option value="Nova Andradina">Nova Andradina</option>
+                            <option value="Ponta Porã">Ponta Porã</option>
+                            <option value="Três Lagoas">Três Lagoas</option>
+                        </select>
+                        @error('campus')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
 
                     </div>
                     <div class="row">
                         <div class="form-group col">
                             <label>Curso</label>
-                            <input value="{{ old('curso') }}" name="curso" type="text" class="form-control @error('curso') is-invalid @enderror">
+                            <input disabled name="curso" value="{{$participante->curso}}" type="text" class="form-control @error('curso') is-invalid @enderror">
                             @error('curso')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -101,7 +101,7 @@
                         </div>
                         <div class="form-group col">
                             <label>Turno</label>
-                            <input value="{{ old('turno') }}" name="turno" type="text" class="form-control @error('turno') is-invalid @enderror">
+                            <input disabled name="turno" value="{{$participante->turno}}" type="text" class="form-control @error('turno') is-invalid @enderror">
                             @error('turno')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -110,7 +110,7 @@
                         </div>
                         <div class="form-group col">
                             <label>Período</label>
-                            <input value="{{ old('periodo') }}" name="periodo" type="text" class="form-control @error('periodo') is-invalid @enderror">
+                            <input disabled name="periodo" value="{{$participante->periodo}}" type="text" class="form-control @error('periodo') is-invalid @enderror">
                             @error('periodo')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -121,7 +121,7 @@
                     </div>
                     <div class="form-group">
                         <label>Endereço</label>
-                        <input value="{{ old('endereco') }}" name="endereco" class="form-control @error('endereco') is-invalid @enderror" placeholder="Endereço">
+                        <input disabled name="endereco" value="{{$participante->endereco}}" class="form-control @error('endereco') is-invalid @enderror" placeholder="Endereço">
                         @error('endereco')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -131,9 +131,9 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <a href="{{route('painel.mentorado.editarParticipante',$participante->id)}}"> <button class="btn btn-success">Editar</button></a>
                 </div>
-            </form>
+
         </div>
     </section>
 

@@ -1,6 +1,5 @@
 @extends('painel.Layout.index')
 @section('content')
-
     <section class="content">
             <div class="card">
                 <div class="card-header">
@@ -10,9 +9,9 @@
                     <table class="table ">
                         <thead>
                         <tr>
-                            <th>Data</th>
                             <th>Nome</th>
-                            <th>situação</th>
+                            <th>Data</th>
+                            <th>Situação</th>
                             <th>Ações</th>
                         </tr>
                         </thead>
@@ -21,7 +20,7 @@
                         @foreach ($editais as $edital)
                             <tr>
                                 <td>{{$edital->nome}}</td>
-                                <td>{{$edital->data}}</td>
+                                <td>{{$edital->data->format('d/m/Y')}}</td>
                                 @if($edital->situacao == 'Inscrições Abertas')
                                     <td><span class="badge bg-danger">inscrições Abertas</span></td>
                                 @endif
@@ -35,9 +34,11 @@
                                     <a href="{{$edital->link}}">
                                         <button type="button" class="btn btn-danger btn-sm">ver</button>
                                     </a>
+                                    @if($edital->situacao == 'Inscrições Abertas')
                                     <a href={{route('painel.mentorado.cadastro',['id'=>$edital->id])}}>
                                         <button type="button" class="btn btn-danger btn-sm">Inscrição</button>
                                     </a>
+                                        @endif
                                 </td>
                             </tr>
                             @endforeach

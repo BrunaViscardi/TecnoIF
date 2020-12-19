@@ -14,27 +14,23 @@ class SituacaoSeeder extends Seeder
     {
         Situacao::create(
             [
-                'situacao' => 'inscrito',
-
-
+                'situacao' => 'Inscrito',
             ]
-
         );
         Situacao::create(
             [
                 'situacao' => 'Em andamento',
-
-
             ]
-
         );
         Situacao::create(
             [
                 'situacao' => 'Finalizado',
-
-
             ]
-
+        );
+        Situacao::create(
+            [
+                'situacao' => 'Rejeitado',
+            ]
         );
     }
 }

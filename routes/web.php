@@ -31,12 +31,17 @@ Route::put('/painel/coordenador/editarEdital/{id}', 'Painel\CoordenadorControlle
 Route::put('/painel/coordenador/edicaoEdital/{id}', 'Painel\CoordenadorController@edicaoEdital')->name('painel.coordenador.edicaoEdital');
 Route::get('/painel/coordenador/visualizarProjeto/{id}', 'Painel\CoordenadorController@visualizarProjeto')->name('painel.coordenador.visualizarProjeto');
 Route::delete('/painel/coordenador/deletarProjeto/{id}', 'Painel\CoordenadorController@deletarProjeto')->name('painel.coordenador.deletarProjeto');
+Route::get('/painel/coordenador/mudarSituacao/{id}', 'Painel\CoordenadorController@mudarSituacao')->name('painel.coordenador.mudarSituacao');
 
 
 
 Route::get('/painel/equipe/acompanhar', 'Painel\GestorController@AcompanharProjetos')->name('painel.equipe.acompanhar');
 Route::get('/painel/equipe/alterarSenha', 'Painel\GestorController@alterarSenha')->name('painel.equipe.alterarSenha');
 Route::put('/painel/equipe/visualizarProjeto/{id}', 'Painel\GestorController@visualizarProjeto')->name('painel.equipe.visualizarProjeto');
+Route::get('/painel/equipe/visualizarParticipante/{id}', 'Painel\GestorController@visualizarParticipante')->name('painel.equipe.visualizarParticipante');
+Route::get('/painel/equipe/equipe/{id}', 'Painel\GestorController@equipe')->name('painel.equipe.equipe');
+Route::get('/painel/equipe/aprovar/{id}', 'Painel\GestorController@aprovar')->name('painel.equipe.aprovar');
+Route::get('/painel/equipe/rejeitar/{id}', 'Painel\GestorController@rejeitar')->name('painel.equipe.rejeitar');
 
 
 Route::get('painel/mentorado/cadastro/{id}', 'Painel\MentoradoController@cadastro')->name('painel.mentorado.cadastro');
@@ -55,6 +60,10 @@ Route::put('/painel/mentorado/alteracaoPerfil', 'Painel\MentoradoController@alte
 Route::get('/painel/mentorado/equipe/{id}', 'Painel\MentoradoController@equipe')->name('painel.mentorado.equipe');
 Route::post('/painel/mentorado/createEquipe/{id}', 'Painel\MentoradoController@createEquipe')->name('painel.mentorado.createEquipe');
 Route::get('painel/mentorado/cadastroEquipe/{id}', 'Painel\MentoradoController@cadastroEquipe')->name('painel.mentorado.cadastroEquipe');
+Route::get('/painel/mentorado/deleteParticipante/{id}', 'Painel\MentoradoController@deleteParticipante')->name('painel.mentorado.deleteParticipante');
+Route::get('/painel/mentorado/visualizarParticipante/{id}', 'Painel\MentoradoController@visualizarParticipante')->name('painel.mentorado.visualizarParticipante');
+Route::put('/painel/mentorado/edicaoParticipante/{id}', 'Painel\MentoradoController@edicaoParticipante')->name('painel.mentorado.edicaoParticipante');
+Route::get('/painel/mentorado/editarParticipante/{id}', 'Painel\MentoradoController@editarParticipante')->name('painel.mentorado.editarParticipante');
 
 
 Route::get('/painel/mentorado/visualizarProjeto/{id}', 'Painel\MentoradoController@visualizarProjeto')->name('painel.mentorado.visualizarProjeto');

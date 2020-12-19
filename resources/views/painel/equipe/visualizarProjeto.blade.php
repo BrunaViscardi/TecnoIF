@@ -93,6 +93,7 @@
                 </div>
 
                 <button type="button" class="btn btn-success">Avaliar</button>
+               <a href="{{route('painel.equipe.equipe', $projeto->id )}}"> <button type="button" class="btn btn-success">Ver Equipe</button></a>
             </div>
         </div>
     </section>

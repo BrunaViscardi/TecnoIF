@@ -47,6 +47,9 @@
                                     @csrf
                                     @method('PUT')
                                     <button type="submit" class="btn btn-warning btn-sm">Editar</button>
+                                    @if($edital->situacao != "Edital Concluído")
+                                   <a href="{{route('painel.coordenador.mudarSituacao',$edital->id)}}"> <button type="button" class="btn btn-warning btn-sm">Mudar situação</button></a>
+                                    @endif
                                 </form>
                             </td>
                         </tr>

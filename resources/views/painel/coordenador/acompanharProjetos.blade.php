@@ -47,7 +47,7 @@
                                     <td>{{$projeto->nome_projeto}}</td>
                                     <td>{{$projeto->campus}}</td>
                                     <td>{{$projeto->area}}</td>
-                                    <td>{{$projeto->situacao}}</td>
+                                    <td>{{$projeto->situacao->situacao}}</td>
                                     <td>{{$projeto->email}}</td>
                                     <td>
                                         <form method="post" action="{{route('painel.coordenador.deletarProjeto', $projeto->id)}}">

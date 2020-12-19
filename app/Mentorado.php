@@ -22,11 +22,16 @@ class  Mentorado extends Model
     {
         $this->belongsTo(User::class);
     }
-    public function projetos(){
-        return $this->belongsToMany(
-            Projeto::class);
-    }
 
+    public function projetos()
+    {
+        return $this->belongsToMany(
+            Projeto::class,
+            'mentorados_projetos',
+            'mentorado_id',
+            'projeto_id'
+        );
+    }
 
 
 

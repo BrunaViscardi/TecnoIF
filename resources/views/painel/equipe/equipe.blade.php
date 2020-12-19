@@ -13,9 +13,8 @@
                         <th>Membro</th>
                         <th>Email</th>
                         <th>Telefone</th>
-                        <th>
-                            <a href="{{route('painel.mentorado.cadastroEquipe',$projeto->id)}}"><button class="btn btn-success float-right" style="margin-right:2%">Cadastrar</button></a>
-                        </th>
+                        <th>Ações</th>
+
                     </tr>
                     @forelse ($equipe as $participante)
                         <tr>
@@ -23,13 +22,10 @@
                             <td>{{$participante->email}}</td>
                             <td>{{$participante->telefone}}</td>
                             <td>
-                                @if($projeto->bolsista_id != $participante->id )
-
-                                <a href="{{route('painel.mentorado.deleteParticipante',$participante->id)}}"><button class="btn btn-danger">Excluir</button></a>
-                                @endif
-                                    <a href="{{route('painel.mentorado.editarParticipante',$participante->id)}}"> <button class="btn btn-warning">Editar</button></a>
-                                <a href="{{route('painel.mentorado.visualizarParticipante',$participante->id)}}"> <button class="btn btn-primary">Ver</button></a>
+                                <a href="{{route('painel.equipe.visualizarParticipante',$participante->id)}}"> <button class="btn btn-primary">Ver</button></a>
                             </td>
+
+
                         </tr>
                     @empty
                         <tr><td> nenhum membro cadastrado</td></tr>
@@ -41,5 +37,4 @@
             </div>
         </div>
 @endsection
-
 

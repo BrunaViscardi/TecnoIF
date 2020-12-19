@@ -95,9 +95,9 @@
                 <form method="post" action="{{route('painel.mentorado.editar',$projeto->id )}}">
 
                 @csrf
-                @method('PUT')
+
                 <button type="submit" class="btn btn-success">Editar</button>
-                    <button type="button" class="btn btn-success">Montar equipe</button>
+                    <button type="button" class="btn btn-success">Equipe</button>
                 </form>
                 </div>
             </div>

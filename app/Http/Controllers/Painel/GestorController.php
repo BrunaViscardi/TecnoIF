@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Painel;
 use App\Edital;
 use App\Gestor;
 use App\Http\Controllers\Controller;
+use App\Mentorado;
+use App\Mentorado_projeto;
 use App\Projeto;
 use App\Situacao;
 use App\User;
@@ -19,18 +21,19 @@ class GestorController extends Controller
     private $repositorySituacao;
     private $repositoryGestores;
     private $repositoryUsers;
-
-    public function __construct(Request $request, Gestor $gestor, User $user, Edital $edital, Projeto  $projeto, Situacao $situacao)
+    private $repositoryMentorado;
+    private $repositoryRelacionamento;
+    public function __construct(Request $request,  Mentorado $mentorado, Gestor $gestor, User $user, Edital $edital, Projeto  $projeto, Situacao $situacao, Mentorado_projeto $relacionamento)
     {
         $this->request = $request;
         $this->repositoryGestores = $gestor;
         $this->repositoryUsers = $user;
         $this->repositoryEditais = $edital;
         $this->repositoryProjetos = $projeto;
+        $this->repositoryMentorado = $mentorado;
         $this->repositorySituacao = $situacao;
+        $this->repositoryRelacionamento = $relacionamento;
     }
-
-
     public function acompanharProjetos()
     {
         if (Auth::check() === true) {
@@ -39,13 +42,13 @@ class GestorController extends Controller
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $projetos = Projeto::all();
-            return view('painel.equipe.acompanharProjetos', compact('user', 'urlAtual', 'projetos'));
+            $edital = Edital::all();
+            return view('painel.equipe.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
 
     }
-
     public function configuracoes()
     {
         if (Auth::check() === true) {
@@ -88,5 +91,66 @@ class GestorController extends Controller
         return redirect()->route('painel.login');
 
     }
+    public function equipe($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projeto = Projeto::find($id);
+            $equipe = $projeto->equipe;
+            return view('painel.equipe.equipe', compact('user', 'urlAtual', 'projeto', 'equipe'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function visualizarParticipante( $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $participante =$this->repositoryMentorado->where('id', $id)->first();
 
+            return view('painel.equipe.visualizarParticipante', compact('user', 'urlAtual', 'participante'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function aprovar($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $projeto = $this->repositoryProjetos->where('id', $id)->first();
+            if (!$projeto) {
+                return $projeto()->back();
+            }elseif ($projeto->situacao->situacao == "Inscrito")
+            {
+            $projeto->update(['situacao_id' => 2]);
+            }
+            elseif ($projeto->situacao->situacao == "Em andamento")
+            {
+                $projeto->update(['situacao_id' => 3]);
+            }
+            return redirect()->route('painel.equipe.acompanhar');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function rejeitar($id)
+    {
+        if (Auth::check() === true) {
+            $projeto = $this->repositoryProjetos->where('id', $id)->first();
+            if (!$projeto)
+                return $projeto()->back();
+            $projeto->update(['situacao_id' => 4]);
+            return redirect()->route('painel.equipe.acompanhar');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
 }

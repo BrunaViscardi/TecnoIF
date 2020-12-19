@@ -12,4 +12,5 @@ class Situacao extends Model
     ];
 
 
+
 }

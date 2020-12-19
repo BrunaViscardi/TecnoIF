@@ -62,6 +62,7 @@ class CandidatoController extends Controller
         ]);
 
 
+
         return redirect()->route('painel.login');
 
     }

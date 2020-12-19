@@ -292,12 +292,33 @@ class CoordenadorController extends Controller
                 return redirect()->back();
             $projeto->delete();
             return redirect()->route('painel.coordenador.acompanharProjetos');
-
         }
         Auth::logout();
-
         return redirect()->route('painel.login');
-
+    }
+    public function mudarSituacao($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $edital = $this->repositoryEditais->where('id', $id)->first();
+            if (!$edital){
+                return $edital()->back();
+            }
+            elseif ($edital->situacao== "Edital de Abertura"){
+                $edital->update(['situacao' => "Inscrições Abertas"]);
+            }
+            elseif ($edital->situacao== "Inscrições Abertas"){
+                $edital->update(['situacao' => "Edital em Período de Avalição"]);
+            }
+            elseif ($edital->situacao== "Edital em Período de Avalição"){
+                $edital->update(['situacao' => "Edital Concluído"]);
+            }
+            return redirect()->route('painel.coordenador.editais');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
     }
 
 

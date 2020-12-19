@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Painel;
 use App\Gestor;
 use App\Http\Requests\AlterarPerfilRequest;
 use App\Http\Requests\equipeRequest;
-use App\Http\Requests\StoreUserRequest;
 use App\Mentorado;
 use App\Edital;
 use App\Http\Controllers\Controller;
@@ -17,7 +16,6 @@ use App\Situacao;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class MentoradoController extends Controller
 {
@@ -41,6 +39,7 @@ class MentoradoController extends Controller
         $this->repositoryMentorado = $mentorado;
         $this->repositoryRelacionamento = $relacionamento;
     }
+
 
     public function create(ProjetoRequest $request)
     {
@@ -69,10 +68,17 @@ class MentoradoController extends Controller
             $projetos->telefone = $request->telefone;
             $projetos->bolsista_id = $user->mentorado_id;
             $projetos->save();
+
+            //adiciona mentorado ao projeto (na tabela intermediaria)
+            $mentorado = $user->mentorado;
+            $projetos->equipe()->attach($mentorado);
+            $projetos->save();
+
+            /*
             $mp = new Mentorado_projeto();
             $mp->projeto_id = $projetos->id;
             $mp->mentorado_id = $user->mentorado_id;
-            $mp->save();
+            $mp->save();//*/
             return redirect()->route('painel.mentorado.gerenciarProjeto');
 
         }
@@ -137,12 +143,10 @@ class MentoradoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            //dd($user->mentorado());
-            //$projetos = $user->mentorado()->projetos()->get();
             $projetos = Projeto::where('bolsista_id', $user->mentorado_id)->get();
 
 
-            $editais = Edital::all();
+            $editais = Edital::where('situacao', 'Inscrições Abertas')->get();
             return view('painel.mentorado.gerenciarProjeto', compact('user', 'urlAtual', 'projetos', 'editais'));
         }
         Auth::logout();
@@ -281,9 +285,9 @@ class MentoradoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $projeto = $this->repositoryProjeto->where('id', $id)->first();
-            $equipe = $projeto->equipe();
-            return view('painel.mentorado.equipe', compact('user', 'urlAtual', 'equipe','projeto'));
+            $projeto = Projeto::find($id);
+           $equipe = $projeto->equipe;
+            return view('painel.mentorado.equipe', compact('user', 'urlAtual', 'projeto', 'equipe'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -310,10 +314,15 @@ class MentoradoController extends Controller
             $mentorado->campus = $request-> campus;
             $mentorado->endereco = $request-> endereco;
             $mentorado->save();
-            $mp = new Mentorado_projeto();
+
+            //adiciona projeto ao mentorado (adiciona na tabela intermediaria)
+            $projeto = Projeto::find($id);
+            $mentorado->projetos()->attach($projeto);
+            $mentorado->save();
+            /*$mp = new Mentorado_projeto();
             $mp-> projeto_id = $id;
             $mp-> mentorado_id = $mentorado->id;
-            $mp->save();
+            $mp->save();//*/
 
 
             return redirect()->route('painel.mentorado.equipe', compact('id'));
@@ -337,5 +346,75 @@ class MentoradoController extends Controller
         return redirect()->route('painel.login');
 
     }
+    public function edicaoParticipante(Request $request, $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $participante =$this->repositoryMentorado->where('id', $id)->first();
+            $projeto = $this->repositoryRelacionamento->where('mentorado_id', $id)->first();
+            if (!$participante){
+                return redirect()->back();
+            }
+            if ($participante->id == $user->mentorado_id )
+            {
+                $user->update(['name' => $request->nome]);
+            }
+            $participante->update($request->all());
+
+            return redirect()->route('painel.mentorado.equipe', $projeto->projeto_id);
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function editarParticipante( $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $participante =$this->repositoryMentorado->where('id', $id)->first();
+
+
+            return view('painel.mentorado.editarParticipante', compact('user', 'urlAtual', 'participante'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function deleteParticipante( $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $participante =$this->repositoryMentorado->where('id', $id)->first();
+            $projeto = $this->repositoryRelacionamento->where('mentorado_id', $id)->first();
+            if (!$participante)
+                return redirect()->back();
+            $participante->delete();
+            return redirect()->route('painel.mentorado.equipe', $projeto->projeto_id);
+
+        }
+        Auth::logout();
+
+        return redirect()->route('painel.login');
+
+    }
+    public function visualizarParticipante( $id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $participante =$this->repositoryMentorado->where('id', $id)->first();
+
+            return view('painel.mentorado.visualizarParticipante', compact('user', 'urlAtual', 'participante'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+
+
 
 }

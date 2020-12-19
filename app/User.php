@@ -11,7 +11,7 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'name','role', 'idMentorado', 'email', 'password',
+        'name','role', 'mentorado_id', 'email', 'password',
     ];
 
 
@@ -51,10 +51,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     public function mentorado()
     {
-        return $this->hasOne(Mentorado::class);
+        return $this->belongsTo(Mentorado::class);
     }
+
 
 
 

@@ -118,16 +118,16 @@
                         <label>Campus
                             <select name="campus" class="form-control @error('campus') is-invalid @enderror" >
                                 <option value="">Campus</option>
-                                <option value="Aquidauana">Aquidauana</option>
-                                <option value="Campo Grande">Campo Grande</option>
-                                <option value="Corumbá">Corumbá</option>
-                                <option value="Coxim">Coxim</option>
-                                <option value="Dourados">Dourados</option>
-                                <option value="Jardim">Jardim</option>
-                                <option value="Naviraí">Naviraí</option>
-                                <option value="Nova Andradina">Nova Andradina</option>
-                                <option value="Ponta Porã">Ponta Porã</option>
-                                <option value="Três Lagoas">Três Lagoas</option>
+                                <option value="Aquidauana"{{ old('campus') == "Aquidauana" ? 'selected' : '' }}>Aquidauana</option>
+                                <option value="Campo Grande" {{ old('campus') == "Campo Grande" ? 'selected' : '' }}>Campo Grande</option>
+                                <option value="Corumbá" {{ old('campus') == "Corumbá" ? 'selected' : '' }}>Corumbá</option>
+                                <option value="Coxim" {{ old('campus') == "Coxim" ? 'selected' : '' }}>Coxim</option>
+                                <option value="Dourados" {{ old('campus') == "Dourados" ? 'selected' : '' }}>Dourados</option>
+                                <option value="Jardim" {{ old('campus') == "Jardim" ? 'selected' : '' }}>Jardim</option>
+                                <option value="Naviraí" {{ old('campus') == "Naviraí" ? 'selected' : '' }}>Naviraí</option>
+                                <option value="Nova Andradina" {{ old('campus') == "Nova Andradina" ? 'selected' : '' }}>Nova Andradina</option>
+                                <option value="Ponta Porã" {{ old('campus') == "Ponta Porã" ? 'selected' : '' }}>Ponta Porã</option>
+                                <option value="Três Lagoas"  {{ old('campus') == "Três Lagoas" ? 'selected' : '' }}>Três Lagoas</option>
                             </select>
                             @error('campus')
                             <div class="invalid-feedback">
@@ -147,10 +147,10 @@
                         <label>Turno
                             <select name="turno" class="form-control">
                                 <option value="">Turno</option>
-                                <option value="Integral">Integral</option>
-                                <option value="Matutino">Matutino</option>
-                                <option value="Vespertino">Vespertino</option>
-                                <option value="Noturno">Noturno</option>
+                                <option value="Integral" {{ old('turno') == "Integral" ? 'selected' : '' }}>Integral</option>
+                                <option value="Matutino" {{ old('turno') == "Matutino" ? 'selected' : '' }}>Matutino</option>
+                                <option value="Vespertino" {{ old('turno') == "Vespertino" ? 'selected' : '' }}>Vespertino</option>
+                                <option value="Noturno"  {{ old('turno') == "Noturno" ? 'selected' : '' }}>Noturno</option>
                             </select>
                         </label>
                     </div>
