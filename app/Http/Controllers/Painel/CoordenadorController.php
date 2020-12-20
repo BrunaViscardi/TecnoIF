@@ -6,7 +6,7 @@ use App\Edital;
 use App\Gestor;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\GestorRequest;
-use App\projeto;
+use App\Projeto;
 use App\Situacao;
 use App\User;
 use Illuminate\Http\Request;
