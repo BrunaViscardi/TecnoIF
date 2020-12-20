@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EdicaoSenhaRequest;
 use App\Http\Requests\ProjetoRequest;
 use App\Mentorado_projeto;
-use App\projeto;
+use App\Projeto;
 use App\Situacao;
 use App\User;
 use Illuminate\Http\Request;
