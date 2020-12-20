@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quais os problemas / necessidades a sua solução pretende resolver?</label>
-                        <textarea  name="problemas" class="form-control  @error('problemas') is-invalid @enderror" rows="3" placeholder="..." >value="{{ old('problemas') }}"</textarea>
+                        <textarea  name="problemas" class="form-control  @error('problemas') is-invalid @enderror" rows="3" placeholder="..." >{{old('problemas') }}}}</textarea>
                         @error('problemas')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quais as características da sua solução? Quais são seus diferenciais?</label>
-                        <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid @enderror" rows="3" placeholder="..." >value="{{ old('caracteristicas') }}"</textarea>
+                        <textarea name="caracteristicas" class="form-control @error('caracteristicas') is-invalid @enderror" rows="3" placeholder="..." >{{ old('caracteristicas') }}</textarea>
                         @error('caracteristicas')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quem é o seu público alvo?</label>
-                        <textarea name="publico_alvo" class="form-control  @error('publico_alvo') is-invalid @enderror" rows="3" placeholder="..." >value="{{ old('publico_alvo') }}"</textarea>
+                        <textarea name="publico_alvo" class="form-control  @error('publico_alvo') is-invalid @enderror" rows="3" placeholder="..." >{{ old('publico_alvo') }}</textarea>
                         @error('publico_alvo')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -83,7 +83,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quais são as dificuldades e necessidades para realizar a ideia?</label>
-                        <textarea name="dificuldades" class="form-control  @error('dificuldades') is-invalid @enderror" rows="3" placeholder="..." >value="{{ old('dificuldades') }}"</textarea>
+                        <textarea name="dificuldades" class="form-control  @error('dificuldades') is-invalid @enderror" rows="3" placeholder="..." >{{ old('dificuldades') }}</textarea>
                         @error('dificuldades')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -92,7 +92,7 @@
                     </div>
                     <div class="form-group">
                         <label>Qual a tua disponibilidade e motivação para desenvolver o projeto?</label>
-                        <textarea name="disponibilidade" class="form-control @error('disponibilidade') is-invalid @enderror" rows="3" placeholder="...">value="{{ old('disponibilidade') }}" </textarea>
+                        <textarea name="disponibilidade" class="form-control @error('disponibilidade') is-invalid @enderror" rows="3" placeholder="...">{{ old('disponibilidade') }}</textarea>
                         @error('disponibilidade')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -101,7 +101,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quais são os resultados esperados?</label>
-                        <textarea name="resultados" class="form-control @error('resultados') is-invalid @enderror" rows="3" placeholder="...">value="{{ old('resultados') }}" </textarea>
+                        <textarea name="resultados" class="form-control @error('resultados') is-invalid @enderror" rows="3" placeholder="...">{{ old('resultados') }}</textarea>
                         @error('resultados')
                         <div class="invalid-feedback">
                             {{ $message }}
