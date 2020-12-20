@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label>Quais os problemas / necessidades a sua solução pretende resolver?</label>
-                        <textarea  name="problemas" class="form-control  @error('problemas') is-invalid @enderror" rows="3" placeholder="..." >{{old('problemas') }}}}</textarea>
+                        <textarea  name="problemas" class="form-control  @error('problemas') is-invalid @enderror" rows="3" placeholder="..." >{{old('problemas') }}</textarea>
                         @error('problemas')
                         <div class="invalid-feedback">
                             {{ $message }}
