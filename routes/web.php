@@ -42,6 +42,7 @@ Route::get('/painel/equipe/visualizarParticipante/{id}', 'Painel\GestorControlle
 Route::get('/painel/equipe/equipe/{id}', 'Painel\GestorController@equipe')->name('painel.equipe.equipe');
 Route::get('/painel/equipe/aprovar/{id}', 'Painel\GestorController@aprovar')->name('painel.equipe.aprovar');
 Route::get('/painel/equipe/rejeitar/{id}', 'Painel\GestorController@rejeitar')->name('painel.equipe.rejeitar');
+Route::get('/painel/equipe/filtrar', 'Painel\GestorController@filtrar')->name('painel.equipe.filtrar');
 
 
 Route::get('painel/mentorado/cadastro/{id}', 'Painel\MentoradoController@cadastro')->name('painel.mentorado.cadastro');

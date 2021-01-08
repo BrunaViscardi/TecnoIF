@@ -7,13 +7,15 @@
                     <div class="card-header">
                         <h3 class="card-title">Projetos</h3>
                         <div class="card-tools">
+                            <form action="{{ route('painel.equipe.filtrar') }}" method="GET">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right"
+                                <input type="text" name="filtro" class="form-control float-right"
                                        placeholder="Filtrar">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                     <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -40,7 +42,7 @@
                                     <td>{{$projeto->nome_projeto}}</td>
                                     <td>{{$projeto->campus}}</td>
                                     <td>{{$projeto->area}}</td>
-                                    <td>{{$projeto->situacao->situacao}}</td>
+                                   <td>{{$projeto->situacao->situacao}}</td>
                                     <td>{{$projeto->email}}</td>
                                     <td>
                                         <form method="post" action="{{route('painel.equipe.visualizarProjeto', $projeto->id)}}">

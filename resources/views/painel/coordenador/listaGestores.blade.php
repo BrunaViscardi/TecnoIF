@@ -22,17 +22,15 @@
                         </div>
                     </div>
                     <div class="card-body table-responsive p-0" style="height: 300px;">
-                        <table class="table table-head-fixed text-nowrap">
+                        <table  class="table table-head-fixed text-nowrap">
                             <thead>
                             <tr>
-
                                 <th>Nome</th>
                                 <th>Email</th>
                                 <th>Ações</th>
                                 <th>
                                    <a href="{{route('painel.coordenador.cadastroGestores')}}"><button class="btn btn-primary float-right" style="margin-right:2%">Cadastrar</button></a>
                                 </th>
-
                             </tr>
                             </thead>
                             <tbody>
@@ -41,14 +39,12 @@
                                 <tr>
                                     <td>{{$gestor->nome}}</td>
                                     <td>{{$gestor->email}}</td>
-
                                     <td>
                                         <form method="post" action="{{route('painel.coordenador.deleteGestor',$gestor->email )}}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" >Excluir</button>
                                         </form>
-
                                     </td>
                                 </tr>
                             @endforeach

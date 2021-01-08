@@ -153,4 +153,22 @@ class GestorController extends Controller
         Auth::logout();
         return redirect()->route('painel.login');
     }
+    public function filtrar(Request $request)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projetos = Projeto::get($request->filtro);
+           // dd($projetos);
+            //$projetos = Projeto::all();
+            $edital = Edital::all();
+
+            return view('painel.equipe.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+
 }

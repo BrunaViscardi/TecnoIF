@@ -55,7 +55,8 @@
                                             @method('DELETE')
                                         <a href="{{route('painel.coordenador.visualizarProjeto', $projeto->id)}}"><button type="button" class="btn btn-primary btn-sm">Ver</button></a>
                                         <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                                        <button type="button" class="btn btn-danger btn-sm">Avaliar</button>
+
+                                        <a href="{{route('painel.equipe.aprovar', $projeto->id)}}"> <button type="button" class="btn btn-danger btn-sm">Avaliar</button></a>
                                         </form>
                                     </td>
                                 </tr>
