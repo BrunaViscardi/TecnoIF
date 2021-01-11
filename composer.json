@@ -14,7 +14,8 @@
         "laravel-lang/lang": "~5.0",
         "laravel/framework": "^6.18.35",
         "laravel/tinker": "^2.0",
-        "laravellegends/pt-br-validator": "6.*"
+        "laravellegends/pt-br-validator": "6.*",
+        "maatwebsite/excel": "^3.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

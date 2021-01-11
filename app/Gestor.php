@@ -15,8 +15,12 @@ class Gestor extends Model
      */
     protected $fillable = [
         'id','nome','email','senha'
-
     ];
-
+    public static function get($filtro = '%')
+    {
+        return Gestor::where('nome', 'LIKE', '%' . $filtro . '%')
+            ->orWhere('gestores.email', 'LIKE', '%' . $filtro . '%')
+            ->get();
+    }
 
 }

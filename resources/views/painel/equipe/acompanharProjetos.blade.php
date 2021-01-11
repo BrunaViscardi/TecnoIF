@@ -38,7 +38,7 @@
                             @foreach ($projetos as $projeto)
 
                                 <tr>
-                                    <td>Pré-incubação</td>
+                                    <td>{{$projeto->edital->nome}}</td>
                                     <td>{{$projeto->nome_projeto}}</td>
                                     <td>{{$projeto->campus}}</td>
                                     <td>{{$projeto->area}}</td>
@@ -56,10 +56,7 @@
 
                                                 @if( $projeto->situacao->situacao =='Inscrito')
                                                 <a href="{{route('painel.equipe.aprovar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Aprovar</button></a>
-                                                <a href="{{route('painel.equipe.rejeitar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Rejeitar</button></a>
-                                                @endif
-                                                @if( $projeto->situacao->situacao =='Rejeitado')
-                                                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+                                                    <a href="{{route('painel.coordenador.rejeitar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Rejeitar</button></a>
                                                 @endif
                                                 @if( $projeto->situacao->situacao =='Em andamento')
                                                     <a href="{{route('painel.equipe.aprovar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Concluir mentoria</button></a>

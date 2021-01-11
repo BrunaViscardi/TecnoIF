@@ -14,7 +14,9 @@
                         <th>Email</th>
                         <th>Telefone</th>
                         <th>
+                            @if($projeto->situacao_id == 1 ||  $projeto->situacao_id == 2)
                             <a href="{{route('painel.mentorado.cadastroEquipe',$projeto->id)}}"><button class="btn btn-success float-right" style="margin-right:2%">Cadastrar</button></a>
+                            @endif
                         </th>
                     </tr>
                     @forelse ($equipe as $participante)
@@ -23,12 +25,15 @@
                             <td>{{$participante->email}}</td>
                             <td>{{$participante->telefone}}</td>
                             <td>
-                                @if($projeto->bolsista_id != $participante->id )
+                                @if($projeto->bolsista_id != $participante->id and $projeto->situacao_id == 1 ||  $projeto->situacao_id == 2)
 
                                 <a href="{{route('painel.mentorado.deleteParticipante',$participante->id)}}"><button class="btn btn-danger">Excluir</button></a>
                                 @endif
+                                @if($projeto->situacao_id == 1 ||  $projeto->situacao_id == 2)
                                     <a href="{{route('painel.mentorado.editarParticipante',$participante->id)}}"> <button class="btn btn-warning">Editar</button></a>
-                                <a href="{{route('painel.mentorado.visualizarParticipante',$participante->id)}}"> <button class="btn btn-primary">Ver</button></a>
+                                    @endif
+                                    <a href="{{route('painel.mentorado.visualizarParticipante',$participante->id)}}"> <button class="btn btn-primary">Ver</button></a>
+
                             </td>
                         </tr>
                     @empty

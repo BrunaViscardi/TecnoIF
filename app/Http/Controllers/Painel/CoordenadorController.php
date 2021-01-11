@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Painel;
 use App\Edital;
 use App\Gestor;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\GestorEditRequest;
 use App\Http\Requests\GestorRequest;
+use App\Http\Requests\JustificarRequest;
+use App\Http\Requests\MudarSituacaoRequest;
 use App\Projeto;
 use App\Situacao;
 use App\User;
@@ -40,7 +43,8 @@ class CoordenadorController extends Controller
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $projetos = Projeto::all();
-            return view('painel.coordenador.acompanharProjetos', compact('user', 'urlAtual', 'projetos'));
+            $edital = Edital::all();
+            return view('painel.coordenador.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -116,7 +120,7 @@ class CoordenadorController extends Controller
             $gestores = Gestor::all();
 
             $g = new Gestor();
-            $g->nome = $request->nome;
+            $g->nome = $request->nome  ;
             $g->senha = $request->senha;
             $g->email = $request->email;
             $g->campus = $request->campus;
@@ -303,23 +307,147 @@ class CoordenadorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $edital = $this->repositoryEditais->where('id', $id)->first();
-            if (!$edital){
+            if (!$edital)
                 return $edital()->back();
-            }
-            elseif ($edital->situacao== "Edital de Abertura"){
-                $edital->update(['situacao' => "Inscrições Abertas"]);
-            }
-            elseif ($edital->situacao== "Inscrições Abertas"){
-                $edital->update(['situacao' => "Edital em Período de Avalição"]);
-            }
-            elseif ($edital->situacao== "Edital em Período de Avalição"){
-                $edital->update(['situacao' => "Edital Concluído"]);
-            }
-            return redirect()->route('painel.coordenador.editais');
+
+            return view('painel.coordenador.editaisSituacao', compact( 'edital', 'user'));
+
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
+    public function aprovar($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $projeto = $this->repositoryProjetos->where('id', $id)->first();
+            if (!$projeto) {
+                return $projeto()->back();
+            }elseif ($projeto->situacao->situacao == "Inscrito")
+            {
+                $projeto->update(['situacao_id' => 2]);
+            }
+            elseif ($projeto->situacao->situacao == "Em andamento")
+            {
+                $projeto->update(['situacao_id' => 3]);
+            }
+            return redirect()->route('painel.coordenador.acompanharProjetos');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function rejeitar($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+          $projeto = $this->repositoryProjetos->where('id', $id)->first();
+          $edital = $this->repositoryEditais->where('id', $projeto->edital_id)->first();;
+            return view('painel.coordenador.justificar', compact(  'projeto', 'edital', 'user'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function  justificarCreate($id,  JustificarRequest $request ){
+        $projeto = $this->repositoryProjetos->where('id', $id)->first();
+        if (!$projeto)
+            return $projeto()->back();
+        $projeto->update(['situacao_id' => 4]);
+        $projeto->update(['justificativa' => $request->justificar]);
+       return redirect()->route('painel.coordenador.acompanharProjetos');
+    }
+    public function filtrarGestores(Request $request)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $gestores = Gestor::get($request->filtro);
+
+            return view('painel.coordenador.listaGestores', compact('user', 'urlAtual', 'gestores'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function filtrarProjetos(Request $request)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $projetos = Projeto::get($request->filtro);
+            // dd($projetos);
+            //$projetos = Projeto::all();
+            $edital = Edital::all();
+
+            return view('painel.equipe.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function filtrarEditais(Request $request)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $editais = Edital::get($request->filtro);
+            return view('painel.coordenador.editais', compact('user', 'urlAtual','editais'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function editaSituacao ($id, MudarSituacaoRequest $request)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $edital = $this->repositoryEditais->where('id', $id)->first();
+            if (!$edital)
+            {return $edital()->back();
+            } else{
+                $edital->update(['situacao' => $request->situacao]);
+                return redirect()->route('painel.coordenador.editais');
+            }
+        } else{ Auth::logout();
+            return redirect()->route('painel.login');}
+    }
+    public  function editarGestor($id){
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $gestor = $this->repositoryGestores->find($id);
+            if (!$gestor)
+                return redirect()->back();
+            return view('painel.coordenador.edicaoGestor', compact('user', 'urlAtual','gestor'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public  function gestorUpdate($id, GestorEditRequest $request){
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $gestor = $this->repositoryGestores->find($id);
+            if (!$gestor)
+                return redirect()->back();
+            $gestor->update($request->all());
+            return redirect()->route('painel.coordenador.listaGestores');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+
+
 
 
 }

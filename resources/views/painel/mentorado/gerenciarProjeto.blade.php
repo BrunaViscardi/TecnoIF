@@ -69,18 +69,21 @@
                                         <tbody>
                                         @foreach ($projetos as $projeto)
                                             <tr>
-                                                <td>Pré-incubação</td>
+                                                <td>{{$projeto->edital->nome}}</td>
                                                 <td>{{$projeto->nome_projeto}}</td>
                                                 <td>{{$projeto->campus}}</td>
                                                 <td>{{$projeto->area}}</td>
-                                                <td>Inscrito</td>
+                                                <td>{{$projeto->situacao->situacao}}</td>
                                                 <td>
                                                     <form method="post" action="{{route('painel.mentorado.editar',$projeto->id )}}">
                                                         <a href="{{route('painel.mentorado.visualizarProjeto',$projeto->id)}}"><button type="button" class="btn btn-primary">Ver</button></a>
                                                         <a href="{{route('painel.mentorado.equipe',$projeto->id)}}"><button type="button"  class="btn btn-success">Equipe</button></a>
                                                         @csrf
                                                     @method('PUT')
-                                                    <button type="submit" class="btn btn-warning ">Editar</button>
+
+                                                        @if($projeto->situacao->situacao == "Inscrito"  || $projeto->situacao->situacao == "Em andamento" )
+                                                         <button type="submit" class="btn btn-warning ">Editar</button>
+                                                        @endif
                                                     </form>
                                                 </td>
                                             </tr>

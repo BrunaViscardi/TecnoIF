@@ -8,16 +8,15 @@
                     <div class="card-header">
                         <h3 class="card-title">Gestores</h3>
                         <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right"
-                                       placeholder="Filtrar">
-
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-
+                            <form action="{{ route('painel.coordenador.filtrarGestores') }}" method="GET">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                    <input type="text" name="filtro" class="form-control float-right"
+                                           placeholder="Filtrar">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                    </div>
                                 </div>
-
-                            </div>
+                            </form>
 
                         </div>
                     </div>
@@ -44,6 +43,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" >Excluir</button>
+                                           <a href="{{route('painel.coordenador.editarGestor',$gestor->id)}}}}"><button type="button" class="btn btn-danger btn-sm" >Editar</button></a>
                                         </form>
                                     </td>
                                 </tr>

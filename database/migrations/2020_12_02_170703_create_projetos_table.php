@@ -19,6 +19,7 @@ class CreateProjetosTable extends Migration
             $table->unsignedBigInteger('situacao_id')->nullable();
             $table->unsignedBigInteger('edital_id');
             $table->String('nome_projeto');
+            $table->String('justificativa');
             $table->String('campus');
             $table->String('area');
             $table->longtext('problemas');

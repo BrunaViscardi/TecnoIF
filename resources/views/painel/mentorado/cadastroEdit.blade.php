@@ -94,7 +94,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Atualizar cadastro</button>
+                    <button type="submit" class="btn btn-success">Atualizar</button>
                 </div>
             </form>
         </div>

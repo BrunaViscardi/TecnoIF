@@ -130,8 +130,8 @@
                     </div>
                 </div>
 
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                <div class="card-footer" style="text-align: center">
+                    <button type="submit" style="text-align: center" class="btn btn-success">Cadastrar</button>
                 </div>
             </form>
         </div>

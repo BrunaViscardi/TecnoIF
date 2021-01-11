@@ -8,7 +8,7 @@
             </div>
             <form action="{{route('painel.coordenador.edicaoEdital', $edital->id)}}" method="post">
                 @csrf
-                @method('PUT')
+
                 <div class="card-body">
                     <div class="form-group">
                         <label>Categoria edital </label>
@@ -27,8 +27,13 @@
                 </div>
 
                 <div class="card-footer" style="text-align: center">
-                    <button type="submit" class="btn btn-success" >Atualizar cadastro</button>
+                    <button type="submit" class="btn btn-success" >Atualizar</button>
                 </div>
+                @error('justificar')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </form>
         </div>
     </section>

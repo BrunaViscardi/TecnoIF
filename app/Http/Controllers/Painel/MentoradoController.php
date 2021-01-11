@@ -67,6 +67,7 @@ class MentoradoController extends Controller
             $projetos->email = $request->email;
             $projetos->telefone = $request->telefone;
             $projetos->bolsista_id = $user->mentorado_id;
+            $projetos->j = "";
             $projetos->save();
 
             //adiciona mentorado ao projeto (na tabela intermediaria)
@@ -126,7 +127,7 @@ class MentoradoController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $editais = Edital::where('situacao', 'Inscrições Abertas')->get();
+            $editais = Edital::all();
             return view('painel.mentorado.editais', compact('user', 'urlAtual', 'editais'));
         }
         Auth::logout();
@@ -410,6 +411,19 @@ class MentoradoController extends Controller
             $participante =$this->repositoryMentorado->where('id', $id)->first();
 
             return view('painel.mentorado.visualizarParticipante', compact('user', 'urlAtual', 'participante'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function filtrarEditais(Request $request)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $editais = Edital::get($request->filtro);
+            return view('painel.mentorado.editais', compact('user', 'urlAtual','editais'));
         }
         Auth::logout();
         return redirect()->route('painel.login');

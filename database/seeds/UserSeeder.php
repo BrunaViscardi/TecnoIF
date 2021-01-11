@@ -23,7 +23,8 @@ class UserSeeder extends Seeder
            'rg' => '3333',
            'endereco'=> 'bla bla',
            'email' =>'Mentorado@gmail.com',
-           'campus'=>'Jardim'
+           'campus'=>'Jardim',
+
        ]
        );
 

@@ -24,10 +24,12 @@ class Edital extends Model
     protected $casts = [
         'data' => 'datetime',
     ];
-   /* public  function getDataFormatada()
+    public static function get($filtro = '%')
     {
-        $this->data->format('d/m/Y');
-    }*/
-
+        return Edital::where('data', 'LIKE', '%' . $filtro . '%')
+            ->orWhere('editais.nome', 'LIKE', '%' . $filtro . '%')
+            ->orWhere('editais.situacao', 'LIKE', '%' . $filtro . '%')
+            ->get();
+    }
 
 }

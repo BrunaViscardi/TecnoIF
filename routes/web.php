@@ -32,6 +32,16 @@ Route::put('/painel/coordenador/edicaoEdital/{id}', 'Painel\CoordenadorControlle
 Route::get('/painel/coordenador/visualizarProjeto/{id}', 'Painel\CoordenadorController@visualizarProjeto')->name('painel.coordenador.visualizarProjeto');
 Route::delete('/painel/coordenador/deletarProjeto/{id}', 'Painel\CoordenadorController@deletarProjeto')->name('painel.coordenador.deletarProjeto');
 Route::get('/painel/coordenador/mudarSituacao/{id}', 'Painel\CoordenadorController@mudarSituacao')->name('painel.coordenador.mudarSituacao');
+Route::get('/painel/coordenador/rejeitar/{id}', 'Painel\CoordenadorController@rejeitar')->name('painel.coordenador.rejeitar');
+Route::get('/painel/coordenador/aprovar/{id}', 'Painel\CoordenadorController@aprovar')->name('painel.coordenador.aprovar');
+Route::get('/painel/coordenador/filtrarGestores', 'Painel\CoordenadorController@filtrarGestores')->name('painel.coordenador.filtrarGestores');
+Route::get('/painel/coordenador/filtrarProjetos', 'Painel\CoordenadorController@filtrarProjetos')->name('painel.coordenador.filtrarProjetos');
+Route::get('/painel/coordenador/filtrarEditais', 'Painel\CoordenadorController@filtrarEditais')->name('painel.coordenador.filtrarEditais');
+Route::post('/painel/coordenador/justificarCreate/{id}', 'Painel\CoordenadorController@justificarCreate')->name('painel.coordenador.justificarCreate');
+Route::post('/painel/coordenador/editaSituacao/{id}', 'Painel\CoordenadorController@editaSituacao')->name('painel.coordenador.editaSituacao');
+Route::get('/painel/coordenador/editarGestor/{id}', 'Painel\CoordenadorController@editarGestor')->name('painel.coordenador.editarGestor');
+Route::post('/painel/coordenador/gestorUpdate/{id}', 'Painel\CoordenadorController@gestorUpdate')->name('painel.coordenador.gestorUpdate');
+
 
 
 
@@ -65,6 +75,7 @@ Route::get('/painel/mentorado/deleteParticipante/{id}', 'Painel\MentoradoControl
 Route::get('/painel/mentorado/visualizarParticipante/{id}', 'Painel\MentoradoController@visualizarParticipante')->name('painel.mentorado.visualizarParticipante');
 Route::put('/painel/mentorado/edicaoParticipante/{id}', 'Painel\MentoradoController@edicaoParticipante')->name('painel.mentorado.edicaoParticipante');
 Route::get('/painel/mentorado/editarParticipante/{id}', 'Painel\MentoradoController@editarParticipante')->name('painel.mentorado.editarParticipante');
+Route::get('/painel/mentorado/filtrarEditais', 'Painel\MentoradoController@filtrarEditais')->name('painel.mentorado.filtrarEditais');
 
 
 Route::get('/painel/mentorado/visualizarProjeto/{id}', 'Painel\MentoradoController@visualizarProjeto')->name('painel.mentorado.visualizarProjeto');

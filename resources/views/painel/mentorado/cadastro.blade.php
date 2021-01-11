@@ -162,7 +162,7 @@
                 <input name="editalId" value="{{$editalId}}" type="hidden">
 
                 <div class="card-footer" style=" text-align: center">
-                    <button type="submit" class="btn btn-success">Finalizar cadastro</button>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
                 </div>
             </form>
         </div>

@@ -9,13 +9,15 @@
                         <h3 class="card-title">Projetos</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right"
-                                       placeholder="Filtrar">
-
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-
-                                </div>
+                                <form action="{{ route('painel.equipe.filtrar') }}" method="GET">
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                        <input type="text" name="filtro" class="form-control float-right"
+                                               placeholder="Filtrar">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
 
                             </div>
 
@@ -43,20 +45,31 @@
                             @foreach ($projetos as $projeto)
 
                                 <tr>
-                                    <td>Pré-incubação</td>
+                                    <td>{{$projeto->edital->nome}}</td>
                                     <td>{{$projeto->nome_projeto}}</td>
                                     <td>{{$projeto->campus}}</td>
                                     <td>{{$projeto->area}}</td>
                                     <td>{{$projeto->situacao->situacao}}</td>
                                     <td>{{$projeto->email}}</td>
                                     <td>
-                                        <form method="post" action="{{route('painel.coordenador.deletarProjeto', $projeto->id)}}">
+                                        <form method="post" action="{{route('painel.equipe.visualizarProjeto', $projeto->id)}}">
                                             @csrf
-                                            @method('DELETE')
-                                        <a href="{{route('painel.coordenador.visualizarProjeto', $projeto->id)}}"><button type="button" class="btn btn-primary btn-sm">Ver</button></a>
-                                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                            @method('PUT')
+                                            <?php
+                                            $e = $edital->where('id',$projeto->edital_id)->first();
+                                            ?>
+                                            <button type="submit" class="btn btn-primary btn-sm">Ver</button>
+                                            @if($e->situacao =="Edital em Período de Avalição")
 
-                                        <a href="{{route('painel.equipe.aprovar', $projeto->id)}}"> <button type="button" class="btn btn-danger btn-sm">Avaliar</button></a>
+                                                @if( $projeto->situacao->situacao =='Inscrito')
+                                                    <a href="{{route('painel.coordenador.aprovar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Aprovar</button></a>
+                                                    <a href="{{route('painel.coordenador.rejeitar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Rejeitar</button></a>
+                                                @endif
+                                            @endif
+                                                @if( $projeto->situacao->situacao =='Em andamento')
+                                                    <a href="{{route('painel.coordenador.aprovar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Concluir mentoria</button></a>
+                                                @endif
+
                                         </form>
                                     </td>
                                 </tr>

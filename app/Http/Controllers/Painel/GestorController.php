@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Painel;
 use App\Edital;
 use App\Gestor;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\JustificarRequest;
 use App\Mentorado;
 use App\Mentorado_projeto;
 use App\Projeto;
@@ -141,18 +142,7 @@ class GestorController extends Controller
         Auth::logout();
         return redirect()->route('painel.login');
     }
-    public function rejeitar($id)
-    {
-        if (Auth::check() === true) {
-            $projeto = $this->repositoryProjetos->where('id', $id)->first();
-            if (!$projeto)
-                return $projeto()->back();
-            $projeto->update(['situacao_id' => 4]);
-            return redirect()->route('painel.equipe.acompanhar');
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
+
     public function filtrar(Request $request)
     {
         if (Auth::check() === true) {
@@ -169,6 +159,29 @@ class GestorController extends Controller
         }
         Auth::logout();
         return redirect()->route('painel.login');
+    }
+    public function rejeitar($id)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $projeto = $this->repositoryProjetos->where('id', $id)->first();
+            $edital = $this->repositoryEditais->where('id', $projeto->edital_id)->first();;
+            /* if (!$projeto)
+               return $projeto()->back();
+           $projeto->update(['situacao_id' => 4]);
+           return redirect()->route('painel.coordenador.acompanharProjetos');*/
+            return view('painel.coordenador.justificar', compact(  'projeto', 'edital', 'user'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function  justificarCreate($id,  JustificarRequest $request ){
+        $projeto = $this->repositoryProjetos->where('id', $id)->first();
+        if (!$projeto)
+            return $projeto()->back();
+        $projeto->update(['situacao_id' => 4]);
+        $projeto->update(['j' => $request->justificar]);
+        return redirect()->route('painel.coordenador.acompanharProjetos');
     }
 
 }

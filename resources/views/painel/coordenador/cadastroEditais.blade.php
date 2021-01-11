@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-success">Finalizar cadastro</button>
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
                 </div>
             </form>
         </div>
