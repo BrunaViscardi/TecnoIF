@@ -42,7 +42,7 @@ class GestorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $projetos = Projeto::all();
+            $projetos = $this->repositoryProjetos->orderBy('nome_projeto')->paginate(4);
             $edital = Edital::all();
             return view('painel.equipe.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));
         }
@@ -150,9 +150,21 @@ class GestorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $projetos = Projeto::get($request->filtro);
-           // dd($projetos);
-            //$projetos = Projeto::all();
+            $filtro = $request->filtro;
+            $projetos = Projeto::where('nome_projeto', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('projetos.area', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('projetos.campus', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('projetos.email', 'LIKE', '%' . $filtro . '%')
+                ->orWhereHas('situacao', function($q) use ($filtro)
+                {
+                    $q->where('situacao', 'like', '%' . $filtro . '%');
+                })
+                ->orWhereHas('edital', function($q) use ($filtro)
+                {
+                    $q->where('nome', 'like', '%' . $filtro . '%');
+                })
+                ->paginate(10);
+
             $edital = Edital::all();
 
             return view('painel.equipe.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));

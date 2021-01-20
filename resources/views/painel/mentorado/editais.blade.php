@@ -9,7 +9,7 @@
                             <form action="{{ route('painel.mentorado.filtrarEditais') }}" method="GET">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" name="filtro" class="form-control float-right"
-                                           placeholder="Filtrar">
+                                           placeholder="Filtrar" value="{{ request()->filtro }}">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                     </div>
@@ -57,12 +57,18 @@
                                     </a>
                                         @endif
                                 </td>
+
                             </tr>
                             @endforeach
                             </tr>
                         </tbody>
+
                     </table>
-                </div>
+
+                </div><div class="card-header">
+
+                        {{ $editais->links() }}
+                    </div>
             </div>
             </div>
     </section>

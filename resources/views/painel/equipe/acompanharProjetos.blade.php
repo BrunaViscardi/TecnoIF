@@ -9,7 +9,7 @@
                         <div class="card-tools">
                             <form action="{{ route('painel.equipe.filtrar') }}" method="GET">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="filtro" class="form-control float-right"
+                                <input type="text" name="filtro" value="{{ request()->filtro }}" class="form-control float-right"
                                        placeholder="Filtrar">
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
@@ -68,6 +68,10 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="card-header">
+
+                        {{ $projetos->links() }}
                     </div>
                 </div>
             </div>

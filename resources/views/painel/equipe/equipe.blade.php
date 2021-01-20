@@ -35,6 +35,10 @@
                     </tbody>
                 </table>
             </div>
+            <div class="card-header">
+
+                {{ $equipe->links() }}
+            </div>
         </div>
 @endsection
 

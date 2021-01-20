@@ -87,10 +87,14 @@
                                                     </form>
                                                 </td>
                                             </tr>
-                                        </tbody>
                                         @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
+                                <div class="card-header">
+                                    {{$projetos->links() }}
+                                </div>
+
         @endif
         </section>
 @endsection

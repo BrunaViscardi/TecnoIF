@@ -23,4 +23,5 @@ class Gestor extends Model
             ->get();
     }
 
+
 }

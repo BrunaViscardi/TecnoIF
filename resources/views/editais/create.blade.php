@@ -6,7 +6,7 @@
 
                 <h3 class="card-title">Cadastro de Editais</h3>
             </div>
-            <form action="{{route('painel.coordenador.createEditais')}}" method="post">
+            <form action="{{route('editais.create')}}" method="post">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">

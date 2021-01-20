@@ -9,7 +9,7 @@
                         <h3 class="card-title">Projetos</h3>
                         <div class="card-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <form action="{{ route('painel.coordenador.filtrarProjetos') }}" method="GET">
+                                <form action="{{ route('projetos.filtro') }}" method="GET">
                                     <div class="input-group input-group-sm" style="width: 150px;">
                                         <input type="text" name="filtro" value="{{ request()->filtro }}" class="form-control float-right"
                                                placeholder="Filtrar">
@@ -36,9 +36,11 @@
                                 <th>Área</th>
                                 <th>Situação</th>
                                 <th>Email</th>
+                                @if(Auth::user() && Auth::user()->isCoordenador() || Auth::user()->isAdministrador())
                                 <th>
-                                    <a href="{{route('painel.coordenador.export')}}"><button class="btn btn-success float-right">Exportar</button></a>
+                                    <a href="{{route('painel.coordenador.export')}}"><button class="btn btn-primary float-right">Exportar</button></a>
                                 </th>
+                                @endif
 
                             </tr>
                             </thead>
@@ -53,8 +55,23 @@
                                     <td>{{$projeto->area}}</td>
                                     <td>{{$projeto->situacao->situacao}}</td>
                                     <td>{{$projeto->email}}</td>
+                                    @if(Auth::user() && Auth::user()->isCandidato())
                                     <td>
-                                        <form method="post" action="{{route('painel.equipe.visualizarProjeto', $projeto->id)}}">
+                                        <form method="post" action="{{route('painel.mentorado.editar',$projeto->id )}}">
+                                            <a href="{{route('painel.mentorado.visualizarProjeto',$projeto->id)}}"><button type="button" class="btn btn-primary  btn-sm">Ver</button></a>
+                                            <a href="{{route('painel.mentorado.equipe',$projeto->id)}}"><button type="button"  class="btn btn-success  btn-sm">Equipe</button></a>
+                                            @csrf
+                                            @method('PUT')
+
+                                            @if($projeto->situacao->situacao == "Inscrito"  || $projeto->situacao->situacao == "Em andamento" )
+                                                <button type="submit" class="btn btn-warning  btn-sm ">Editar</button>
+                                            @endif
+                                        </form>
+                                    </td>
+                                    @endif
+                                    @if(Auth::user() && Auth::user()->isCoordenador())
+                                    <td>
+                                        <form method="post" action="{{route('projetos.show', $projeto->id)}}">
                                             @csrf
                                             @method('PUT')
                                             <?php
@@ -64,18 +81,19 @@
                                             @if($e->situacao =="Edital em Período de Avalição")
 
                                                 @if( $projeto->situacao->situacao =='Inscrito')
-                                                    <a href="{{route('painel.coordenador.aprovar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Aprovar</button></a>
-                                                    <a href="{{route('painel.coordenador.rejeitar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Rejeitar</button></a>
+                                                    <a href="{{route('projetos.updateAprovacao', $projeto->id)}}"><button type="button" class="btn btn-success btn-sm">Aprovar</button></a>
+                                                    <a href="{{route('projetos.updateRejeicaoView', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Rejeitar</button></a>
                                                 @endif
                                             @endif
-                                                @if( $projeto->situacao->situacao =='Em andamento')
-                                                    <a href="{{route('painel.coordenador.aprovar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Concluir mentoria</button></a>
-                                                @endif
+                                            @if( $projeto->situacao->situacao =='Em andamento')
+                                                <a href="{{route('painel.coordenador.aprovar', $projeto->id)}}"><button type="button" class="btn btn-danger btn-sm">Concluir mentoria</button></a>
+                                            @endif
 
                                         </form>
                                     </td>
+                                    @endif
                                 </tr>
-                              @endforeach
+                            @endforeach
                             </tbody>
                         </table>
 

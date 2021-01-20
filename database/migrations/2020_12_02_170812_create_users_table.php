@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the mentoradosns.
      *
      * @return void
      */

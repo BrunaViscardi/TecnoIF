@@ -91,24 +91,20 @@
                     <input disabled value="{{$projeto->telefone}}" name="telefone" class="form-control" placeholder="Telefone" required>
                     <small class="form-text text-muted">Insira o telefone do seu mentor</small>
                 </div>
-                 @if($projeto->justificativa != null)
-                      <div class="form-group">
-                        <label>Justificativa </label>
-                        <input disabled value="{{$projeto->justificativa}}" name="justificativa" class="form-control" placeholder="Telefone" >
-                          <small class="form-text text-muted">Justificativa de rejeição</small>
+                <form method="post" action="{{route('projetos.updateRejeicao', $projeto->id )}}">
+                    @csrf
+                    <div class="form-group">
+                        <label>Justificar</label>
+                        <textarea name="justificar" class="form-control   @error('justificar') is-invalid @enderror" rows="3" placeholder="..."   >{{ old('justificar')}}</textarea>
+                        @error('justificar')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                 @endif
-                <div>
-                <form method="post" action="{{route('painel.mentorado.editar',$projeto->id )}}">
-
-                @csrf
-
-                <button type="submit" class="btn btn-success">Editar</button>
-                    <button type="button" class="btn btn-success">Equipe</button>
-                </form>
-                </div>
-            </div>
-
+                    <button type="submit" class="btn btn-success">Rejeitar</button>
+                    <a href="{{route('painel.equipe.equipe', $projeto->id )}}"> <button type="button" class="btn btn-success">Ver Equipe</button></a>
+                </form> </div>
         </div>
     </section>
 

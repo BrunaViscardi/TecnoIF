@@ -6,7 +6,7 @@
 
                 <h3 class="card-title">Edição de Edital</h3>
             </div>
-            <form action="{{route('painel.coordenador.edicaoEdital', $edital->id)}}" method="post">
+            <form action="{{route('editais.update', $edital->id)}}" method="post">
                 @csrf
 
                 <div class="card-body">

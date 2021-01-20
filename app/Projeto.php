@@ -11,7 +11,7 @@ class Projeto extends Model
     protected $fillable = [
         'nome_projeto', 'situacao_id', 'area', 'area', 'problemas', 'caracteristicas',
         'publico_alvo', 'dificuldades', 'disponibilidade', 'resultados', 'nomeMentor', 'instituicao',
-        'areaMentor', 'j','email', 'telefone', 'campus', 'edital_id', 'id'
+        'areaMentor', 'justificativa','email', 'telefone', 'campus', 'edital_id', 'id'
     ];
     public function situacao(){
         return $this->belongsTo(Situacao::class);

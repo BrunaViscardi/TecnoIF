@@ -1,8 +1,8 @@
 @extends('painel.Layout.index')
 @section('content')
-<?php
+    <?php
     $aux = null;
-?>
+    ?>
     <section class="content">
         <div class="row">
             <div class="col-12">
@@ -10,7 +10,7 @@
                     <div class="card-header">
                         <h3 class="card-title">Gestores</h3>
                         <div class="card-tools">
-                            <form action="{{ route('painel.coordenador.filtrarGestores') }}" method="GET">
+                            <form action="{{ route('gestores.filtro') }}" method="GET">
                                 <div class="input-group input-group-sm" style="width: 150px;">
                                     <input type="text" value="{{ request()->filtro }}" name="filtro" class="form-control float-right"
                                            placeholder="Filtrar">
@@ -30,15 +30,15 @@
                                 <th>Email</th>
                                 <th>Ações</th>
                                 <th>
-                                   <a href="{{route('painel.coordenador.cadastroGestores')}}"><button class="btn btn-primary float-right" style="margin-right:2%">Cadastrar</button></a>
+                                    <a href="{{route('gestores.createView')}}"><button class="btn btn-primary float-right" style="margin-right:2%">Cadastrar</button></a>
                                 </th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach ($gestores as $gestorr)
-                                 <?php
-                                     $aux = $gestores;
-                                 ?>
+                                <?php
+                                $aux = $gestores;
+                                ?>
                                 <tr>
                                     <td>{{$gestorr->nome}}</td>
                                     <td>{{$gestorr->email}}</td>
@@ -46,9 +46,9 @@
 
 
                                         <a href="#" class="card-link" data-toggle="modal" data-target="#siteModal"><button class="btn btn-danger btn-sm">Excluir</button></a>
-                                        <a href="{{route('painel.coordenador.editarGestor',$gestorr->id)}}}}">
-                                               <button type="button" class="btn btn-danger btn-sm" >Editar</button>
-                                           </a>
+                                        <a href="{{route('gestores.updateView',$gestorr->id)}}}}">
+                                            <button type="button" class="btn bg-success btn-sm" >Editar</button>
+                                        </a>
 
                                     </td>
                                 </tr>
@@ -58,43 +58,42 @@
                     </div>
                     <div class="card-header">
 
-                    {{ $gestores->links() }}
+                        {{ $gestores->links() }}
                     </div>
                 </div>
             </div>
         </div>
 
-    <div class="modal fade" id="siteModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"> Deseja excluir?</h5>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p> Uma vez excluído não é possível recuperar os dados deletados.</p>
-                </div>
-                <div class="modal-footer">
-                    <?php
-                    if($aux != null){
-
-
-                    ?>
-
-
-                    <a href="{{route('painel.coordenador.deleteGestor', $gestorr->email)}}">
-                        <button type="button" class="btn btn-danger">
-                            Excluir
+        <div class="modal fade" id="siteModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"> Deseja excluir?</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
                         </button>
-                    </a>
-                  <?php  }?>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancelar</button>
+                    </div>
+                    <div class="modal-body">
+                        <p> Uma vez excluído não é possível recuperar os dados deletados.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <?php
+                        if($aux != null){
 
+
+                        ?>
+
+                        <a href="{{route('gestores.destroy', $gestorr->email)}}">
+                            <button type="button" class="btn btn-danger">
+                                Excluir
+                            </button>
+                        </a>
+                        <?php  }?>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"> Cancelar</button>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
     </section>
 @endsection

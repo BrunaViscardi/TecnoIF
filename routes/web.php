@@ -5,6 +5,40 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::get('/editais/index', 'EditalController@index')->name('editais.index');
+Route::post('/editais/update/{id}', 'EditalController@update')->name('editais.update');
+Route::put('/editais/updateView/{id}', 'EditalController@updateView')->name('editais.updateView');
+Route::get('/editais/updateSituacaoView/{id}', 'EditalController@updateSituacaoView')->name('editais.updateSituacaoView');
+Route::post('/editais/updateSituacao/{id}', 'EditalController@updateSituacao')->name('editais.updateSituacao');
+Route::get('/editais/createView', 'EditalController@createView')->name('editais.createView');
+Route::post('/editais/create', 'EditalController@create')->name('editais.create');
+Route::get('/editais/filtro', 'EditalController@filtro')->name('editais.filtro');
+
+Route::get('/gestores/index', 'GestoresController@index')->name('gestores.index');
+Route::get('/gestores/destroy/{email}', 'GestoresController@destroy')->name('gestores.destroy');
+Route::get('/gestores/createView', 'GestoresController@createView')->name('gestores.createView');
+Route::post('/gestores/create', 'GestoresController@create')->name('gestores.create');
+Route::get('/gestores/filtro', 'GestoresController@filtro')->name('gestores.filtro');
+Route::get('/gestores/updateView/{id}', 'GestoresController@updateView')->name('gestores.updateView');
+Route::post('/gestores/update/{id}', 'GestoresController@update')->name('gestores.update');
+
+Route::get('/projetos/index', 'ProjetoController@index')->name('projetos.index');
+Route::put('/projetos/show/{id}', 'ProjetoController@show')->name('projetos.show');
+Route::get('/projetos/updateAprovacao/{id}', 'ProjetoController@updateAprovacao')->name('projetos.updateAprovacao');
+Route::get('/projetos/updateRejeicaoView/{id}', 'ProjetoController@updateRejeicaoView')->name('projetos.updateRejeicaoView');
+Route::post('/projetos/updateRejeicao/{id}', 'ProjetoController@updateRejeicao')->name('projetos.updateRejeicao');
+Route::get('/projetos/filtro', 'ProjetoController@filtro')->name('projetos.filtro');
+Route::get('/projetos/painel', 'ProjetoController@painel')->name('projetos.painel');
+
+
+
+Route::get('/configuracoes/updateSenha', 'ConfiguracaoController@updateSenha')->name('configuracoes.updateSenha');
+Route::get('/configuracoes/updatePerfilView', 'ConfiguracaoController@updatePerfilView')->name('configuracoes.updatePerfilView');
+Route::put('/configuracoes/updatePerfil', 'ConfiguracaoController@updatePerfil')->name('configuracoes.updatePerfil');
+
+
+
 Route::get('/home/cadastro', 'Home\CandidatoController@create')->name('home.cadastro');
 Route::post('/home/store', 'Home\CandidatoController@store')->name('home.store');
 Route::post('/home/valida', 'CandidatoController@valida')->name('home.valida');
@@ -17,18 +51,17 @@ Route::get('/painel/logout', 'Painel\PainelController@logout')->name('painel.log
 Route::post('/painel/login/do', 'Painel\PainelController@login')->name('painel.login.do');
 
 Route::get('/painel/coordenador/acompanharProjetos', 'Painel\CoordenadorController@acompanharProjetos')->name('painel.coordenador.acompanharProjetos');
-Route::get('/painel/coordenador/editais', 'Painel\CoordenadorController@editais')->name('painel.coordenador.editais');
-Route::get('/painel/coordenador/configuracoes', 'Painel\CoordenadorController@configuracoes')->name('painel.coordenador.configuracoes');
-Route::get('/painel/coordenador/listaGestores', 'Painel\CoordenadorController@lista')->name('painel.coordenador.listaGestores');
+
+
 Route::get('/painel/coordenador/cadastroGestores', 'Painel\CoordenadorController@cadastroGestores')->name('painel.coordenador.cadastroGestores');
 Route::post('/painel/coordenador/create', 'Painel\CoordenadorController@create')->name('painel.coordenador.create');
 Route::get('/painel/coordenador/cadastroEditais', 'Painel\CoordenadorController@cadastroEditais')->name('painel.coordenador.cadastroEditais');
 Route::post('/painel/coordenador/createEditais', 'Painel\CoordenadorController@createEditais')->name('painel.coordenador.createEditais');
-Route::delete('/painel/coordenador/deleteGestor/{email}', 'Painel\CoordenadorController@deleteGestor')->name('painel.coordenador.deleteGestor');
+
 Route::get('/painel/coordenador/deleteEdital/{id}', 'Painel\CoordenadorController@deleteEdital')->name('painel.coordenador.deleteEdital');
 Route::get('/painel/coordenador/alterarSenha', 'Painel\CoordenadorController@alterarSenha')->name('painel.coordenador.alterarSenha');
 Route::put('/painel/coordenador/editarEdital/{id}', 'Painel\CoordenadorController@editarEdital')->name('painel.coordenador.editarEdital');
-Route::put('/painel/coordenador/edicaoEdital/{id}', 'Painel\CoordenadorController@edicaoEdital')->name('painel.coordenador.edicaoEdital');
+Route::post('/painel/coordenador/edicaoEdital/{id}', 'Painel\CoordenadorController@edicaoEdital')->name('painel.coordenador.edicaoEdital');
 Route::get('/painel/coordenador/visualizarProjeto/{id}', 'Painel\CoordenadorController@visualizarProjeto')->name('painel.coordenador.visualizarProjeto');
 Route::delete('/painel/coordenador/deletarProjeto/{id}', 'Painel\CoordenadorController@deletarProjeto')->name('painel.coordenador.deletarProjeto');
 Route::get('/painel/coordenador/mudarSituacao/{id}', 'Painel\CoordenadorController@mudarSituacao')->name('painel.coordenador.mudarSituacao');
@@ -77,9 +110,6 @@ Route::put('/painel/mentorado/edicaoParticipante/{id}', 'Painel\MentoradoControl
 Route::get('/painel/mentorado/editarParticipante/{id}', 'Painel\MentoradoController@editarParticipante')->name('painel.mentorado.editarParticipante');
 Route::get('/painel/mentorado/filtrarEditais', 'Painel\MentoradoController@filtrarEditais')->name('painel.mentorado.filtrarEditais');
 
-
 Route::get('/painel/mentorado/visualizarProjeto/{id}', 'Painel\MentoradoController@visualizarProjeto')->name('painel.mentorado.visualizarProjeto');
-
-
-
+Route::get('/painel/coordenador/export', 'Painel\CoordenadorController@export')->name('painel.coordenador.export');
 

@@ -15,7 +15,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use App\Exports\ProjetosExport;
+use Maatwebsite\Excel\Facades\Excel;
 class CoordenadorController extends Controller
 {
     public $request = null;
@@ -42,7 +43,7 @@ class CoordenadorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $projetos = Projeto::all();
+            $projetos =  $this->repositoryProjetos->orderBy('nome_projeto')->paginate(4);
             $edital = Edital::all();
             return view('painel.coordenador.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));
         }
@@ -66,35 +67,7 @@ class CoordenadorController extends Controller
 
     }
 
-    public function cadastroEditais()
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            return view('painel.coordenador.cadastroEditais', compact('user', 'urlAtual'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
 
-    }
-
-
-    public function editais()
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $editais = Edital::all();
-            return view('painel.coordenador.editais', compact('user', 'urlAtual', 'editais'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-
-    }
 
     public function configuracoes()
     {
@@ -129,10 +102,11 @@ class CoordenadorController extends Controller
 
             $users = new User();
             $users->name = $request->nome;
-            $users->role = 2;
+            $users->role = 1;
             $users->email = $request->email;
             $users->password = $request->senha;
             $users->name = $request->nome;
+
             User::create([
                 'role' => $users['role'],
                 'name' => $users['name'],
@@ -153,36 +127,16 @@ class CoordenadorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $gestores = Gestor::all();
+            $gestores =  $this->repositoryGestores->orderBy('nome')->paginate(4);
             return view('painel.coordenador.listaGestores', compact('user', 'urlAtual', 'gestores'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
 
-    public function createEditais(Request $request)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $editais = Edital::all();
-            $e = new Edital();
-            $e->nome = $request->nome;
-            $e->data = $request->data;
-            $e->situacao ="Edital de Abertura";
-            $e->link = $request->link;
-            $e->save();
-            return redirect()->route('painel.coordenador.editais', compact('user', 'urlAtual', 'editais'));
 
-        }
-        Auth::logout();
 
-        return redirect()->route('painel.login');
-    }
-
-    public function deleteGestor( $email)
+    public function deleteGestor($email)
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
@@ -204,25 +158,7 @@ class CoordenadorController extends Controller
         return redirect()->route('painel.login');
 
     }
-    public function deleteEdital( $id)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $edital = $this->repositoryEditais->where('id', $id);
-            if (!$edital)
-                return redirect()->back();
-            $edital->delete();
-            return redirect()->route('painel.coordenador.editais', compact('user', 'urlAtual'));
 
-        }
-        Auth::logout();
-
-        return redirect()->route('painel.login');
-
-    }
     public function alterarSenha()
     {
         if (Auth::check() === true) {
@@ -236,37 +172,7 @@ class CoordenadorController extends Controller
         return redirect()->route('painel.login');
 
     }
-    public function editarEdital($id)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $edital = $this->repositoryEditais->where('id', $id)->first();
 
-            return view('painel.coordenador.editarEdital', compact('user', 'urlAtual', 'edital'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-
-    }
-    public function edicaoEdital(Request $request, $id)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $edital = $this->repositoryEditais->find($request->id);
-            if (!$edital)
-                return redirect()->back();
-            $edital->update($request->all());
-            return redirect()->route('painel.coordenador.editais');
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
 
     public function visualizarProjeto($id)
     {
@@ -300,22 +206,7 @@ class CoordenadorController extends Controller
         Auth::logout();
         return redirect()->route('painel.login');
     }
-    public function mudarSituacao($id)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $edital = $this->repositoryEditais->where('id', $id)->first();
-            if (!$edital)
-                return $edital()->back();
 
-            return view('painel.coordenador.editaisSituacao', compact( 'edital', 'user'));
-
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
     public function aprovar($id)
     {
         if (Auth::check() === true) {
@@ -364,7 +255,10 @@ class CoordenadorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $gestores = Gestor::get($request->filtro);
+            $filtro = $request->filtro;
+            $gestores = Gestor::where('nome', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('gestores.email', 'LIKE', '%' . $filtro . '%')
+                ->paginate(5);
 
             return view('painel.coordenador.listaGestores', compact('user', 'urlAtual', 'gestores'));
         }
@@ -378,44 +272,27 @@ class CoordenadorController extends Controller
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            $projetos = Projeto::get($request->filtro);
-            // dd($projetos);
-            //$projetos = Projeto::all();
+            $filtro = $request->filtro;
             $edital = Edital::all();
 
+
+           $projetos = Projeto::where('nome_projeto', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('projetos.area', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('projetos.campus', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('projetos.email', 'LIKE', '%' . $filtro . '%')
+                ->orWhereHas('situacao', function($q) use ($filtro)
+                {
+                    $q->where('situacao', 'like', '%' . $filtro . '%');
+                })
+                ->orWhereHas('edital', function($q) use ($filtro)
+                {
+                    $q->where('nome', 'like', '%' . $filtro . '%');
+                })
+               ->paginate(10);
             return view('painel.equipe.acompanharProjetos', compact('user', 'urlAtual', 'projetos', 'edital'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
-    }
-    public function filtrarEditais(Request $request)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $editais = Edital::get($request->filtro);
-            return view('painel.coordenador.editais', compact('user', 'urlAtual','editais'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
-    public function editaSituacao ($id, MudarSituacaoRequest $request)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $edital = $this->repositoryEditais->where('id', $id)->first();
-            if (!$edital)
-            {return $edital()->back();
-            } else{
-                $edital->update(['situacao' => $request->situacao]);
-                return redirect()->route('painel.coordenador.editais');
-            }
-        } else{ Auth::logout();
-            return redirect()->route('painel.login');}
     }
     public  function editarGestor($id){
         if (Auth::check() === true) {
@@ -442,6 +319,13 @@ class CoordenadorController extends Controller
                 return redirect()->back();
             $gestor->update($request->all());
             return redirect()->route('painel.coordenador.listaGestores');
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public  function export(){
+        if (Auth::check() === true) {
+            return Excel::download(new ProjetosExport, 'projetos.xlsx');
         }
         Auth::logout();
         return redirect()->route('painel.login');

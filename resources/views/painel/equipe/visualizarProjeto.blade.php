@@ -91,8 +91,16 @@
                     <input disabled value="{{$projeto->telefone}}" name="telefone" class="form-control" placeholder="Telefone" required>
                     <small class="form-text text-muted">Insira o telefone do seu mentor</small>
                 </div>
-
+               @if($projeto->justificativa != null)
+                      <div class="form-group">
+                        <label>Justificativa </label>
+                        <input disabled value="{{$projeto->justificativa}}" name="justificativa" class="form-control" placeholder="Telefone" >
+                          <small class="form-text text-muted">Justificativa de rejeição</small>
+                    </div>
+                 @endif
+                 @if($projeto->situacao_id == 1  )
                 <button type="button" class="btn btn-success">Avaliar</button>
+                @endif
                <a href="{{route('painel.equipe.equipe', $projeto->id )}}"> <button type="button" class="btn btn-success">Ver Equipe</button></a>
             </div>
         </div>

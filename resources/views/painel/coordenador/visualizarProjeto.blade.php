@@ -91,6 +91,13 @@
             <input disabled value="{{$projeto->telefone}}" name="telefone" class="form-control" placeholder="Telefone" >
             <small class="form-text text-muted">Insira o telefone do seu mentor</small>
         </div>
+        @if($projeto->justificativa != null)
+          <div class="form-group">
+            <label>Telefone </label>
+            <input disabled value="{{$projeto->justificativa}}" name="justificativa" class="form-control" placeholder="Telefone" >
+
+        </div>
+        @endif
     </div>
         </div>
     </section>

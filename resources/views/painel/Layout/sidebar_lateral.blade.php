@@ -35,7 +35,7 @@
                                 </li>
                             @if(Auth::user() && Auth::user()->isCandidato())
                                 <li class="nav-item">
-                                    <a href="{{route('painel.mentorado.dashboard')}}" class="nav-link ">
+                                    <a href="{{route('projetos.painel')}}" class="nav-link ">
                                         <i class="fas fa-archive nav-icon"></i>
                                         <p>Gerenciar projeto</p>
                                     </a> </li>
@@ -50,13 +50,13 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="{{route('painel.mentorado.alterarPerfil')}}" class="nav-link">
+                                            <a href="{{route('configuracoes.updatePerfilView')}}" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Alterar dados do Perfil</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{route('painel.mentorado.alterarSenha')}}" class="nav-link">
+                                            <a href="{{route('configuracoes.updateSenha')}}" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Alterar senha</p>
                                             </a>
@@ -95,15 +95,15 @@
                             @endif
                             @if(Auth::user() && Auth::user()->isCoordenador())
                                 <li class="nav-item">
-                                    <a href="{{route('painel.coordenador.listaGestores')}}" class="nav-link ">
+                                    <a href="{{route('gestores.index')}}" class="nav-link ">
                                         <i class="fa fa-users nav-icon"></i>
                                         <p>Cadastro de gestores</p>
                                     </a>
-                                    <a href="{{route('painel.coordenador.editais')}}" class="nav-link ">
+                                    <a href="{{route('editais.index')}}" class="nav-link ">
                                         <i class="fas fa-file-signature nav-icon"></i>
                                         <p>Cadastro de editais</p>
                                     </a>
-                                    <a href="{{route('painel.coordenador.acompanharProjetos')}}" class="nav-link ">
+                                    <a href="{{route('projetos.index')}}" class="nav-link ">
                                         <i class="fas fa-archive nav-icon"></i>
                                         <p>Acompanhar Projetos</p>
                                     </a>
@@ -118,7 +118,7 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="{{route('painel.coordenador.alterarSenha')}}" class="nav-link">
+                                            <a href="{{route('configuracoes.updateSenha')}}" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Alterar senha</p>
                                             </a>
