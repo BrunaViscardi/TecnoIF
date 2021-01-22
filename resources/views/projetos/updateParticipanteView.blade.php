@@ -1,4 +1,5 @@
-@extends('painel.Layout.index')
+@if(Auth::user() && Auth::user()->isCandidato())
+@extends('painel.layout.index')
 @section('content')
     <section class="content">
         <div class="card card-success">
@@ -6,8 +7,8 @@
 
                 <h3 class="card-title">Editar Participante</h3>
             </div>
-            <form action="{{route('painel.mentorado.edicaoParticipante', $participante->id)}}" method="post">
-               @method('PUT')
+            <form action="{{route('projetos.updateParticipante', $participante->id)}}" method="post">
+                @method('PUT')
                 @csrf
                 <div class="card-body">
                     <div class="form-group">
@@ -137,6 +138,38 @@
             </form>
         </div>
     </section>
-
-
 @endsection
+@else
+@section('content')
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Página de erro 403
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">Erro 403</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="error-page">
+                <h2 class="headline text-yellow"> 403</h2>
+
+                <div class="error-content">
+                    <h3><i class="fa fa-warning text-yellow"></i> Ops! Acesso negado.</h3>
+
+                    <p>
+                        Não foi possível acessar a página que você estava procurando.
+                        Enquanto isso, você pode retornar ao painel
+                        <a href="{{route('painel.home')}}">retornar para a página principal</a>
+
+                </div>
+
+            </div>
+
+        </section>
+@endsection
+@endif
+

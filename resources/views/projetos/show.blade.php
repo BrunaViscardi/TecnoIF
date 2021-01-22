@@ -1,4 +1,4 @@
-@extends('painel.Layout.index')
+@extends('painel.layout.index')
 @section('content')
     <section class="content">
         <div class="card card-success">
@@ -93,13 +93,15 @@
                 </div>
                 @if($projeto->justificativa != null)
                     <div class="form-group">
-                        <label>Telefone </label>
-                        <input disabled value="{{$projeto->justificativa}}" name="justificativa" class="form-control" placeholder="Telefone" >
+                        <label>Justificativa </label>
+                        <input disabled value="{{$projeto->justificativa}}" name="justificativa" class="form-control" placeholder="Justificativa" >
 
                     </div>
                 @endif
+                <a href="{{route('projetos.showEquipe', $projeto->id )}}"> <button type="button" class="btn btn-success">Ver Equipe</button></a>
+
             </div>
-        </div>
+             </div>
     </section>
 
 @endsection

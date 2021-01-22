@@ -15,7 +15,8 @@
 
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{$user->name }}</a>
+
+                <a>{{$user->name }}</a>
             </div>
         </div>
 
@@ -68,7 +69,7 @@
                             @endif
                             @if(Auth::user() && Auth::user()->isAdministrador())
                                 <li class="nav-item">
-                                    <a href="{{route('painel.equipe.acompanhar')}}" class="nav-link ">
+                                    <a href="{{route('projetos.index')}}" class="nav-link ">
                                         <i class="fa fa-users nav-icon"></i>
                                         <p>Acompanhar Projetos</p>
                                     </a>
@@ -84,7 +85,7 @@
                                     <ul class="nav nav-treeview">
 
                                         <li class="nav-item">
-                                            <a href="{{route('painel.equipe.alterarSenha')}}" class="nav-link">
+                                            <a href="{{route('configuracoes.updateSenha')}}" class="nav-link">
                                                 <i class="far fa-circle nav-icon"></i>
                                                 <p>Alterar senha</p>
                                             </a>

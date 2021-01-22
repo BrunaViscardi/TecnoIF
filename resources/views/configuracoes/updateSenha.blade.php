@@ -1,4 +1,4 @@
-@extends('painel.Layout.index')
+@extends('painel.layout.index')
 @section('content')
     <section class="content">
         <div class="card card-success">
@@ -6,7 +6,7 @@
 
                 <h3 class="card-title">Alterar senha</h3>
             </div>
-            <form  action="{{route('painel.mentorado.alteracao')}}" method="post">
+            <form  action="#" method="post">
                 @csrf
                 @method('PUT')
                 <div class="card-body">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="card-footer" style=" text-align: center">
-                    <button type="submit" class="btn btn-success">Finalizar alteração</button>
+                    <button type="submit" class="btn btn-success">Atualizar</button>
                 </div>
             </form>
         </div>

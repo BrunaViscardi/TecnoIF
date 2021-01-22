@@ -50,8 +50,8 @@ class ConfiguracaoController extends Controller
         }
         Auth::logout();
         return redirect()->route('painel.login');
-
     }
+
     public function updatePerfilView()
     {
         if (Auth::check() === true) {
@@ -69,12 +69,12 @@ class ConfiguracaoController extends Controller
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
+
             $candidatos =$this->repositoryMentorado->where('email', $user->email)->first();
             if (!$candidatos)
                 return redirect()->back();
             $candidatos->update($request->all());
+            $user->update(['name'=> $request->nome]);
             return redirect()->route('painel.home');
         }
         Auth::logout();

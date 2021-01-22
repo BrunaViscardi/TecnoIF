@@ -33,3 +33,4 @@
 <script src="{{asset('/AdminLTE-3.0.5/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('/AdminLTE-3.0.5/dist/js/demo.js')}}"></script>
+@yield('script')

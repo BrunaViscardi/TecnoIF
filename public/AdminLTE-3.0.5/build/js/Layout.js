@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------
- * AdminLTE Layout.js
+ * AdminLTE layout.js
  * License MIT
  * --------------------------------------------
  */
@@ -119,7 +119,7 @@ const Layout = (($) => {
             className       : this._config.scrollbarTheme,
             sizeAutoCapable : true,
             scrollbars : {
-              autoHide: this._config.scrollbarAutoHide, 
+              autoHide: this._config.scrollbarAutoHide,
               clickScrolling : true
             }
           })

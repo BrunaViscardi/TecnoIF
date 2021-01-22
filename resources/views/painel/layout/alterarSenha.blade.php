@@ -1,4 +1,4 @@
-@extends('painel.Layout.index')
+@extends('painel.layout.index')
 @section('content')
 <section class="content">
     <div class="card card-success">

@@ -62,7 +62,7 @@ class EditalController extends Controller
             $e = new Edital();
             $e->nome = $request->nome;
             $e->data = $request->data;
-            $e->situacao ="Edital de Abertura";
+            $e->situacao ="Abertura";
             $e->link = $request->link;
             $e->save();
             return redirect()->route('editais.index', compact('user', 'urlAtual', 'editais'));
@@ -95,6 +95,21 @@ class EditalController extends Controller
             $editais = Edital::where('data', 'LIKE', '%' . $filtro . '%')
                 ->orWhere('editais.nome', 'LIKE', '%' . $filtro . '%')
                 ->orWhere('editais.situacao', 'LIKE', '%' . $filtro . '%')
+                ->paginate(4);
+            return view('editais.index', compact('user', 'urlAtual','editais'));
+        }
+        Auth::logout();
+        return redirect()->route('painel.login');
+    }
+    public function filtrodata(Request $request)
+    {
+        if (Auth::check() === true) {
+            $user = Auth()->User();
+            $uri = $this->request->route()->uri();
+            $exploder = explode('/', $uri);
+            $urlAtual = $exploder[1];
+            $filtro = $request->data ?? '';
+            $editais = Edital::where('data', 'LIKE', '%' . $filtro . '%')
                 ->paginate(4);
             return view('editais.index', compact('user', 'urlAtual','editais'));
         }

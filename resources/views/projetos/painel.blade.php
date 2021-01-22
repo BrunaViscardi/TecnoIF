@@ -1,7 +1,5 @@
-@extends('painel.Layout.index')
+@extends('painel.layout.index')
 @section('content')
-
-
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->

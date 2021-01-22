@@ -1,5 +1,6 @@
+@if(Auth::user() && Auth::user()->isCoordenador())
+@extends('painel.layout.index')
 
-@extends('painel.Layout.index')
 @section('content')
     <section class="content">
         <div class="card card-success">
@@ -27,10 +28,10 @@
                     <div class="form-group">
                         <select class="form-control @error('situacao') is-invalid @enderror" name="situacao">
                             <option value="">Situação</option>
-                            <option value="Edital de Abertura">Edital de Abertura</option>
+                            <option value="Abertura">Edital de Abertura</option>
                             <option value="Inscrições Abertas">Inscrições Abertas</option>
-                            <option value="Edital em Período de Avalição"> Edital em Período de Avalição</option>
-                            <option value="Edital Concluído">Edital Concluído</option>
+                            <option value="Período de Avalição"> Edital em Período de Avalição</option>
+                            <option value="Concluído">Edital Concluído</option>
                         </select>
 
                         @error('situacao')
@@ -48,6 +49,38 @@
 
         </div>
     </section>
-
-
 @endsection
+@else
+@section('content')
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Página de erro 403
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">Erro 403</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="error-page">
+                <h2 class="headline text-yellow"> 403</h2>
+
+                <div class="error-content">
+                    <h3><i class="fa fa-warning text-yellow"></i> Ops! Acesso negado.</h3>
+
+                    <p>
+                        Não foi possível acessar a página que você estava procurando.
+                        Enquanto isso, você pode retornar ao painel
+                        <a href="{{route('painel.home')}}">retornar para a página principal</a>
+
+                </div>
+
+            </div>
+
+        </section>
+@endsection
+@endif
+

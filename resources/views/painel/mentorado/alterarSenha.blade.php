@@ -1,4 +1,0 @@
-
-@extends('painel.Layout.alterarSenha')
-
-
