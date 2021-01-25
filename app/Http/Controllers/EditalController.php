@@ -30,11 +30,9 @@ class EditalController extends Controller
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $editais =  $this->repositoryEditais->orderBy('data')->paginate(4);
             $role = $user->role;
-            return view('editais/index', compact('role','user', 'urlAtual', 'editais'));
+            return view('editais/index', compact('role','user',  'editais'));
         }
         Auth::logout();
         return redirect()->route('painel.login');

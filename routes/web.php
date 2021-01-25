@@ -6,7 +6,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/editais/index', 'EditalController@index')->name('editais.index');
+Route::get('/editais/', 'EditalController@index')->name('editais.index');
 Route::get('/editais/update/{id}', 'EditalController@update')->name('editais.update');
 Route::get('/editais/updateView/{id}', 'EditalController@updateView')->name('editais.updateView');
 Route::get('/editais/updateSituacaoView/{id}', 'EditalController@updateSituacaoView')->name('editais.updateSituacaoView');

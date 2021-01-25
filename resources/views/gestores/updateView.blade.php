@@ -79,8 +79,6 @@
                 <li class="active">Erro 403</li>
             </ol>
         </section>
-
-        <!-- Main content -->
         <section class="content">
             <div class="error-page">
                 <h2 class="headline text-yellow"> 403</h2>
