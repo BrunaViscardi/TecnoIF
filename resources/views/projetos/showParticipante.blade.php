@@ -129,10 +129,11 @@
                     @enderror
                 </div>
             </div>
-
+            @if(Auth()->User()->isCandidato())
             <div class="card-footer">
                 <a href="{{route('projetos.updateParticipanteView',$participante->id)}}"> <button class="btn btn-warning btn-sm">Editar</button></a>
             </div>
+            @endif
 
         </div>
     </section>

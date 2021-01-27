@@ -42,17 +42,14 @@ class ProjetoController extends Controller
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $edital = Edital::all();
             $projetos =  $this->repositoryProjetos->orderBy('nome_projeto')->paginate(4);
 
             if(Auth::user()->isCandidato()){
                 $projetos =  $this->repositoryProjetos->where('bolsista_id', $user->mentorado_id)->orderBy('nome_projeto')->paginate(4);
-                return view('projetos.index', compact('user', 'urlAtual', 'projetos', 'edital'));
+                return view('projetos.index', compact('user',  'projetos', 'edital'));
             } else{
-                return view('projetos.index', compact('user', 'urlAtual', 'projetos', 'edital'));
+                return view('projetos.index', compact('user',  'projetos', 'edital'));
             }
 
              }
@@ -64,13 +61,10 @@ class ProjetoController extends Controller
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $projeto =  $this->repositoryProjetos->find($id);
             $edital = $this->repositoryEditais->where('id', $projeto->edital_id)->first();;
             $situacao = $this->repositorySituacao->where('id', $projeto->situacao_id)->first();
-            return view('projetos.show', compact('user', 'urlAtual', 'projeto','edital', 'situacao'));
+            return view('projetos.show', compact('user','projeto','edital', 'situacao'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -78,11 +72,11 @@ class ProjetoController extends Controller
     }
     public function deletarProjeto( $id)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $projeto = $this->repositoryProjetos->where('id', $id);
             if (!$projeto)
                 return redirect()->back();
@@ -95,10 +89,10 @@ class ProjetoController extends Controller
 
     public function updateAprovacao($id)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
             $projeto = $this->repositoryProjetos->where('id', $id)->first();
             if (!$projeto) {
                 return $projeto()->back();
@@ -117,6 +111,9 @@ class ProjetoController extends Controller
     }
     public function updateRejeicaoView($id)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
             $projeto = $this->repositoryProjetos->where('id', $id)->first();
@@ -127,6 +124,9 @@ class ProjetoController extends Controller
         return redirect()->route('painel.login');
     }
     public function updateRejeicao($id,  JustificarRequest $request ){
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
         $projeto = $this->repositoryProjetos->where('id', $id)->first();
         if (!$projeto)
             return $projeto()->back();
@@ -139,65 +139,22 @@ class ProjetoController extends Controller
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $filtro = $request->filtro;
-            $edital = Edital::all();
-
-
-            $projetos = Projeto::where('nome_projeto', 'LIKE', '%' . $filtro . '%')
-                ->orWhere('projetos.area', 'LIKE', '%' . $filtro . '%')
-                ->orWhere('projetos.campus', 'LIKE', '%' . $filtro . '%')
-                ->orWhere('projetos.email', 'LIKE', '%' . $filtro . '%')
-                ->orWhereHas('situacao', function($q) use ($filtro)
-                {
-                    $q->where('situacao', 'like', '%' . $filtro . '%');
-                })
-                ->orWhereHas('edital', function($q) use ($filtro)
-                {
-                    $q->where('nome', 'like', '%' . $filtro . '%');
-                })
-                ->orWhereHas('edital', function($q) use ($filtro)
-                {
-                    $q->where('situacao', 'like', '%' . $filtro . '%');
-                })
-                ->paginate(4);
-            return view('projetos.index', compact('user', 'urlAtual', 'projetos', 'edital'));
-        }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
-    public function filtroSituacao(Request $request)
-    {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $filtro = $request->situacao;
-            $edital = Edital::all();
-
-
-            $projetos = Projeto::where('nome_projeto', 'LIKE', '%' . $filtro . '%')
-                ->orWhereHas('edital', function($q) use ($filtro)
-                {
-                    $q->where('situacao', 'like', '%' . $filtro . '%');
-                })
-                ->paginate(4);
-            return view('projetos.index', compact('user', 'urlAtual', 'projetos', 'edital'));
+            $filtro = $request->filtro ?? '%';
+            $situacao = $request->situacao ?? '%';
+            $projetos = Projeto::buscar(['filtro'=>$filtro,'situacao'=>$situacao])->paginate(4);
+            return view('projetos.index', compact('user', 'projetos', 'filtro','situacao'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function painel()
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            return view('projetos.painel', compact('user', 'urlAtual'));
+            return view('projetos.painel', compact('user'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -206,51 +163,48 @@ class ProjetoController extends Controller
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $projeto = Projeto::find($id);
             $equipe = $projeto->equipe;
-            return view('projetos.showEquipe', compact('user', 'urlAtual', 'projeto', 'equipe'));
+            return view('projetos.showEquipe', compact('user', 'projeto', 'equipe'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function showParticipante( $id)
     {
-        if (Auth::check() === true) {
+        if (Auth::check() === true){
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $participante =$this->repositoryMentorado->where('id', $id)->first();
-
-            return view('projetos.showParticipante', compact('user', 'urlAtual', 'participante'));
+            return view('projetos.showParticipante', compact('user',  'participante'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function createEquipeView($id)
     {
-
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $projeto = $this->repositoryProjetos->where('id', $id)->first();
-            return view('projetos.createEquipeView', compact('user', 'urlAtual', 'id','projeto'));
+            return view('projetos.createEquipeView', compact('user', 'id','projeto'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function createEquipe(equipeRequest $request, $id)
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $mentorado = new  Mentorado();
             $mentorado->nome = $request-> nome;
             $mentorado-> data_nascimento =  $request-> nascimento;
@@ -274,23 +228,30 @@ class ProjetoController extends Controller
     }
     public function updateParticipanteView( $id)
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $participante =$this->repositoryMentorado->where('id', $id)->first();
-            return view('projetos.updateParticipanteView', compact('user', 'urlAtual', 'participante'));
+            return view('projetos.updateParticipanteView', compact('user',  'participante'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function updateParticipante(Request $request, $id)
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
             $participante =$this->repositoryMentorado->where('id', $id)->first();
             $projeto = $this->repositoryRelacionamento->where('mentorado_id', $id)->first();
             if (!$participante){
@@ -301,17 +262,20 @@ class ProjetoController extends Controller
                 $user->update(['name' => $request->nome]);
             }
             $participante->update($request->all());
-
             return redirect()->route('projetos.showEquipe', $projeto->projeto_id);
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
-
     public function destroyParticipante( $id)
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
-
             $user = Auth()->User();
             $participante =$this->repositoryMentorado->where('id', $id)->first();
             $projeto = $this->repositoryRelacionamento->where('mentorado_id', $id)->first();
@@ -323,21 +287,26 @@ class ProjetoController extends Controller
         Auth::logout();
         return redirect()->route('painel.login');
     }
-    public  function export(){
+    public  function export(Request $request){
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
-            return Excel::download(new ProjetosExport, 'projetos.xlsx');
+            return Excel::download(new ProjetosExport($request), 'projetos.xlsx');
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function create(ProjetoRequest $request)
     {
-
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $projetos = new Projeto();
             $projetos->nome_projeto = $request->nome_projeto;
             $projetos->campus = $request->campus;
@@ -368,28 +337,33 @@ class ProjetoController extends Controller
     }
     public function createView($editalId)
     {
-
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+        abort(403);
+    }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            return view('projetos.createView', compact('user', 'urlAtual', 'editalId'));
+            return view('projetos.createView', compact('user',  'editalId'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function updateCadastroView($id)
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $projetos = $this->repositoryProjetos->find($id);
             if (!$projetos)
                 return redirect()->back();
-            return view('projetos.updateCadastroView', compact('user', 'urlAtual', 'projetos'));
+            return view('projetos.updateCadastroView', compact('user',  'projetos'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -397,6 +371,12 @@ class ProjetoController extends Controller
     }
     public function updateCadastro(Request $request, $id)
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
             $projetos = $this->repositoryProjetos->find($id);

@@ -1,4 +1,4 @@
-@if(Auth::user() && Auth::user()->isCoordenador())
+
 @extends('painel.layout.index')
 @section('content')
 
@@ -51,7 +51,7 @@
                     </div>
                     <div class="card-header">
 
-                        {{ $gestores->links() }}
+                        {{ $gestores->appends(['filtro' => $filtro ?? ''])->links() }}
                     </div>
                 </div>
             </div>
@@ -81,51 +81,3 @@
         </div>
     </section>
 @endsection
-@section('script')
-    <script type="text/javascript">
-        $( document ).ready(function() {
-            $('.modal-excluir-btn').on('click', function(event) {
-                event.preventDefault();
-                let href_da_rota = $(this).attr('data-rota');
-                let gestor_email = $(this).attr('data-gestor');
-                $('#href-excluir-gestor').attr('href',href_da_rota);
-                $('.modal-body p').text('Você realmente deseja excluir o gestor que possui o email: '+gestor_email + '?'
-                    + ' Uma vez excluído não é possível recuperar os dados deletados.');
-                $('#modal-excluir').modal("show");
-            });
-        });
-    </script>
-@endsection
-@else
-@section('content')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Página de erro 403
-            </h1>
-            <ol class="breadcrumb">
-                <li class="active">Erro 403</li>
-            </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-            <div class="error-page">
-                <h2 class="headline text-yellow"> 403</h2>
-
-                <div class="error-content">
-                    <h3><i class="fa fa-warning text-yellow"></i> Ops! Acesso negado.</h3>
-
-                    <p>
-                        Não foi possível acessar a página que você estava procurando.
-                        Enquanto isso, você pode retornar ao painel
-                        <a href="{{route('painel.home')}}">retornar para a página principal</a>
-
-                </div>
-
-            </div>
-
-        </section>
-@endsection
-@endif

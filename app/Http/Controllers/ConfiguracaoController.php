@@ -41,12 +41,13 @@ class ConfiguracaoController extends Controller
 
     public function updateSenha()
     {
+
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
-            return view('configuracoes.updateSenha', compact('user', 'urlAtual'));
+            return view('configuracoes.updateSenha', compact('user'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -54,19 +55,32 @@ class ConfiguracaoController extends Controller
 
     public function updatePerfilView()
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
+
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
             $exploder = explode('/', $uri);
             $urlAtual = $exploder[1];
             $candidatos =$this->repositoryMentorado->where('email', $user->email)->first();
-            return view('configuracoes.updatePerfilView', compact('user', 'urlAtual', 'candidatos'));
+            return view('configuracoes.updatePerfilView', compact('user',  'candidatos'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function updatePerfil(AlterarPerfilRequest $request)
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isCoordenador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
 

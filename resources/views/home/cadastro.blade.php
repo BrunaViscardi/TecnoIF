@@ -160,11 +160,11 @@
                         </label>
                     </div>
                 </div>
-                <div>
+                <div class="form-group ">
                     <label id="anexo" class="btn btn-light " for="fupload" style="text-align: center">Anexe um documento
                         que comprove seus dados bancarios:
-                        <input id="fupload" name="anexo" type="file" style="display: none"  value="{{ old('anexo') }}"
-                               class="@error('anexo') is-invalid @enderror" accept=".png, .jpg, .jpeg, .pdf">
+                        <input id="fupload" name="anexo" type="file"  value="{{ old('anexo') }}"
+                               class="form-control-file @error('anexo') is-invalid @enderror" accept=".png, .jpg, .jpeg, .pdf">
                         @error('anexo')
                         <div class="invalid-feedback">
                             {{ $message }}

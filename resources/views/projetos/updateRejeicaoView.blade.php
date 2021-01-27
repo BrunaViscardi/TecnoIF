@@ -1,39 +1,5 @@
-@if(Auth::user() && Auth::user()->isCandidato())
+
 @extends('painel.layout.index')
-@section('content')
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                Página de erro 403
-            </h1>
-            <ol class="breadcrumb">
-                <li class="active">Erro 403</li>
-            </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-            <div class="error-page">
-                <h2 class="headline text-yellow"> 403</h2>
-
-                <div class="error-content">
-                    <h3><i class="fa fa-warning text-yellow"></i> Ops! Acesso negado.</h3>
-
-                    <p>
-                        Não foi possível acessar a página que você estava procurando.
-                        Enquanto isso, você pode retornar ao painel
-                        <a href="{{route('painel.home')}}">retornar para a página principal</a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        @endsection
-    @endif
 
 @section('content')
     <section class="content">
@@ -139,7 +105,7 @@
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-success">Rejeitar</button>
-                    <a href="{{route('painel.equipe.equipe', $projeto->id )}}"> <button type="button" class="btn btn-success">Ver Equipe</button></a>
+                    <a href="{{route('projetos.showEquipe', $projeto->id )}}"> <button type="button" class="btn btn-success">Ver Equipe</button></a>
                 </form> </div>
         </div>
     </section>

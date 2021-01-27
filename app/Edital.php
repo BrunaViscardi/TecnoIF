@@ -31,5 +31,20 @@ class Edital extends Model
             ->orWhere('editais.situacao', 'LIKE', '%' . $filtro . '%')
             ->get();
     }
+    public static function buscar($filtros = ['filtro'=>'%','data'=>'%'])
+    {
+        $filtro = $filtros['filtro'];
+        $data = $filtros['data'];
+        return Edital::where(function ($query) use ($filtro) {
+            $query->where('editais.nome', 'LIKE', '%' . $filtro . '%')
+                ->orWhere('editais.situacao', 'LIKE', '%' . $filtro . '%');
+        })
+            ->where(function ($query) use ($data) {
+                $query->where(function($q) use ($data)
+                {
+                    $q->where('editais.data', 'like', '%' . $data . '%');
+                });
+            });
+    }
 
 }

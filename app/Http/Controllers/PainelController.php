@@ -14,11 +14,8 @@ class PainelController extends Controller
     {
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
 
-            return view('painel.layout.dashboard', compact('user', 'urlAtual'));
+            return view('painel.layout.dashboard', compact('user'));
         }
         return redirect()->route('painel.login');
     }

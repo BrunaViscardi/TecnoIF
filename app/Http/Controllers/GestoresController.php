@@ -23,14 +23,16 @@ class GestoresController extends Controller
         $this->repositoryUsers = $user;
     }
     public function createView()
-    {
+    {  if (Auth::check() === true && Auth()->User()->isCandidato()) {
+        abort(403);
+    }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $gestor = Gestor::all();
-            return view('gestores.createView', compact('user', 'urlAtual', 'gestor'));
+            return view('gestores.createView', compact('user',  'gestor'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
@@ -40,12 +42,14 @@ class GestoresController extends Controller
 
 
     public function create(GestorRequest $request)
-    {
+    {  if (Auth::check() === true && Auth()->User()->isCandidato()) {
+        abort(403);
+    }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $gestores = Gestor::all();
 
             $g = new Gestor();
@@ -69,7 +73,7 @@ class GestoresController extends Controller
                 'email' => $users['email'],
                 'password' => Hash::make($users['password']),
             ]);
-            return redirect()->route('gestores.index', compact('user', 'urlAtual', 'gestores'));
+            return redirect()->route('gestores.index', compact('user', 'gestores'));
 
         }
         Auth::logout();
@@ -77,25 +81,30 @@ class GestoresController extends Controller
     }
 
     public function index()
-    {
+    {  if (Auth::check() === true && Auth()->User()->isCandidato()) {
+        abort(403);
+    }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $gestores =  $this->repositoryGestores->orderBy('nome')->paginate(4);
-            return view('gestores.index', compact('user', 'urlAtual', 'gestores'));
+            return view('gestores.index', compact('user',  'gestores'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function destroy($email)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $gestor = $this->repositoryGestores->where('email', $email);
             $user = $this->repositoryUsers->where('email', $email);
             if (!$gestor and !$user)
@@ -103,7 +112,8 @@ class GestoresController extends Controller
             $gestor->delete();
             $user->delete();
 
-            return redirect()->route('gestores.index', compact('user', 'urlAtual'));
+
+            return redirect()->route('gestores.index', compact('user'));
         }
         Auth::logout();
 
@@ -111,42 +121,50 @@ class GestoresController extends Controller
 
     }
     public function filtro(Request $request)
-    {
+    {  if (Auth::check() === true && Auth()->User()->isCandidato()) {
+        abort(403);
+    }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $filtro = $request->filtro;
             $gestores = Gestor::where('nome', 'LIKE', '%' . $filtro . '%')
                 ->orWhere('gestores.email', 'LIKE', '%' . $filtro . '%')
                 ->paginate(4);
 
-            return view('gestores.index', compact('user', 'urlAtual', 'gestores'));
+            return view('gestores.index', compact('user',  'gestores', 'filtro'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public  function updateView($id){
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $gestor = $this->repositoryGestores->find($id);
             if (!$gestor)
                 return redirect()->back();
-            return view('gestores.updateView', compact('user', 'urlAtual','gestor'));
+            return view('gestores.updateView', compact('user','gestor'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public  function update($id, GestorEditRequest $request){
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $gestor = $this->repositoryGestores->find($id);
             if (!$gestor)
                 return redirect()->back();

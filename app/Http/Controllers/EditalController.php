@@ -27,9 +27,11 @@ class EditalController extends Controller
     }
     public function index()
     {
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
             $editais =  $this->repositoryEditais->orderBy('data')->paginate(4);
             $role = $user->role;
             return view('editais/index', compact('role','user',  'editais'));
@@ -39,18 +41,27 @@ class EditalController extends Controller
     }
     public function createView()
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            return view('editais.create', compact('user', 'urlAtual'));
+            return view('editais.create', compact('user'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function create(Request $request)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
             $uri = $this->request->route()->uri();
@@ -63,17 +74,21 @@ class EditalController extends Controller
             $e->situacao ="Abertura";
             $e->link = $request->link;
             $e->save();
-            return redirect()->route('editais.index', compact('user', 'urlAtual', 'editais'));
+            return redirect()->route('editais.index', compact('user',  'editais'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function updateSituacaoView($id)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
             $edital = $this->repositoryEditais->where('id', $id)->first();
             if (!$edital)
                 return $edital()->back();
@@ -84,42 +99,31 @@ class EditalController extends Controller
     }
     public function filtro(Request $request)
     {
-        if (Auth::check() === true) {
-            $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $filtro = $request->filtro ?? '';
-            $editais = Edital::where('data', 'LIKE', '%' . $filtro . '%')
-                ->orWhere('editais.nome', 'LIKE', '%' . $filtro . '%')
-                ->orWhere('editais.situacao', 'LIKE', '%' . $filtro . '%')
-                ->paginate(4);
-            return view('editais.index', compact('user', 'urlAtual','editais'));
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
         }
-        Auth::logout();
-        return redirect()->route('painel.login');
-    }
-    public function filtrodata(Request $request)
-    {
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
-            $filtro = $request->data ?? '';
-            $editais = Edital::where('data', 'LIKE', '%' . $filtro . '%')
-                ->paginate(4);
-            return view('editais.index', compact('user', 'urlAtual','editais'));
+            $filtro = $request->filtro ?? '%';
+            $data = $request->data ?? '%';
+
+            $editais = Edital::buscar(['filtro'=>$filtro,'data'=>$data])->paginate(4);
+            return view('editais.index', compact('user', 'editais','data', 'filtro'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function updateSituacao ($id, MudarSituacaoRequest $request)
     {
+
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
             $edital = $this->repositoryEditais->where('id', $id)->first();
             if (!$edital)
             {return $edital()->back();
@@ -133,24 +137,30 @@ class EditalController extends Controller
 
     public function updateView($id)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $edital = $this->repositoryEditais->where('id', $id)->first();
-            return view('editais.updateView', compact('user', 'urlAtual', 'edital'));
+            return view('editais.updateView', compact('user', 'edital'));
         }
         Auth::logout();
         return redirect()->route('painel.login');
     }
     public function update(Request $request, $id)
     {
+        if (Auth::check() === true && Auth()->User()->isCandidato()) {
+            abort(403);
+        }
+        if (Auth::check() === true && Auth()->User()->isAdministrador()) {
+            abort(403);
+        }
         if (Auth::check() === true) {
             $user = Auth()->User();
-            $uri = $this->request->route()->uri();
-            $exploder = explode('/', $uri);
-            $urlAtual = $exploder[1];
             $edital = $this->repositoryEditais->find($request->id);
             if (!$edital)
                 return redirect()->back();

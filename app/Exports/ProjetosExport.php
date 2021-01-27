@@ -3,18 +3,43 @@
 namespace App\Exports;
 use App\Projeto;
 use Illuminate\Support\Collection;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ProjetosExport implements FromCollection, WithHeadings
+class ProjetosExport implements FromQuery, WithHeadings
 {
-    /**
-    * @return Collection
-    */
-    public function collection ()
+    protected $request;
+    private $filtro, $situacao;
+    public function __construct($request)
     {
-        return Projeto::all('id', 'nome_projeto', 'campus', 'area', 'NomeMentor', 'instituicao', 'areaMentor', 'email', 'telefone', 'problemas', 'caracteristicas', 'publico_alvo', 'dificuldades', 'disponibilidade', 'resultados');
+        $this->request = $request;
+        $this->filtro = $request->filtro ?? '%';
+        $this->situacao = $request->situacao ?? '%';
     }
+    /**
+     * @return Collection
+     */
+
+    public function query()
+    {
+        return Projeto::where('nome_projeto', 'LIKE', '%' . $this->filtro . '%')
+            ->orWhere('projetos.area', 'LIKE', '%' . $this->filtro . '%')
+            ->orWhere('projetos.campus', 'LIKE', '%' . $this->filtro . '%')
+            ->orWhere('projetos.email', 'LIKE', '%' . $this->filtro . '%')
+            ->orWhereHas('situacao', function($q)
+            {
+                $q->where('situacao', 'like', '%' . $this->filtro . '%');
+            })
+            ->orWhereHas('edital', function($q)
+            {
+                $q->where('nome', 'like', '%' . $this->filtro . '%');
+            })
+            ->orWhereHas('edital', function($q)
+            {
+                $q->where('situacao', 'like', '%' . $this->filtro . '%');
+            });
+    }
+
     public function headings(): array
     {
         return [
@@ -35,4 +60,5 @@ class ProjetosExport implements FromCollection, WithHeadings
             'Resultados esperados',
         ];
     }
+
 }

@@ -17,7 +17,7 @@ Route::get('/editais/filtro', 'EditalController@filtro')->name('editais.filtro')
 Route::get('/editais/filtrodata', 'EditalController@filtrodata')->name('editais.filtrodata');
 
 
-Route::get('/gestores/index', 'GestoresController@index')->name('gestores.index');
+Route::get('/gestores/', 'GestoresController@index')->name('gestores.index');
 Route::get('/gestores/destroy/{email}', 'GestoresController@destroy')->name('gestores.destroy');
 Route::get('/gestores/createView', 'GestoresController@createView')->name('gestores.createView');
 Route::post('/gestores/create', 'GestoresController@create')->name('gestores.create');
@@ -25,7 +25,7 @@ Route::get('/gestores/filtro', 'GestoresController@filtro')->name('gestores.filt
 Route::get('/gestores/updateView/{id}', 'GestoresController@updateView')->name('gestores.updateView');
 Route::post('/gestores/update/{id}', 'GestoresController@update')->name('gestores.update');
 
-Route::get('/projetos/index', 'ProjetoController@index')->name('projetos.index');
+Route::get('/projetos/', 'ProjetoController@index')->name('projetos.index');
 Route::get('/projetos/show/{id}', 'ProjetoController@show')->name('projetos.show');
 Route::get('/projetos/updateAprovacao/{id}', 'ProjetoController@updateAprovacao')->name('projetos.updateAprovacao');
 Route::get('/projetos/updateRejeicaoView/{id}', 'ProjetoController@updateRejeicaoView')->name('projetos.updateRejeicaoView');

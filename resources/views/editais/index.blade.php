@@ -1,58 +1,19 @@
-@if(Auth::user() && Auth::user()->isAdministrador())
+
 @extends('painel.layout.index')
-@section('content')
-
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            Página de erro 403
-        </h1>
-        <ol class="breadcrumb">
-            <li class="active">Erro 403</li>
-        </ol>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="error-page">
-            <h2 class="headline text-yellow"> 403</h2>
-
-            <div class="error-content">
-                <h3><i class="fa fa-warning text-yellow"></i> Ops! Acesso negado.</h3>
-                <p>
-                    Não foi possível acessar a página que você estava procurando.
-                    Enquanto isso, você pode retornar ao painel
-                    <a href="{{route('painel.home')}}">retornar para a página principal</a>
-            </div>
-        </div>
-    </section>
-    @endsection
-@endif
 @section('content')
     <section class="content">
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card">
+
                         <div class="card-header">
                             <h3 class="card-title" style="margin-bottom: 8px">Editais</h3>
                             <div class=" card-tools row">
-                                <form action="{{route('editais.filtrodata')}}" method="GET">
+                                <form action="{{route('editais.filtro')}}" method="GET">
                                     <div class="input-group  input-group-sm col" >
-                                        <input name="data" type="date" value="{{ request()->data }}" class="form-control-sm " style="border-color: lightgrey;" id="inputGroupSelect04">
-
-
-                                        <div class="input-group-append">
-                                            <button class="btn btn-outline-secondary" style="border-color: lightgrey;" type="submit"><i class="fas fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <br>
-                                <br>
-                                <form action="{{ route('editais.filtro') }}" method="GET">
-                                    <div class="input-group input-group-sm col " style="width: 150px;">
-                                        <input type="text" name="filtro" value="{{ request()->filtro }}" class="form-control float-right"
+                                        <input type="date" name="data" style="border-color: lightgrey;" value="{{ request()->data }}" class="form-control"
+                                               placeholder="Filtrar">
+                                        <input type="text" name="filtro" style="border-color: lightgrey;" value="{{ request()->filtro }}" class="form-control float-right"
                                                placeholder="Filtrar">
                                         <div class="input-group-append">
                                             <button type="submit" style="border-color: lightgrey;" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
@@ -60,7 +21,6 @@
                                     </div>
                                 </form>
                                 <br>
-
                             </div>
                         </div>
                     <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -123,18 +83,19 @@
                                         </td>
                                 @endif
                             @endforeach
+
                             </tbody>
                         </table>
+                    </div>
+                        <div class="card-header">
+                            {{ $editais->appends(['filtro' => $filtro ?? '', 'data' => $data ?? ''])->links() }}
+                        </div>
 
-                    </div>
-                    <div class="card-header">
-                        {{ $editais->links() }}
-                    </div>
-                </div>
             </div>
         </div>
+
         </div>
-    </section>
+</section>
 
 @endsection
 
